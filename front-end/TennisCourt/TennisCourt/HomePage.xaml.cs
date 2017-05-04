@@ -20,31 +20,26 @@ namespace TennisCourt
     /// <summary>
     /// 可用于自身或导航至 Frame 内部的空白页。
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class HomePage : Page
     {
-        public MainPage()
+        public HomePage()
         {
             this.InitializeComponent();
+            DispatcherTimer time = new DispatcherTimer();
+            time.Interval = new TimeSpan(0, 0, 5);
+            time.Tick += Time_Tick;
+            time.Start();
         }
 
-        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Time_Tick(object sender, object e)
         {
-            if (myFrame == null)
+            int i = PhotoGallery.SelectedIndex;
+            i++;
+            if (i >= PhotoGallery.Items.Count)
             {
-                return;
+                i = 0;
             }
-            switch (Menu.SelectedIndex)
-            {
-                case 0:
-                    myFrame.Navigate(typeof(HomePage));
-                    break;
-                case 1:
-                    myFrame.Navigate(typeof(SignIn));
-                    break;
-                case 2:
-                    myFrame.Navigate(typeof(SignUp));
-                    break;
-            }
+            PhotoGallery.SelectedIndex = i;
         }
     }
 }

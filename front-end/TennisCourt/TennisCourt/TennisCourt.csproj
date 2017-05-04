@@ -98,6 +98,9 @@
     <Compile Include="EntrancePage.xaml.cs">
       <DependentUpon>EntrancePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -116,11 +119,15 @@
     <None Include="TennisCourt_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Backhand.jpg" />
     <Content Include="Assets\Cloudy.png" />
     <Content Include="Assets\Federer.jpg" />
+    <Content Include="Assets\Federer18.jpg" />
+    <Content Include="Assets\Forehand.jpg" />
     <Content Include="Assets\GeneralBackground.jpg" />
     <Content Include="Assets\TennisAssociation.png" />
     <Content Include="Assets\TennisCourt.png" />
+    <Content Include="Assets\Volley.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -138,6 +145,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="EntrancePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
