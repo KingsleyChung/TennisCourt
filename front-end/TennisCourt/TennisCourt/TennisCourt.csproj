@@ -116,6 +116,8 @@
     <None Include="TennisCourt_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Cloudy.png" />
+    <Content Include="Assets\Federer.jpg" />
     <Content Include="Assets\GeneralBackground.jpg" />
     <Content Include="Assets\TennisAssociation.png" />
     <Content Include="Assets\TennisCourt.png" />
