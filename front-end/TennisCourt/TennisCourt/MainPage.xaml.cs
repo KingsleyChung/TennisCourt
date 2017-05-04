@@ -26,5 +26,25 @@ namespace TennisCourt
         {
             this.InitializeComponent();
         }
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (myFrame == null)
+            {
+                return;
+            }
+            switch (Menu.SelectedIndex)
+            {
+                case 0:
+                    myFrame.Navigate(typeof(EntrancePage));
+                    break;
+                case 1:
+                    myFrame.Navigate(typeof(SignIn));
+                    break;
+                case 2:
+                    myFrame.Navigate(typeof(SignUp));
+                    break;
+            }
+        }
     }
 }

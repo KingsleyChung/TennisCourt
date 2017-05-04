@@ -20,9 +20,9 @@ namespace TennisCourt
     /// <summary>
     /// 可用于自身或导航至 Frame 内部的空白页。
     /// </summary>
-    public sealed partial class HomePage : Page
+    public sealed partial class EntrancePage : Page
     {
-        public HomePage()
+        public EntrancePage()
         {
             this.InitializeComponent();
         }

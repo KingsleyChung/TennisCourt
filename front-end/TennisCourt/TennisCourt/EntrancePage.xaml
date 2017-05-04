@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="TennisCourt.HomePage"
+    x:Class="TennisCourt.EntrancePage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:TennisCourt"

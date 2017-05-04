@@ -10,7 +10,7 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <SplitView IsPaneOpen="True" DisplayMode="Inline" OpenPaneLength="280" >
             <SplitView.Pane>
-                <StackPanel Name="Menu" >
+                <StackPanel Name="SideBar" >
                     <RelativePanel Name="Profile" Height="360">
                         <Ellipse Name="Icon" Width="148" Height="148" Margin="0, 40, 0, 20" RelativePanel.AlignHorizontalCenterWithPanel="True">
                             <Ellipse.Fill>
@@ -29,8 +29,8 @@
                             </StackPanel>
                         </RelativePanel>
                     </RelativePanel>
-                    <ListView SelectionMode="Single" SelectedIndex="0">
-                        <ListViewItem Name="HomeButton">
+                    <ListView Name="Menu" SelectionMode="Single" SelectedIndex="0" SelectionChanged="ListView_SelectionChanged">
+                        <ListViewItem Name="HomeButton" >
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="&#xE10F;" FontSize="40" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" Margin="16, 0, 0, 0"/>
                                 <TextBlock Text="Home" FontSize="40" VerticalAlignment="Center" Margin="16, 0, 0, 0"/>
