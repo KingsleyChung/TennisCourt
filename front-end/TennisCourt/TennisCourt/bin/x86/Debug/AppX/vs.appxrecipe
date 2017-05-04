@@ -28,13 +28,13 @@
     <AppXManifest Include="F:\GitHubRepositories\TennisCourt\front-end\TennisCourt\TennisCourt\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-05-04T11:23:56.695</Modified>
+      <Modified>2017-05-04T15:14:01.134</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="F:\GitHubRepositories\TennisCourt\front-end\TennisCourt\TennisCourt\bin\x86\Debug\TennisCourt.exe">
       <PackagePath>entrypoint\TennisCourt.exe</PackagePath>
-      <Modified>2017-05-04T11:23:56.185</Modified>
+      <Modified>2017-05-04T15:14:00.423</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Kingsley\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -509,11 +509,11 @@
     <AppxPackagedFile Include="F:\GitHubRepositories\TennisCourt\front-end\TennisCourt\TennisCourt\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-05-04T11:23:56.544</Modified>
+      <Modified>2017-05-04T15:14:00.922</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\GitHubRepositories\TennisCourt\front-end\TennisCourt\TennisCourt\bin\x86\Debug\Core\TennisCourt.exe">
       <PackagePath>TennisCourt.exe</PackagePath>
-      <Modified>2017-05-04T11:23:56.685</Modified>
+      <Modified>2017-05-04T15:14:01.123</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

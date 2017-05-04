@@ -23,20 +23,21 @@
         </Grid.Background>
 
         <RelativePanel Grid.Row="1" Grid.Column="1">
-            <StackPanel Name="ColorBar" Orientation="Horizontal">
+            <StackPanel x:ConnectionId='1' Name="ColorBar" Orientation="Horizontal">
                 <Rectangle Fill="SkyBlue" Width="120" Height="8" />
                 <Rectangle Fill="HotPink" Width="120" Height="8" />
                 <Rectangle Fill="YellowGreen" Width="120" Height="8" />
                 <Rectangle Fill="DarkViolet" Width="120" Height="8" />
             </StackPanel>
-            <RelativePanel Name="InputArea" RelativePanel.Below="ColorBar" Width="480" Background="White">
-                <TextBlock Name="SignInLabel" Text="Sign In" FontSize="64" RelativePanel.AlignHorizontalCenterWithPanel="True" />
-                <TextBlock Name="Description" Text="Sign in to explore more." FontSize="20" Foreground="Gray" RelativePanel.Below="SignInLabel" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0, 0, 0, 28"/>
-                <TextBox Name="UsernameInput" PlaceholderText="Username" Width="480" RelativePanel.Below="Description" />
-                <TextBox Name="PasswordInput" PlaceholderText="Password" Width="480" RelativePanel.Below="UsernameInput" Margin="0, 0, 0, 20"/>
-                <Button Name="SignInButton" Content="Sign In" Width="440" RelativePanel.Below="PasswordInput" RelativePanel.AlignHorizontalCenterWithPanel="True" Click="SignInButton_Click"/>
-                <TextBlock Name="Message" Text="Error Message" FontSize="16" Foreground="Red" RelativePanel.Below="SignInButton" RelativePanel.AlignHorizontalCenterWithPanel="True" />
+            <RelativePanel x:ConnectionId='2' Name="InputArea" RelativePanel.Below="ColorBar" Width="480" Background="White">
+                <TextBlock x:ConnectionId='3' Name="SignInLabel" Text="Sign In" FontSize="64" RelativePanel.AlignHorizontalCenterWithPanel="True" />
+                <TextBlock x:ConnectionId='4' Name="Description" Text="Sign in to explore more." FontSize="20" Foreground="Gray" RelativePanel.Below="SignInLabel" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0, 0, 0, 28"/>
+                <TextBox x:ConnectionId='5' Name="UsernameInput" PlaceholderText="Username" Width="480" RelativePanel.Below="Description" />
+                <TextBox x:ConnectionId='6' Name="PasswordInput" PlaceholderText="Password" Width="480" RelativePanel.Below="UsernameInput" Margin="0, 0, 0, 20"/>
+                <Button x:ConnectionId='7' Name="SignInButton" Content="Sign In" Width="440" RelativePanel.Below="PasswordInput" RelativePanel.AlignHorizontalCenterWithPanel="True"                           />
+                <TextBlock x:ConnectionId='8' Name="Message" Text="Error Message" FontSize="16" Foreground="Red" RelativePanel.Below="SignInButton" RelativePanel.AlignHorizontalCenterWithPanel="True" />
             </RelativePanel>
         </RelativePanel>
     </Grid>
 </Page>
+
