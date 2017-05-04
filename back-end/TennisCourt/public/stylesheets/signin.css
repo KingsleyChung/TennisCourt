@@ -1,0 +1,95 @@
+#signin {
+	font-family: "Times New Roman";
+	position: relative;
+	width: 330px;
+	margin: auto;
+}
+#signin form input {
+	font-family: "Times New Roman";
+}
+#signin .borderBlock {
+	width: 330px;
+	height: 50px;
+	box-shadow: 0px 0px 5px black;
+	border-radius: 25px;
+}
+#signin .infoBlock {
+	width: 330px;
+	height: 30px;
+	box-shadow: 0px 0px 5px black;
+	border-radius: 15px;
+	overflow: visible;
+	transition-duration: 0.5s;
+}
+#signin .infoBlock:hover {
+	transform: scale(1.2);
+}
+#signin .error {
+	padding-left: 0px;
+	padding-top: 22px;
+	color: red;
+	text-align: center;
+}
+#signin label {
+	position: absolute;
+	width: 80px;
+	height: 24px;
+	padding-top: 6px;
+	font-size: 12pt;
+	font-weight: bold;
+	text-align: center;
+	color: #000000;
+	box-shadow: 0px 0px 5px black;
+	border-radius: 15px;
+}
+#signin .info {
+	position: absolute;
+	left: 90px;
+	top: 5px;
+	width: 230px;
+	border-width: 0px;
+	background: transparent;
+	font-size: 12pt;
+	outline:none;
+}
+#signin form div {
+	position: absolute;
+}
+#title {
+	position: absolute;
+	margin: 0px;
+	padding: 0px;
+	line-height: 45px;
+	background-color: #FF6469;
+	text-align: center;
+	color: white;
+}
+#usernameDiv {
+	top: 80px;
+	background-color: #FFAA64;
+}
+#passwordDiv {
+	top: 140px;
+	background-color: #FFE669;
+}
+#submit {
+	position: absolute;
+	top: 200px;
+	border-style: none;
+	background-color: #C3B4FA;
+	font-size: 22pt;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+#submit:hover {
+	cursor: pointer;
+}
+#usernameDiv input:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px #FFAA64 inset;
+}
+#signin a {
+	position: absolute;
+	left: 60px;
+	top: 280px;
+	font-size: 16pt;
+}

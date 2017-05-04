@@ -1,0 +1,83 @@
+#detail {
+	position: relative;
+	font-family: "Times New Roman";
+	width: 330px;
+	margin: auto;
+}
+#title {
+	position: absolute;
+	margin: 0px;
+	padding: 0px;
+	line-height: 45px;
+	background-color: #FF6469;
+	text-align: center;
+	color: white;
+}
+#detail .error {
+	position: absolute;
+	left: 0px;
+	top: 40px;
+	width: 330px;
+	color: red;
+	text-align: center;
+}
+#detail .borderBlock {
+	width: 330px;
+	height: 50px;
+	box-shadow: 0px 0px 5px black;
+	border-radius: 25px;
+}
+#detail .infoBlock {
+	width: 330px;
+	height: 30px;
+	box-shadow: 0px 0px 5px black;
+	border-radius: 15px;
+	overflow: visible;
+	transition-duration: 0.5s;
+}
+#detail .infoBlock:hover {
+	transform: scale(1.2);
+}
+#detail label {
+	position: absolute;
+	width: 80px;
+	height: 24px;
+	padding-top: 6px;
+	font-size: 12pt;
+	font-weight: bold;
+	text-align: center;
+	color: #000000;
+	box-shadow: 0px 0px 5px black;
+	border-radius: 15px;
+}
+#detail p {
+	position: absolute;
+	left: 90px;
+	top: -10px;
+	font-size: 12pt;
+}
+#detail div {
+	position: absolute;
+}
+#usernameDiv {
+	top: 80px;
+	background-color: #FFAA64;
+}
+#sidDiv {
+	top: 140px;
+	background-color: #AFE164;
+}
+#phoneDiv {
+	top: 200px;
+	background-color: #7DE6C3;
+}
+#emailDiv {
+	top: 260px;
+	background-color: #7DD2F0;
+}
+#detail a {
+	position: absolute;
+	left: 130px;
+	top: 320px;
+	font-size: 16pt;
+}

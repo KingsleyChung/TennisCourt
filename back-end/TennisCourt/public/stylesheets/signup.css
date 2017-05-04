@@ -1,0 +1,121 @@
+#signup {
+	font-family: "Times New Roman";
+	position: relative;
+	width: 330px;
+	margin: auto;
+}
+#title {
+	position: absolute;
+	margin: 0px;
+	padding: 0px;
+	line-height: 45px;
+	background-color: #FF6469;
+	text-align: center;
+	color: white;
+}
+#signup form input {
+	font-family: "Times New Roman";
+}
+#signup .borderBlock {
+	width: 330px;
+	height: 50px;
+	box-shadow: 0px 0px 5px black;
+	border-radius: 25px;
+}
+#signup .infoBlock {
+	width: 330px;
+	height: 30px;
+	box-shadow: 0px 0px 5px black;
+	border-radius: 15px;
+	overflow: visible;
+	transition-duration: 0.5s;
+}
+#signup .infoBlock:hover {
+	transform: scale(1.2);
+}
+#signup .error {
+	width: 330px;
+	padding-left: 0px;
+	padding-top: 22px;
+	color: red;
+	text-align: center;
+}
+#signup label {
+	position: absolute;
+	width: 80px;
+	height: 24px;
+	padding-top: 6px;
+	font-size: 12pt;
+	font-weight: bold;
+	text-align: center;
+	color: #000000;
+	box-shadow: 0px 0px 5px black;
+	border-radius: 15px;
+}
+#signup .info {
+	position: absolute;
+	left: 90px;
+	top: 5px;
+	width: 230px;
+	border-width: 0px;
+	background: transparent;
+	font-size: 12pt;
+	outline:none;
+}
+#signup form div {
+	position: absolute;
+ }
+#usernameDiv {
+	top: 80px;
+	background-color: #FFAA64;
+}
+#passwordDiv {
+	top: 140px;
+	background-color: #FFE669;
+}
+#passwordConfirmDiv {
+	top: 200px;
+	background-color: #D7E664;
+}
+#sidDiv {
+	top: 260px;
+	background-color: #AFE164;
+}
+#phoneDiv {
+	top: 320px;
+	background-color: #7DE6C3;
+}
+#emailDiv {
+	top: 380px;
+	background-color: #7DD2F0;
+}
+#submit {
+	position: absolute;
+	top: 440px;
+	border-style: none;
+	background-color: #C3B4FA;
+	font-size: 22pt;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+#submit:hover {
+	cursor: pointer;
+}
+#usernameDiv input:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px #FFAA64 inset;
+}
+#sidDiv input:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px #AFE164 inset;
+}
+#phoneDiv input:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px #7DE6C3 inset;
+}
+#emailDiv input:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px #7DD2F0 inset;
+}
+#signup a {
+	position: absolute;
+	left: 60px;
+	top: 520px;
+	font-size: 16pt;
+}

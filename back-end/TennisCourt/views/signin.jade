@@ -1,0 +1,17 @@
+extends layout
+
+block content
+	div#signin
+		h1#title.borderBlock #{title}
+		form(method="POST")
+			div#usernameDiv.infoBlock
+				label Username
+				input#username.info(type="text", name="username" value=user.username)
+				p.error #{err.username}
+			div#passwordDiv.infoBlock
+				label Password
+				input#password.info(type="password", name="password" value=user.password)
+				p.error #{err.password}
+			input#submit.borderBlock(type="submit", value="Submit")
+		a(href="/regist") Have no account yet?
+	link(rel="stylesheet" type="text/css" href="stylesheets/signin.css")

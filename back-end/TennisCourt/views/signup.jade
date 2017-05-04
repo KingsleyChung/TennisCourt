@@ -1,0 +1,35 @@
+extends layout
+
+block content
+	div#signup
+		h1#title.borderBlock #{title}
+		form(method="POST")
+			div#usernameDiv.infoBlock
+				label Username
+				input#username.info(type="text", name="username", value=user.username)
+				p.error #{err.username}
+			div#passwordDiv.infoBlock
+				label Password
+				input#password.info(type="password", name="password", value=user.password)
+				p.error #{err.password}
+			div#passwordConfirmDiv.infoBlock
+				label Password'
+				input#passwordConfirm.info(type="password", value=user.password)
+				p.error #{err.passwordConfirm}
+			div#sidDiv.infoBlock
+				label Sid
+				input#sid.info(type="text", name="sid", value=user.sid)
+				p.error #{err.sid}
+			div#phoneDiv.infoBlock
+				label Phone
+				input#phone.info(type="text", name="phone", value=user.phone)
+				p.error #{err.phone}
+			div#emailDiv.infoBlock
+				label Email
+				input#email.info(type="text", name="email", value=user.email)
+				p.error #{err.email}
+			input#submit.borderBlock(type="submit" value="Submit")
+		a(href="/signin") Already have an account?
+	link(rel="stylesheet" type="text/css" href="stylesheets/signup.css")
+	script(type="text/javascript" src="javascripts/validator.js")
+	script(type="text/javascript" src="javascripts/signup.js")

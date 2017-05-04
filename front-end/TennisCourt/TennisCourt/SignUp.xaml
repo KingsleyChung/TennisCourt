@@ -1,0 +1,44 @@
+﻿<Page
+    x:Class="TennisCourt.SignUp"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TennisCourt"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="Assets/GeneralBackground.jpg" Stretch="UniformToFill" />
+        </Grid.Background>
+
+        <RelativePanel Grid.Row="1" Grid.Column="1">
+            <StackPanel Name="ColorBar" Orientation="Horizontal">
+                <Rectangle Fill="SkyBlue" Width="120" Height="20" />
+                <Rectangle Fill="HotPink" Width="120" Height="20" />
+                <Rectangle Fill="YellowGreen" Width="120" Height="20" />
+                <Rectangle Fill="DarkViolet" Width="120" Height="20" />
+            </StackPanel>
+            <RelativePanel Name="InputArea" RelativePanel.Below="ColorBar" Width="480" Background="White">
+                <TextBlock Name="SignUpLabel" Text="Sign Up" FontSize="64" RelativePanel.AlignHorizontalCenterWithPanel="True" />
+                <TextBlock Name="Description" Text="Sign up to explore more." FontSize="20" Foreground="Gray" RelativePanel.Below="SignUpLabel" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0, 0, 0, 28"/>
+                <TextBox Name="UsernameInput" PlaceholderText="Username" Width="480" RelativePanel.Below="Description" />
+                <TextBox Name="StudentIDInput" PlaceholderText="Student ID" Width="480" RelativePanel.Below="UsernameInput" />
+                <TextBox Name="PasswordInput" PlaceholderText="Password" Width="480" RelativePanel.Below="StudentIDInput" />
+                <TextBox Name="CheckPasswordInput" PlaceholderText="Repeat Password" Width="480" RelativePanel.Below="PasswordInput" Margin="0, 0, 0, 20"/>
+                <Button Name="SignUpButton" Content="Sign Up" Width="440" RelativePanel.Below="CheckPasswordInput" RelativePanel.AlignHorizontalCenterWithPanel="True" />
+                <TextBlock Name="Message" Text="Error Message" FontSize="16" Foreground="Red" RelativePanel.Below="SignUpButton" RelativePanel.AlignHorizontalCenterWithPanel="True" />
+            </RelativePanel>
+        </RelativePanel>
+    </Grid>
+</Page>
