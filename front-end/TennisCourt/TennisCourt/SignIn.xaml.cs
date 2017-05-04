@@ -37,12 +37,12 @@ namespace TennisCourt
             var password = PasswordInput.Text;
             if (username == "")
             {
-                //Message.Text = "Username can not be empty!";
+                Message.Text = "Username can not be empty!";
                 return;
             }
             if (password == "")
             {
-                //Message.Text = "Password can not be empty!";
+                Message.Text = "Password can not be empty!";
                 return;
             }
             //向后端注册用户
@@ -69,8 +69,7 @@ namespace TennisCourt
                         //不正确时输出错误信息
                         else
                         {
-                            //Message.Text = (string)userinfo["error"];
-                            var j = new MessageDialog((string)userinfo["error"]).ShowAsync();
+                            Message.Text = (string)userinfo["error"];
                         }
                     }
                 }
