@@ -36,7 +36,7 @@
                 <TextBox Name="StudentIDInput" PlaceholderText="Student ID" Width="480" RelativePanel.Below="UsernameInput" />
                 <TextBox Name="PasswordInput" PlaceholderText="Password" Width="480" RelativePanel.Below="StudentIDInput" />
                 <TextBox Name="CheckPasswordInput" PlaceholderText="Repeat Password" Width="480" RelativePanel.Below="PasswordInput" Margin="0, 0, 0, 20"/>
-                <Button Name="SignUpButton" Content="Sign Up" Width="440" RelativePanel.Below="CheckPasswordInput" RelativePanel.AlignHorizontalCenterWithPanel="True" />
+                <Button Name="SignUpButton" Content="Sign Up" Width="440" RelativePanel.Below="CheckPasswordInput" RelativePanel.AlignHorizontalCenterWithPanel="True" Click="SignUpButton_Click"/>
                 <TextBlock Name="Message" Text="Error Message" FontSize="16" Foreground="Red" RelativePanel.Below="SignUpButton" RelativePanel.AlignHorizontalCenterWithPanel="True" />
             </RelativePanel>
         </RelativePanel>

@@ -1,10 +1,13 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -25,6 +28,69 @@ namespace TennisCourt
         public SignUp()
         {
             this.InitializeComponent();
+        }
+
+        private async void SignUpButton_Click(object sender, RoutedEventArgs e)
+        {
+            //前段验证输入框是否为空以及重复密码是否正确
+            var username = UsernameInput.Text;
+            var studentid = StudentIDInput.Text;
+            var password = PasswordInput.Text;
+            var repeatpassword = CheckPasswordInput.Text;
+            if (username == "")
+            {
+                Message.Text = "Username can not be empty!";
+                return;
+            }
+            if (studentid == "")
+            {
+                Message.Text = "Studentid can not be empty!";
+                return;
+            }
+            if (password == "")
+            {
+                Message.Text = "Password can not be empty!";
+                return;
+            }
+            if (password != repeatpassword)
+            {
+                Message.Text = "Password is different from repeatpassword!";
+                return;
+            }
+            //向后端注册用户
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    var kvp = new List<KeyValuePair<string, string>>
+                    {
+                        new KeyValuePair<string,string>("username", username),
+                        //new KeyValuePair<string,string>("studentid", studentid),
+                        new KeyValuePair<string,string>("password", password),
+                        new KeyValuePair<string,string>("mode", "0")
+                    };
+                    HttpResponseMessage response = await client.PostAsync("http://localhost:3000/regist", new FormUrlEncodedContent(kvp));
+                    if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
+                    {
+                        string responseBody = await response.Content.ReadAsStringAsync();
+                        var userinfo = JObject.Parse(responseBody);
+                        //正确时跳转
+                        if ((string)userinfo["ok"] != "0")
+                        {
+                            Frame.Navigate(typeof(MainPage));
+                        }
+                        //不正确时输出错误信息
+                        else
+                        {
+                            Message.Text = (string)userinfo["error"];
+                        }
+                    }
+                }
+                catch (HttpRequestException ex)
+                {
+                    await new MessageDialog(ex.Message).ShowAsync();
+                }
+            }
         }
     }
 }

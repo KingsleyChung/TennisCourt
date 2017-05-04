@@ -1,10 +1,13 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -27,9 +30,55 @@ namespace TennisCourt
             this.InitializeComponent();
         }
 
-        private void SignInButton_Click(object sender, RoutedEventArgs e)
+        private async void SignInButton_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(MainPage));
+            //前段验证输入框是否为空
+            var username = UsernameInput.Text;
+            var password = PasswordInput.Text;
+            if (username == "")
+            {
+                //Message.Text = "Username can not be empty!";
+                return;
+            }
+            if (password == "")
+            {
+                //Message.Text = "Password can not be empty!";
+                return;
+            }
+            //向后端注册用户
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    var kvp = new List<KeyValuePair<string, string>>
+                    {
+                        new KeyValuePair<string,string>("username", username),
+                        //new KeyValuePair<string,string>("studentid", studentid),
+                        new KeyValuePair<string,string>("password", password)
+                    };
+                    HttpResponseMessage response = await client.PostAsync("http://localhost:3000/signin", new FormUrlEncodedContent(kvp));
+                    if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
+                    {
+                        string responseBody = await response.Content.ReadAsStringAsync();
+                        var userinfo = JObject.Parse(responseBody);
+                        //正确时跳转
+                        if ((string)userinfo["ok"] != "0")
+                        {
+                            Frame.Navigate(typeof(MainPage));
+                        }
+                        //不正确时输出错误信息
+                        else
+                        {
+                            //Message.Text = (string)userinfo["error"];
+                            var j = new MessageDialog((string)userinfo["error"]).ShowAsync();
+                        }
+                    }
+                }
+                catch (HttpRequestException ex)
+                {
+                    await new MessageDialog(ex.Message).ShowAsync();
+                }
+            }
         }
     }
 }

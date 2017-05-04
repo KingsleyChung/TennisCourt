@@ -34,8 +34,7 @@
                 <TextBlock Name="Description" Text="Sign in to explore more." FontSize="20" Foreground="Gray" RelativePanel.Below="SignInLabel" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0, 0, 0, 28"/>
                 <TextBox Name="UsernameInput" PlaceholderText="Username" Width="480" RelativePanel.Below="Description" />
                 <TextBox Name="PasswordInput" PlaceholderText="Password" Width="480" RelativePanel.Below="UsernameInput" Margin="0, 0, 0, 20"/>
-                <Button Name="SignInButton" Content="Sign In" Width="440" RelativePanel.Below="PasswordInput" RelativePanel.AlignHorizontalCenterWithPanel="True" Click="SignInButton_Click"/>
-                <TextBlock Name="Message" Text="Error Message" FontSize="16" Foreground="Red" RelativePanel.Below="SignInButton" RelativePanel.AlignHorizontalCenterWithPanel="True" />
+                <Button Name="SignInButton" Content="Sign In" Width="440" RelativePanel.Below="PasswordInput" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0, 0, 0, 20" Click="SignInButton_Click"/>
             </RelativePanel>
         </RelativePanel>
     </Grid>
