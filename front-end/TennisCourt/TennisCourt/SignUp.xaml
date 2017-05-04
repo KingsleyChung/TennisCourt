@@ -24,10 +24,10 @@
 
         <RelativePanel Grid.Row="1" Grid.Column="1">
             <StackPanel Name="ColorBar" Orientation="Horizontal">
-                <Rectangle Fill="SkyBlue" Width="120" Height="20" />
-                <Rectangle Fill="HotPink" Width="120" Height="20" />
-                <Rectangle Fill="YellowGreen" Width="120" Height="20" />
-                <Rectangle Fill="DarkViolet" Width="120" Height="20" />
+                <Rectangle Fill="SkyBlue" Width="120" Height="8" />
+                <Rectangle Fill="HotPink" Width="120" Height="8" />
+                <Rectangle Fill="YellowGreen" Width="120" Height="8" />
+                <Rectangle Fill="DarkViolet" Width="120" Height="8" />
             </StackPanel>
             <RelativePanel Name="InputArea" RelativePanel.Below="ColorBar" Width="480" Background="White">
                 <TextBlock Name="SignUpLabel" Text="Sign Up" FontSize="64" RelativePanel.AlignHorizontalCenterWithPanel="True" />

@@ -24,17 +24,17 @@
 
         <RelativePanel Grid.Row="1" Grid.Column="1">
             <StackPanel Name="ColorBar" Orientation="Horizontal">
-                <Rectangle Fill="SkyBlue" Width="120" Height="20" />
-                <Rectangle Fill="HotPink" Width="120" Height="20" />
-                <Rectangle Fill="YellowGreen" Width="120" Height="20" />
-                <Rectangle Fill="DarkViolet" Width="120" Height="20" />
+                <Rectangle Fill="SkyBlue" Width="120" Height="8" />
+                <Rectangle Fill="HotPink" Width="120" Height="8" />
+                <Rectangle Fill="YellowGreen" Width="120" Height="8" />
+                <Rectangle Fill="DarkViolet" Width="120" Height="8" />
             </StackPanel>
             <RelativePanel Name="InputArea" RelativePanel.Below="ColorBar" Width="480" Background="White">
                 <TextBlock Name="SignInLabel" Text="Sign In" FontSize="64" RelativePanel.AlignHorizontalCenterWithPanel="True" />
                 <TextBlock Name="Description" Text="Sign in to explore more." FontSize="20" Foreground="Gray" RelativePanel.Below="SignInLabel" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0, 0, 0, 28"/>
                 <TextBox Name="UsernameInput" PlaceholderText="Username" Width="480" RelativePanel.Below="Description" />
                 <TextBox Name="PasswordInput" PlaceholderText="Password" Width="480" RelativePanel.Below="UsernameInput" Margin="0, 0, 0, 20"/>
-                <Button Name="SignInButton" Content="Sign In" Width="440" RelativePanel.Below="PasswordInput" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0, 0, 0, 20"/>
+                <Button Name="SignInButton" Content="Sign In" Width="440" RelativePanel.Below="PasswordInput" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0, 0, 0, 20" Click="SignInButton_Click"/>
             </RelativePanel>
         </RelativePanel>
     </Grid>

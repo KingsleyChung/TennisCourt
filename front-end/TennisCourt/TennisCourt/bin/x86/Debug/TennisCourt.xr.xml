@@ -30,6 +30,7 @@
     <RootType FullName="Windows.UI.Xaml.Controls.RelativePanel">
       <RootProperty Name="Children" />
       <RootProperty Name="Name" />
+      <RootProperty Name="Height" />
       <RootProperty Name="Width" />
       <RootProperty Name="Background" />
       <RootMethod Name="GetAlignHorizontalCenterWithPanel" />
@@ -61,10 +62,32 @@
       <RootProperty Name="FontWeight" />
       <RootProperty Name="Foreground" />
       <RootProperty Name="Margin" />
+      <RootProperty Name="FontFamily" />
+      <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Name" />
     </RootType>
     <RootType FullName="TennisCourt.HomePage" />
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.ThemeResourceExtension" />
+    <RootType FullName="Windows.UI.Xaml.Controls.SplitView">
+      <RootProperty Name="IsPaneOpen" />
+      <RootProperty Name="DisplayMode" />
+      <RootProperty Name="OpenPaneLength" />
+      <RootProperty Name="Pane" />
+      <RootProperty Name="Content" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Shapes.Line" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ListView">
+      <RootProperty Name="SelectionMode" />
+      <RootProperty Name="SelectedIndex" />
+      <RootProperty Name="Items" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ListViewItem">
+      <RootProperty Name="Name" />
+      <RootProperty Name="Content" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Frame">
+      <RootProperty Name="Name" />
+    </RootType>
     <RootType FullName="TennisCourt.MainPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
       <RootProperty Name="Name" />

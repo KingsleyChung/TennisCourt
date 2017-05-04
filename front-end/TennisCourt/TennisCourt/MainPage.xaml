@@ -8,6 +8,50 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <SplitView IsPaneOpen="True" DisplayMode="Inline" OpenPaneLength="280" >
+            <SplitView.Pane>
+                <StackPanel Name="Menu" >
+                    <RelativePanel Name="Profile" Height="360">
+                        
+                    </RelativePanel>
+                    <Line/>
+                    <ListView SelectionMode="Single" SelectedIndex="0">
+                        <ListViewItem Name="HomeButton">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="&#xE10F;" FontSize="40" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" Margin="16, 0, 0, 0"/>
+                                <TextBlock Text="Home" FontSize="40" VerticalAlignment="Center" Margin="16, 0, 0, 0"/>
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem Name="MatchesButton">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="&#xEC4A;" FontSize="40" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" Margin="16, 0, 0, 0"/>
+                                <TextBlock Text="Matches" FontSize="40" VerticalAlignment="Center" Margin="16, 0, 0, 0"/>
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem Name="DrawsButton">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="&#xE787;" FontSize="40" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" Margin="16, 0, 0, 0"/>
+                                <TextBlock Text="Draws" FontSize="40" VerticalAlignment="Center" Margin="16, 0, 0, 0"/>
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem Name="LatestButton">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="&#xEC44;" FontSize="40" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" Margin="16, 0, 0, 0"/>
+                                <TextBlock Text="Latest" FontSize="40" VerticalAlignment="Center" Margin="16, 0, 0, 0"/>
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem Name="HistoryButton">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="&#xE121;" FontSize="40" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" Margin="16, 0, 0, 0"/>
+                                <TextBlock Text="History" FontSize="40" VerticalAlignment="Center" Margin="16, 0, 0, 0"/>
+                            </StackPanel>
+                        </ListViewItem>
+                    </ListView>
+                </StackPanel>
+            </SplitView.Pane>
+            <SplitView.Content>
+                <Frame Name="myFrame"/>
+            </SplitView.Content>
+        </SplitView>
     </Grid>
 </Page>

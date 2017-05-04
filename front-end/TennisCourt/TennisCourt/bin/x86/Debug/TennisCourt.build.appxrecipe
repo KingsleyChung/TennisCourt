@@ -10,19 +10,19 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>0eb9fbb6-45b1-43dc-8629-caa1001a44de</PackageIdentityName>
     <PackageIdentityPublisher>CN=Kingsley</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\Kingsley\Desktop\TennisCourt\front-end\TennisCourt\TennisCourt\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>F:\GitHubRepositories\TennisCourt\front-end\TennisCourt\TennisCourt\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType></RemoteDeploymentType>
     <PackageRegistrationPath></PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\Kingsley\Desktop\TennisCourt\front-end\TennisCourt\TennisCourt\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="F:\GitHubRepositories\TennisCourt\front-end\TennisCourt\TennisCourt\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Kingsley\Desktop\TennisCourt\front-end\TennisCourt\TennisCourt\bin\x86\Debug\TennisCourt.exe">
+    <AppxPackagedFile Include="F:\GitHubRepositories\TennisCourt\front-end\TennisCourt\TennisCourt\bin\x86\Debug\TennisCourt.exe">
       <PackagePath>entrypoint\TennisCourt.exe</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Kingsley\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
@@ -334,56 +334,56 @@
     <AppxPackagedFile Include="C:\Users\Kingsley\.nuget\packages\System.Xml.XmlSerializer\4.0.10\lib\netcore50\System.Xml.XmlSerializer.dll">
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kingsley\Desktop\TennisCourt\front-end\TennisCourt\TennisCourt\Assets\GeneralBackground.jpg">
+    <AppxPackagedFile Include="F:\GitHubRepositories\TennisCourt\front-end\TennisCourt\TennisCourt\Assets\GeneralBackground.jpg">
       <PackagePath>Assets\GeneralBackground.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kingsley\Desktop\TennisCourt\front-end\TennisCourt\TennisCourt\Assets\TennisAssociation.png">
+    <AppxPackagedFile Include="F:\GitHubRepositories\TennisCourt\front-end\TennisCourt\TennisCourt\Assets\TennisAssociation.png">
       <PackagePath>Assets\TennisAssociation.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kingsley\Desktop\TennisCourt\front-end\TennisCourt\TennisCourt\Assets\TennisCourt.png">
+    <AppxPackagedFile Include="F:\GitHubRepositories\TennisCourt\front-end\TennisCourt\TennisCourt\Assets\TennisCourt.png">
       <PackagePath>Assets\TennisCourt.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kingsley\Desktop\TennisCourt\front-end\TennisCourt\TennisCourt\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="F:\GitHubRepositories\TennisCourt\front-end\TennisCourt\TennisCourt\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kingsley\Desktop\TennisCourt\front-end\TennisCourt\TennisCourt\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="F:\GitHubRepositories\TennisCourt\front-end\TennisCourt\TennisCourt\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kingsley\Desktop\TennisCourt\front-end\TennisCourt\TennisCourt\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="F:\GitHubRepositories\TennisCourt\front-end\TennisCourt\TennisCourt\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kingsley\Desktop\TennisCourt\front-end\TennisCourt\TennisCourt\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="F:\GitHubRepositories\TennisCourt\front-end\TennisCourt\TennisCourt\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kingsley\Desktop\TennisCourt\front-end\TennisCourt\TennisCourt\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="F:\GitHubRepositories\TennisCourt\front-end\TennisCourt\TennisCourt\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kingsley\Desktop\TennisCourt\front-end\TennisCourt\TennisCourt\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="F:\GitHubRepositories\TennisCourt\front-end\TennisCourt\TennisCourt\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kingsley\Desktop\TennisCourt\front-end\TennisCourt\TennisCourt\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="F:\GitHubRepositories\TennisCourt\front-end\TennisCourt\TennisCourt\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kingsley\Desktop\TennisCourt\front-end\TennisCourt\TennisCourt\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="F:\GitHubRepositories\TennisCourt\front-end\TennisCourt\TennisCourt\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kingsley\Desktop\TennisCourt\front-end\TennisCourt\TennisCourt\bin\x86\Debug\TennisCourt.xr.xml">
+    <AppxPackagedFile Include="F:\GitHubRepositories\TennisCourt\front-end\TennisCourt\TennisCourt\bin\x86\Debug\TennisCourt.xr.xml">
       <PackagePath>TennisCourt.xr.xml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kingsley\Desktop\TennisCourt\front-end\TennisCourt\TennisCourt\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="F:\GitHubRepositories\TennisCourt\front-end\TennisCourt\TennisCourt\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Kingsley\Desktop\TennisCourt\front-end\TennisCourt\TennisCourt\bin\x86\Debug\Core\TennisCourt.exe">
+    <AppxPackagedFile Include="F:\GitHubRepositories\TennisCourt\front-end\TennisCourt\TennisCourt\bin\x86\Debug\Core\TennisCourt.exe">
       <PackagePath>TennisCourt.exe</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>

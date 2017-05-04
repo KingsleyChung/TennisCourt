@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
+using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -63,6 +64,7 @@ namespace TennisCourt
 
                 // 将框架放在当前窗口中
                 Window.Current.Content = rootFrame;
+                CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
             }
 
             if (e.PrelaunchActivated == false)
