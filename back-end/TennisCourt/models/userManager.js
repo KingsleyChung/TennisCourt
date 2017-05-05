@@ -58,19 +58,7 @@ module.exports = function (db) {
                    return Promise.reject(user);
                }
             });
-            /*return users.findOne({username : user.username}).then(function (user) {
-                return new Promise(function (resolve, reject) {
-                    if(user) {
-                        delete user.password;
-                        user.error = "This account has existed";
-                        user.ok = "0";
-                        reject(user);
-                    }
-                    else {
-                        resolve();
-                    }
-                })
-            })*/
+
         },
         
         addUserToDB : function (user) {

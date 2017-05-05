@@ -3,51 +3,36 @@ var router = express.Router();
 
 module.exports = function (db) {
     var userManager = require('../models/userManager')(db);
-    router.get('/', function (req, res, next) {
-        if(req.session.user) {
-            if(req.query.username && req.query.username != req.session.user.username) {
-                req.session.err = {};
-                req.session.err.message = "you can only access your detail";
-            }
-            res.redirect('/detail');
-        }
-        else {
-            res.redirect('/signin');
-        }
+    var mainGameManager = require('../models/mainGameManager')(db);
+
+    //赛事创建相关api
+    //创建一个赛事  例如2017年中东网球公开赛
+    router.post('/creatematch', function (req, res, next) {
+       var mainGame = req.body;
+       mainGameManager.validateCreate(mainGame).then(function (value) {
+           mainGameManager.validateAdd(mainGame).then(function () {
+               value.error = "";
+               value.ok = "1";
+               res.send(value).status(200).end();
+           });
+       }).catch(function (error) {
+           console.log(error);
+           res.send(error).status(204).end();
+       })
+    });
+    router.post('/endmatch', function (req, res, next) {
+       var matchId =  req.body.matchId;
+       console.log(matchId);
+       mainGameManager.validateEnd(matchId).then(function (value) {
+           res.send(value).status(200).end();
+       }).catch(function (error) {
+           res.send(error).status(204).end();
+       })
     });
 
-    router.get('/regist', function (req, res, next) {
-        res.render('signup', {title : 'Signup', user : {}, err : {}});
-    });
 
-    router.get('/signin', function (req, res, next) {
-        var a = {};
-        a.username = "weimumu";
-        res.send(a);
-        res.status(200).end();
-       /* req.session.user
-        ? res.redirect('/detail')
-        : res.render('signin', {title : 'Signin', user : {}, err : {}});*/
-    });
-
-    router.get('/detail', function (req, res, next) {
-        var err = req.session.err;
-        if(!err) {
-            err = {};
-        }
-        delete req.session.err;
-        req.session.user
-        ? res.render('detail', {title : 'Detail', user : req.session.user, err : err})
-        : res.redirect('/signin');
-    });
-
-    router.get('/signout', function (req, res, next) {
-        req.session.destroy(function (err) {
-            res.clearCookie("connect.sid");
-            res.redirect('/signin');
-        })
-    });
-
+    //登录注册相关api
+    //注册
     router.post('/regist', function (req, res, next) {
        var user = req.body;
        console.log(user);
@@ -65,7 +50,7 @@ module.exports = function (db) {
            res.send(error).status(204).end();
        });
     });
-
+    //登录
     router.post('/signin', function (req, res, next) {
        var password = req.body.password;
        var username = req.body.username;
