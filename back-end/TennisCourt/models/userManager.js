@@ -32,7 +32,33 @@ module.exports = function (db) {
         },
         
         validateSignup : function (user) {
-            return users.findOne({username : user.username}).then(function (user) {
+            var errInSignup = "";
+            var tasks = [];
+            var query = {};
+            for(let key in user) {
+                if(key == "password" || key == "mode") {
+                    continue;
+                }
+                query[key] = user[key];
+                tasks.push(users.findOne(query).then(function(user){
+                    if(user) {
+                        errInSignup += "This " + key + " is already used.";
+                    }
+                }));
+                delete query[key];
+            }
+            return Promise.all(tasks).then(function () {
+               if(!errInSignup) {
+                   return Promise.resolve();
+               }
+               else {
+                   delete user.password;
+                   user.error = errInSignup;
+                   user.ok = "0";
+                   return Promise.reject(user);
+               }
+            });
+            /*return users.findOne({username : user.username}).then(function (user) {
                 return new Promise(function (resolve, reject) {
                     if(user) {
                         delete user.password;
@@ -44,7 +70,7 @@ module.exports = function (db) {
                         resolve();
                     }
                 })
-            })
+            })*/
         },
         
         addUserToDB : function (user) {
