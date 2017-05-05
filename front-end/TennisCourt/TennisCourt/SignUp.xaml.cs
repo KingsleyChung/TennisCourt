@@ -65,7 +65,7 @@ namespace TennisCourt
                     var kvp = new List<KeyValuePair<string, string>>
                     {
                         new KeyValuePair<string,string>("username", username),
-                        //new KeyValuePair<string,string>("studentid", studentid),
+                        new KeyValuePair<string,string>("studentid", studentid),
                         new KeyValuePair<string,string>("password", password),
                         new KeyValuePair<string,string>("mode", "0")
                     };
