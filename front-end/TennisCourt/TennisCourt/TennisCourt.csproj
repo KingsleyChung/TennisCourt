@@ -95,11 +95,20 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DrawsPage.xaml.cs">
+      <DependentUpon>DrawsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EntrancePage.xaml.cs">
       <DependentUpon>EntrancePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="HistoryPage.xaml.cs">
+      <DependentUpon>HistoryPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LatestPage.xaml.cs">
+      <DependentUpon>LatestPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -147,11 +156,23 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="DrawsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="EntrancePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="HistoryPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LatestPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

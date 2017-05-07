@@ -39,10 +39,16 @@ namespace TennisCourt
                     myFrame.Navigate(typeof(HomePage));
                     break;
                 case 1:
-                    myFrame.Navigate(typeof(SignIn));
+                    myFrame.Navigate(typeof(MatchesPage));
                     break;
                 case 2:
-                    myFrame.Navigate(typeof(SignUp));
+                    myFrame.Navigate(typeof(DrawsPage));
+                    break;
+                case 3:
+                    myFrame.Navigate(typeof(LatestPage));
+                    break;
+                case 4:
+                    myFrame.Navigate(typeof(HistoryPage));
                     break;
             }
         }
