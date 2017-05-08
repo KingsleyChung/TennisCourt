@@ -10,8 +10,8 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <SplitView IsPaneOpen="True" DisplayMode="Inline" OpenPaneLength="280" >
             <SplitView.Pane>
-                <StackPanel Name="SideBar" >
-                    <RelativePanel Name="Profile" Height="360">
+                <RelativePanel Name="SideBar" Width="280">
+                    <RelativePanel Name="Profile" Height="360" Width="280">
                         <Ellipse Name="Icon" Width="148" Height="148" Margin="0, 40, 0, 20" RelativePanel.AlignHorizontalCenterWithPanel="True">
                             <Ellipse.Fill>
                                 <ImageBrush ImageSource="Assets/Federer.jpg" />
@@ -29,7 +29,7 @@
                             </StackPanel>
                         </RelativePanel>
                     </RelativePanel>
-                    <ListView Name="Menu" SelectionMode="Single" SelectedIndex="0" SelectionChanged="ListView_SelectionChanged">
+                    <ListView Name="Menu" Width="280"  SelectionMode="Single" SelectedIndex="0" SelectionChanged="ListView_SelectionChanged" RelativePanel.Below="Profile">
                         <ListViewItem Name="HomeButton" >
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="&#xE10F;" FontSize="40" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" Margin="16, 0, 0, 0"/>
@@ -61,7 +61,9 @@
                             </StackPanel>
                         </ListViewItem>
                     </ListView>
-                </StackPanel>
+                    <Button Name="SettingsButton" Content="Settings" RelativePanel.AlignBottomWithPanel="True"/>
+                    <Button Name="AdministratorButton" Content="Administrator" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True" />
+                </RelativePanel>
             </SplitView.Pane>
             <SplitView.Content>
                 <Frame Name="myFrame"/>

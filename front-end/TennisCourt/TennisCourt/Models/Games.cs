@@ -13,7 +13,17 @@ namespace TennisCourt.Models
         private string setID;
         private string server;
         private string receiver;
-
+        private string category;
+        private string umpire;
+        private string lineman;
+        private DateTime date;
+        private DateTime start_time;
+        private DateTime end_time;
+        private int court;
+        private string round;
+        private string result;
+        private List<string> gameScore;
+        private string status;
     }
 }
 
