@@ -10,7 +10,7 @@ namespace TennisCourt.Models
 {
     class Games : BindableBase
     {
-        private int setID;
+        private string setID;
         private string server;
         private string receiver;
         private string category;
@@ -25,78 +25,78 @@ namespace TennisCourt.Models
         private List<string> gameScore;
         private string status;
 
-        private int SetID
+        public string SetID
         {
             get { return setID; }
             set { SetProperty(ref this.setID, value); }
         }
-        private string Server
+        public string Server
         {
             get { return server; }
             set { SetProperty(ref this.server, value); }
         }
-        private string Receiver
+        public string Receiver
         {
             get { return receiver; }
             set { SetProperty(ref this.receiver, value); }
         }
-        private string Category
+        public string Category
         {
             get { return category; }
             set { SetProperty(ref this.category, value); }
         }
-        private string Umpire
+        public string Umpire
         {
             get { return umpire; }
             set { SetProperty(ref this.umpire, value); }
         }
-        private string Lineman
+        public string Lineman
         {
             get { return lineman; }
             set { SetProperty(ref this.lineman, value); }
         }
-        private DateTime Date
+        public DateTime Date
         {
             get { return date; }
             set { SetProperty(ref this.date, value); }
         }
-        private DateTime Start_Time
+        public DateTime Start_Time
         {
             get { return start_time; }
             set { SetProperty(ref this.start_time, value); }
         }
-        private DateTime End_Time
+        public DateTime End_Time
         {
             get { return end_time; }
             set { SetProperty(ref this.end_time, value); }
         }
-        private int Court
+        public int Court
         {
             get { return court; }
             set { SetProperty(ref this.court, value); }
         }
-        private string Round
+        public string Round
         {
             get { return round; }
             set { SetProperty(ref this.round, value); }
         }
-        private string Result
+        public string Result
         {
             get { return result; }
             set { SetProperty(ref this.result, value); }
         }
-        private List<string> GameScore
+        public List<string> GameScore
         {
             get { return gameScore; }
             set { SetProperty(ref this.gameScore, value); }
         }
-        private string Status
+        public string Status
         {
             get { return status; }
             set { SetProperty(ref this.status, value); }
         }
 
-        public Games(int _setID, string _server, string _receiver, string _category, string _umpire, string _lineman, DateTime _date, DateTime _start_time, DateTime _end_time, int _court, string _round, string _result, List<string> _gameScore, string _status)
+        public Games(string _setID, string _server, string _receiver, string _category, string _umpire, string _lineman, DateTime _date, DateTime _start_time, DateTime _end_time, int _court, string _round, string _result, List<string> _gameScore, string _status)
         {
             setID = _setID;
             server = _server;
