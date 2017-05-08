@@ -9,7 +9,7 @@ namespace TennisCourt.Models
     class Matches : BindableBase
     {
         private string matchTitle;
-        private string matchID;
+        private int matchID;
         private DateTime start_date;
         private DateTime end_date;
         private List<string> categories;
@@ -22,7 +22,7 @@ namespace TennisCourt.Models
             get { return matchTitle; }
             set { SetProperty(ref this.matchTitle, value); }
         }
-        private string MatchID
+        private int MatchID
         {
             get { return matchID; }
             set { SetProperty(ref this.matchID, value); }
@@ -58,7 +58,7 @@ namespace TennisCourt.Models
             set { SetProperty(ref this.game, value); }
         }
 
-        public Matches(string _matchTitle, string _matchID, DateTime _start_date, DateTime _end_date, List<string> _categories, int _total_set, int _total_player, List<Games> _game)
+        public Matches(string _matchTitle, int _matchID, DateTime _start_date, DateTime _end_date, List<string> _categories, int _total_set, int _total_player, List<Games> _game)
         {
             matchTitle = _matchTitle;
             matchID = _matchID;
