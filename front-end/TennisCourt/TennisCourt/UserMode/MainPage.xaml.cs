@@ -52,5 +52,10 @@ namespace TennisCourt
                     break;
             }
         }
+
+        private void AdministratorButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(AdminPage));
+        }
     }
 }
