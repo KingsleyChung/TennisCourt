@@ -10,7 +10,7 @@ namespace TennisCourt.Models
 {
     class Games : BindableBase
     {
-        private string setID;
+        private int setID;
         private string server;
         private string receiver;
         private string category;
@@ -25,7 +25,7 @@ namespace TennisCourt.Models
         private List<string> gameScore;
         private string status;
 
-        private string SetID
+        private int SetID
         {
             get { return setID; }
             set { SetProperty(ref this.setID, value); }
@@ -95,6 +95,25 @@ namespace TennisCourt.Models
             get { return status; }
             set { SetProperty(ref this.status, value); }
         }
+
+        public Games(int _setID, string _server, string _receiver, string _category, string _umpire, string _lineman, DateTime _date, DateTime _start_time, DateTime _end_time, int _court, string _round, string _result, List<string> _gameScore, string _status)
+        {
+            setID = _setID;
+            server = _server;
+            receiver = _receiver;
+            category = _category;
+            umpire = _umpire;
+            lineman = _lineman;
+            date = _date;
+            start_time = _start_time;
+            end_time = _end_time;
+            court = _court;
+            round = _round;
+            result = _result;
+            gameScore = _gameScore;
+            status = _status;
+        }
+
     }
 }
 
