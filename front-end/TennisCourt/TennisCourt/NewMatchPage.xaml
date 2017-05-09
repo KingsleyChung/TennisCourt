@@ -20,7 +20,7 @@
         </Grid.ColumnDefinitions>
         <ScrollViewer Grid.Row="1" Grid.Column="1" VerticalScrollBarVisibility="Hidden">
             <RelativePanel>
-                <Image Name="Poster" Width="300" Source="Assets/Poster.png" Stretch="UniformToFill"/>
+                <Image Name="Poster" Width="300" Source="Assets/Poster.jpg" Stretch="UniformToFill"/>
                 <AppBarButton Name="SelectImageButton" Icon="Pictures" Width="48" Height="48" RelativePanel.Below="Poster" RelativePanel.AlignRightWithPanel="True"/>
                 <TextBox Name="Title" PlaceholderText="Title" FontSize="40" RelativePanel.Below="SelectImageButton" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" Margin="0, 0, 0, 16"/>
                 <RelativePanel Name="CategoriesSeletor" RelativePanel.Below="Title" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0, 0, 0, 16">
