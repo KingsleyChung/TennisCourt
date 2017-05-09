@@ -98,6 +98,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AdminMode\GamesPage.xaml.cs">
+      <DependentUpon>GamesPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserMode\DrawsPage.xaml.cs">
       <DependentUpon>DrawsPage.xaml</DependentUpon>
     </Compile>
@@ -116,7 +119,7 @@
     <Compile Include="UserMode\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserMode\MatchesPage.xaml.cs">
+    <Compile Include="MatchesPage.xaml.cs">
       <DependentUpon>MatchesPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\Games.cs" />
@@ -166,6 +169,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="AdminMode\GamesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserMode\DrawsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -190,7 +197,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserMode\MatchesPage.xaml">
+    <Page Include="MatchesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

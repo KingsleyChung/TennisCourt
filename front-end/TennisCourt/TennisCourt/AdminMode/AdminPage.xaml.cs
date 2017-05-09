@@ -33,13 +33,13 @@ namespace TennisCourt
             {
                 return;
             }
-            switch (Menu.SelectedIndex)
+            switch (AdminMenu.SelectedIndex)
             {
                 case 0:
-                    myFrame.Navigate(typeof(HomePage));
+                    myFrame.Navigate(typeof(MatchesPage));
                     break;
                 case 1:
-                    myFrame.Navigate(typeof(MatchesPage));
+                    myFrame.Navigate(typeof(GamesPage));
                     break;
                 //case 2:
                 //    myFrame.Navigate(typeof(DrawsPage));
@@ -53,7 +53,7 @@ namespace TennisCourt
             }
         }
 
-        private void AdministratorButton_Click(object sender, RoutedEventArgs e)
+        private void UserButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(MainPage));
         }

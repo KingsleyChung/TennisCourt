@@ -29,14 +29,14 @@
                             </StackPanel>
                         </RelativePanel>
                     </RelativePanel>
-                    <ListView Name="Menu" Width="280"  SelectionMode="Single" SelectedIndex="0" SelectionChanged="ListView_SelectionChanged" RelativePanel.Below="Profile">
-                        <ListViewItem Name="HomeButton" >
+                    <ListView Name="AdminMenu" Width="280"  SelectionMode="Single" SelectedIndex="0" SelectionChanged="ListView_SelectionChanged" RelativePanel.Below="Profile">
+                        <ListViewItem Name="MatchesButton" >
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="&#xE10F;" FontSize="40" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" Margin="16, 0, 0, 0"/>
                                 <TextBlock Text="Matches" FontSize="40" VerticalAlignment="Center" Margin="16, 0, 0, 0"/>
                             </StackPanel>
                         </ListViewItem>
-                        <ListViewItem Name="MatchesButton">
+                        <ListViewItem Name="GamesButton">
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="&#xEC4A;" FontSize="40" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" Margin="16, 0, 0, 0"/>
                                 <TextBlock Text="Games" FontSize="40" VerticalAlignment="Center" Margin="16, 0, 0, 0"/>
@@ -62,7 +62,7 @@
                         </ListViewItem>-->
                     </ListView>
                     <Button Name="SettingsButton" Content="Settings" RelativePanel.AlignBottomWithPanel="True"/>
-                    <Button Name="AdministratorButton" Content="User Mode" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True" Click="AdministratorButton_Click"/>
+                    <Button Name="UserButton" Content="User Mode" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True" Click="UserButton_Click"/>
                 </RelativePanel>
             </SplitView.Pane>
             <SplitView.Content>
