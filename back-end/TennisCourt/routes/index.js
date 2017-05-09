@@ -4,6 +4,59 @@ var router = express.Router();
 module.exports = function (db) {
     var userManager = require('../models/userManager')(db);
     var mainGameManager = require('../models/mainGameManager')(db);
+    var childrenGameManager = require('../models/childrenGameManager')(db);
+    //字比赛创建相关api
+    //创建一个子比赛
+    router.post('/creategame', function (req, res, next) {
+        var childrenGame = req.body;
+        console.log(childrenGame);
+        childrenGameManager.childrenGameCreate(childrenGame).then(function (value) {
+            console.log(value);
+            res.send(value).status(200).end();
+        })
+    });
+    //改变比赛状态
+    router.post('/changegame', function (req, res, next) {
+       var matchId = req.body.matchId;
+       var status = req.body.status;
+       childrenGameManager.childrenGameStatusChange(matchId, status).then(function (value) {
+           res.send(value).status(200).end();
+       }).catch(function (error) {
+           res.send(error).status(204).end();
+       });
+    });
+    //返回当天比赛
+    router.get('/returngame', function (req, res, next) {
+        childrenGameManager.returnDayGame().then(function (value) {
+            res.send(value).status(200).end();
+        }).catch(function (error) {
+            res.send(error).status(204).end();
+        });
+    });
+    //修改比赛比分
+    router.post('/changescore', function (req, res, next) {
+       var matchId= req.body.matchId;
+       var game= req.body.game;
+       var result = req.body.result;
+       var score = req.body.score;
+       console.log(req.body);
+       childrenGameManager.changeScore(matchId, game, result, score).then(function (value) {
+          res.send(value).status(200).end();
+       });
+    });
+    //撤回比赛最后一个比分
+    router.post('/resetscore', function (req, res, next) {
+       var matchId = req.body.matchId;
+       var score = req.body.score;
+       console.log(req.body);
+       childrenGameManager.resetScore(matchId, score).then(function (value) {
+           res.send(value).status(200).end();
+       }).catch(function (error) {
+          res.send(error).status(204).end();
+       });
+    });
+
+
 
     //赛事创建相关api
     //创建一个赛事  例如2017年中东网球公开赛
@@ -20,6 +73,7 @@ module.exports = function (db) {
            res.send(error).status(204).end();
        })
     });
+    //结束一个赛事
     router.post('/endmatch', function (req, res, next) {
        var matchId =  req.body.matchId;
        console.log(matchId);
@@ -28,6 +82,24 @@ module.exports = function (db) {
        }).catch(function (error) {
            res.send(error).status(204).end();
        })
+    });
+    //返回正在进行的赛事
+    router.get('/matching', function (req, res, next) {
+        mainGameManager.matchReturn().then(function (value) {
+            console.log(value);
+            res.send(value).status(200).end();
+        }).catch(function (error) {
+            console.log(value);
+            res.send(error).status(204).end();
+        })
+    });
+    //返回所有赛事
+    router.get('/allmatch', function (req, res, next) {
+        mainGameManager.returnAllMatch().then(function (value) {
+           res.send(value).status(200).end();
+        }).catch(function (error) {
+           res.send(error).status(204).end();
+        });
     });
 
 

@@ -45,6 +45,50 @@ module.exports = function (db) {
                   }
               });
           });
+      },
+
+      //返回正在进行的赛事
+      matchReturn : function () {
+          return mainGames.find({status : "1"}).toArray().then(function (value) {
+              return new Promise(function (resolve, reject){
+                  if(value.length) {
+                      var message = {};
+                      message.error = "";
+                      message.ok = "1";
+                      message.match = value;
+                      console.log(message);
+                      resolve(message);
+                  }
+                  else {
+                      var matchReturnError = {};
+                      matchReturnError.error = "NO Match";
+                      matchReturnError.ok = "0";
+                      reject(matchReturnError);
+                  }
+              });
+          });
+      },
+
+      //放回所有赛事
+      returnAllMatch : function () {
+          return mainGames.find().toArray().then(function (value) {
+              return new Promise(function (resolve, reject){
+                  if(value.length) {
+                      var message = {};
+                      message.error = "";
+                      message.ok = "1";
+                      message.match = value;
+                      console.log(message);
+                      resolve(message);
+                  }
+                  else {
+                      var matchReturnError = {};
+                      matchReturnError.error = "NO Match";
+                      matchReturnError.ok = "0";
+                      reject(matchReturnError);
+                  }
+              });
+          });
       }
   };
   return mainGameManager;
