@@ -20,31 +20,11 @@ namespace TennisCourt
     /// <summary>
     /// 可用于自身或导航至 Frame 内部的空白页。
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class LatestPage : Page
     {
-        public MainPage()
+        public LatestPage()
         {
             this.InitializeComponent();
-        }
-
-        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (myFrame == null)
-            {
-                return;
-            }
-            switch (Menu.SelectedIndex)
-            {
-                case 0:
-                    myFrame.Navigate(typeof(HomePage));
-                    break;
-                case 1:
-                    myFrame.Navigate(typeof(SignIn));
-                    break;
-                case 2:
-                    myFrame.Navigate(typeof(SignUp));
-                    break;
-            }
         }
     }
 }
