@@ -1,8 +1,12 @@
 /**
  * Created by weimumu on 2017/5/7.
  */
+
+
 var childrenGames;
 var num = 0;
+var type1 = ['manS', 'womenS', 'manD', 'womenD', 'Double'];
+var type = ['男单', '女单', '男双', '女双', '混双'];
 function returnDate(mode) {
     var date = new Date();
     if(mode == 0) {
@@ -18,14 +22,55 @@ function returnDate(mode) {
     }
 }
 module.exports = function (db) {
+
+    var mainGameManager = require('../models/mainGameManager')(db);
     childrenGames = db.collection('childrenGames');
+    function returnMatchName() {
+        return mainGameManager.returnAllMatch().then(function (value) {
+            var tasks = [];
+            for(var i in value.match) {
+                tasks.push(value.match[i].matchId);
+            }
+            return new Promise(function (resolve, reject) {
+                resolve(tasks);
+            });
+        })
+    }
+
+    async function returnOneMatch(parentId) {
+        var message = {};
+        for(var j in type) {
+            let returnValue = await childrenGames.find({parentId : parentId, catagory : type[j]}).toArray();
+            message[type1[j]] = returnValue;
+        }
+        return new Promise(function (resolve, reject) {
+            resolve(message);
+        });
+    }
+
     var childrenGamesManager = {
+        returnAllGame : async function () {
+            try {
+                let res = await returnMatchName();
+                var returnMatchMessage = {};
+                for(var i in res) {
+                    let message = await returnOneMatch(res[i]);
+                    returnMatchMessage[res[i]] = message;
+                }
+                return new Promise(function (resolve, reject) {
+                   resolve(returnMatchMessage);
+                });
+            } catch(err) {
+                console.log(err);
+            }
+        },
+
         childrenGameCreate : function (childrenGame) {
             childrenGame.date = returnDate(0);
             childrenGame.status = "-1";
-            childrenGame.matchId += "/" + str + "/" + num;
+            childrenGame.parentId = childrenGame.matchId;
+            childrenGame.matchId += "/" + num;
             childrenGame.result = "0-0";
-            console.log(str);
             return new Promise(function (resolve, reject) {
                 childrenGames.insertOne(childrenGame, function () {
                     num++;

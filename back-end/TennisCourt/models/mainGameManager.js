@@ -2,13 +2,15 @@
  * Created by weimumu on 2017/5/5.
  */
 var mainGames;
+var num = 0;
 module.exports = function (db) {
   mainGames = db.collection('mainGames');
 
   var mainGameManager = {
       //增加赛事
       validateCreate : function (mainGame) {
-          return mainGames.findOne({matchId : mainGame.matchId}).then(function (value) {
+          mainGame.matchId = "" + num;
+          return mainGames.findOne({matchTitle : mainGame.matchTitle}).then(function (value) {
                 return new Promise(function(resolve, reject){
                     if(value) {
                         value.error = "This Match has been created before.";
@@ -17,6 +19,7 @@ module.exports = function (db) {
                     }
                     else {
                         resolve(mainGame);
+                        num++;
                     }
                 });
           });
@@ -78,7 +81,7 @@ module.exports = function (db) {
                       message.error = "";
                       message.ok = "1";
                       message.match = value;
-                      console.log(message);
+                      //console.log(message);
                       resolve(message);
                   }
                   else {

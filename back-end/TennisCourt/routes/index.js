@@ -5,6 +5,7 @@ module.exports = function (db) {
     var userManager = require('../models/userManager')(db);
     var mainGameManager = require('../models/mainGameManager')(db);
     var childrenGameManager = require('../models/childrenGameManager')(db);
+    childrenGameManager.returnAllGame();
     //字比赛创建相关api
     //创建一个子比赛
     router.post('/creategame', function (req, res, next) {
@@ -55,7 +56,15 @@ module.exports = function (db) {
           res.send(error).status(204).end();
        });
     });
-
+    //放回所有赛事的子比赛
+    router.get('/allgame', async function (req, res, next) {
+       try {
+           let value = await childrenGameManager.returnAllGame();
+           res.send(value).status(200).end();
+       } catch(error) {
+           res.send(error).statue(204).end();
+       }
+    });
 
 
     //赛事创建相关api
