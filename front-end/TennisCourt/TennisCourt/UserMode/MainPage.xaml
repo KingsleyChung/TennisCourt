@@ -14,7 +14,7 @@
                     <RelativePanel Name="Profile" Height="360" Width="280">
                         <Ellipse Name="Icon" Width="148" Height="148" Margin="0, 40, 0, 20" RelativePanel.AlignHorizontalCenterWithPanel="True">
                             <Ellipse.Fill>
-                                <ImageBrush ImageSource="Assets/Federer.jpg" />
+                                <ImageBrush ImageSource="Assets/Federer.jpg"/>
                             </Ellipse.Fill>
                         </Ellipse>
                         <TextBlock Name="Username" Text="TestUsername" FontSize="20" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="Icon" Margin="0, 0, 0, 4"/>

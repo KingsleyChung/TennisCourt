@@ -9,19 +9,33 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <GridView>
-            <GridViewItem>
-                <RelativePanel>
-                    <TextBlock Name="Title1" Text="Court 1" FontSize="68" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
-                    <Image Name="Court1" Source="Assets/TennisCourt.png" Width="400" RelativePanel.Below="Title1"/>
-                    <TextBlock Name="Status1" Text="Playing" FontSize="36" Foreground="Red" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWith="Court1"/>
-                    <TextBlock Name="Competitors1" Text="Federer VS Nadal" FontSize="40" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="Court1" />
-                </RelativePanel>
-            </GridViewItem>
+            <GridView.ItemTemplate>
+                <DataTemplate>
+                    <RelativePanel>
+                        <Image Name="Poster" Height="200" Source="Assets/Poster.png"/>
+                        <RelativePanel Margin="20, 0, 0, 0" RelativePanel.RightOf="Poster" RelativePanel.AlignVerticalCenterWithPanel="True">
+                            <TextBlock Name="MatchTitle" Text="2016年中东网球公开赛" FontSize="40" />
+                            <TextBlock Name="Categories" Text="Man-Single  Woman-Single  Men-Double  Women-Dobule  Mix-Double" RelativePanel.Below="MatchTitle"/>
+                            <TextBlock Name="Status" Text="Finished" FontSize="36" RelativePanel.Below="Categories"/>
+                        </RelativePanel>
+                    </RelativePanel>
+                </DataTemplate>
+            </GridView.ItemTemplate>
         </GridView>
+        <GridViewItem>
+            <RelativePanel>
+                <Image Name="Poster" Height="200" Source="Assets/Poster.png"/>
+                <RelativePanel Margin="20, 0, 0, 0" RelativePanel.RightOf="Poster" RelativePanel.AlignVerticalCenterWithPanel="True">
+                    <TextBlock Name="MatchTitle" Text="2016年中东网球公开赛" FontSize="40" />
+                    <TextBlock Name="Categories" Text="Man-Single  Woman-Single  Men-Double  Women-Dobule  Mix-Double" RelativePanel.Below="MatchTitle"/>
+                    <TextBlock Name="Status" Text="Finished" FontSize="36" RelativePanel.Below="Categories"/>
+                </RelativePanel>
+            </RelativePanel>
+        </GridViewItem>
     </Grid>
     <Page.BottomAppBar>
-        <AppBar>
-            <AppBarButton Name="AddMatch" Icon="Add" Label="Add Match"/>
-        </AppBar>
+        <CommandBar>
+            <AppBarButton Name="AddMatch" Icon="Add" Label="Add Match" Click="AddMatch_Click"/>
+        </CommandBar>
     </Page.BottomAppBar>
 </Page>

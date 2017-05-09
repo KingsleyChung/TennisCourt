@@ -101,6 +101,12 @@
     <Compile Include="AdminMode\GamesPage.xaml.cs">
       <DependentUpon>GamesPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CourtPage.xaml.cs">
+      <DependentUpon>CourtPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NewMatchPage.xaml.cs">
+      <DependentUpon>NewMatchPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserMode\DrawsPage.xaml.cs">
       <DependentUpon>DrawsPage.xaml</DependentUpon>
     </Compile>
@@ -146,6 +152,7 @@
     <Content Include="Assets\Federer18.jpg" />
     <Content Include="Assets\Forehand.jpg" />
     <Content Include="Assets\GeneralBackground.jpg" />
+    <Content Include="Assets\Poster.png" />
     <Content Include="Assets\TennisAssociation.png" />
     <Content Include="Assets\TennisCourt.png" />
     <Content Include="Assets\Volley.jpg" />
@@ -170,6 +177,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AdminMode\GamesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CourtPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NewMatchPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

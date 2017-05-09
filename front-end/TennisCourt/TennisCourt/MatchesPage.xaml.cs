@@ -26,5 +26,10 @@ namespace TennisCourt
         {
             this.InitializeComponent();
         }
+
+        private void AddMatch_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(NewMatchPage));
+        }
     }
 }
