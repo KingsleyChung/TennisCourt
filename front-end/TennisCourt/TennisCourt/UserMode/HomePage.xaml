@@ -25,7 +25,7 @@
             <Image Source="Assets/Backhand.jpg" />
             <Image Source="Assets/Volley.jpg" />
         </FlipView>
-        <ListView Name="MatchOverview" Grid.Row="1" IsItemClickEnabled="True" ItemClick="MatchOverview_ItemClick" ItemsSource="{x:Bind ViewModels.AllSets}">
+        <ListView Name="MatchOverview" Grid.Row="1" IsItemClickEnabled="True" ItemClick="MatchOverview_ItemClick" ItemsSource="{x:Bind ViewModel.AllSets}">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="md:Games">
                     <RelativePanel HorizontalAlignment="Center" Margin="0, 12, 0, 12">
@@ -43,9 +43,9 @@
                             </Ellipse>
                         </RelativePanel>
                         <RelativePanel Name="InfoPreview" Margin="0, 20, 0, 0" RelativePanel.Below="Icons" RelativePanel.AlignLeftWith="Icons" RelativePanel.AlignRightWith="Icons">
-                            <TextBlock Name="Round" Text="{x:Bind round}" FontSize="32"/>
-                            <TextBlock Name="Court" Text="{x:Bind court}" FontSize="32" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
-                            <TextBlock Name="Status" Text="{x:Bind status, Converter={StaticResource statusConverter}}" FontSize="32" RelativePanel.AlignRightWithPanel="True" />
+                            <TextBlock Name="Round" Text="{x:Bind Round}" FontSize="32"/>
+                            <TextBlock Name="Court" Text="{x:Bind Court}" FontSize="32" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+                            <TextBlock Name="Status" Text="{x:Bind Status, Converter={StaticResource statusConverter}}" FontSize="32" RelativePanel.AlignRightWithPanel="True" />
                         </RelativePanel>
                     </RelativePanel>
                 </DataTemplate>

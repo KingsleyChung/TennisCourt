@@ -43,9 +43,11 @@ namespace TennisCourt
     /// </summary>
     public sealed partial class HomePage : Page
     {
+        ViewModels.MatchesViewModel ViewModel { get; set; }
         public HomePage()
         {
             this.InitializeComponent();
+            this.ViewModel = new ViewModels.MatchesViewModel();
             DispatcherTimer time = new DispatcherTimer();
             time.Interval = new TimeSpan(0, 0, 5);
             time.Tick += Time_Tick;
@@ -61,6 +63,11 @@ namespace TennisCourt
                 i = 0;
             }
             PhotoGallery.SelectedIndex = i;
+        }
+
+        private void MatchOverview_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ViewModel.SelectSet = (Models.Games)(e.ClickedItem);
         }
     }
 }
