@@ -15,6 +15,27 @@ using Windows.UI.Xaml.Navigation;
 
 // “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=234238 上有介绍
 
+namespace myTransfer
+{
+    public class StatusConverter : IValueConverter
+    {
+        object IValueConverter.Convert(object value, Type targetType, object parameter, string language)
+        {
+            string res = "";
+            string s = (string)value;
+            if (s == "-1") res = "Prepare";
+            else if (s == "0") res = "Play";
+            else res = "End";
+            return res;
+        }
+
+        object IValueConverter.ConvertBack(object value, Type targetType, object parameter, string language)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
+
 namespace TennisCourt
 {
     /// <summary>

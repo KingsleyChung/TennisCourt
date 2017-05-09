@@ -3,9 +3,15 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:TennisCourt"
+    xmlns:md="using:TennisCourt.Models"
+    xmlns:common="using:myTransfer"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+
+    <Page.Resources>
+        <common:StatusConverter x:Key="statusConverter"></common:StatusConverter>
+    </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
@@ -19,9 +25,9 @@
             <Image Source="Assets/Backhand.jpg" />
             <Image Source="Assets/Volley.jpg" />
         </FlipView>
-        <ListView Name="MatchOverview" Grid.Row="1">
+        <ListView Name="MatchOverview" Grid.Row="1" IsItemClickEnabled="True" ItemClick="MatchOverview_ItemClick" ItemsSource="{x:Bind ViewModels.AllSets}">
             <ListView.ItemTemplate>
-                <DataTemplate>
+                <DataTemplate x:DataType="md:Games">
                     <RelativePanel HorizontalAlignment="Center" Margin="0, 12, 0, 12">
                         <RelativePanel Name="Icons" RelativePanel.AlignHorizontalCenterWithPanel="True">
                             <Ellipse Name="ServerIcon" Width="148" Height="148" Margin="0, 0, 80, 0">
@@ -37,9 +43,9 @@
                             </Ellipse>
                         </RelativePanel>
                         <RelativePanel Name="InfoPreview" Margin="0, 20, 0, 0" RelativePanel.Below="Icons" RelativePanel.AlignLeftWith="Icons" RelativePanel.AlignRightWith="Icons">
-                            <TextBlock Name="Round" Text="2nd Round" FontSize="32"/>
-                            <TextBlock Name="Court" Text="Court 1" FontSize="32" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
-                            <TextBlock Name="Status" Text="Playing" FontSize="32" RelativePanel.AlignRightWithPanel="True" />
+                            <TextBlock Name="Round" Text="{x:Bind round}" FontSize="32"/>
+                            <TextBlock Name="Court" Text="{x:Bind court}" FontSize="32" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+                            <TextBlock Name="Status" Text="{x:Bind status, Converter={StaticResource statusConverter}}" FontSize="32" RelativePanel.AlignRightWithPanel="True" />
                         </RelativePanel>
                     </RelativePanel>
                 </DataTemplate>

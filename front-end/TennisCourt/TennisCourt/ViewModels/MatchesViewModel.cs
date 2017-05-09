@@ -22,7 +22,7 @@ namespace TennisCourt.ViewModels
         }
         // Games data
         private ObservableCollection<Models.Games> allSets = new ObservableCollection<Models.Games>();
-        public ObservableCollection<Models.Games> allsets { get { return this.allsets; } }
+        public ObservableCollection<Models.Games> AllSets { get { return this.allSets; } }
 
         private Models.Games selectedSet = default(Models.Games);
         public Models.Games SelectSet
@@ -86,6 +86,14 @@ namespace TennisCourt.ViewModels
             selectedSet.Status = status;
 
             this.selectedSet = null;
+        }
+
+        //a example for test of HomePage
+        public MatchesViewModel()
+        {
+            var currentTime = System.DateTime.Now;
+            List<string> t = new List<string>();
+            this.allSets.Add(new Models.Games("", "", "", "", "", "", currentTime, currentTime, currentTime, 1, "2nd", "", t, "-1"));
         }
     }
 }
