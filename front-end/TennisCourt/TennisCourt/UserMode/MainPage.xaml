@@ -14,14 +14,14 @@
                     <RelativePanel Name="Profile" Height="360" Width="280">
                         <Ellipse Name="Icon" Width="148" Height="148" Margin="0, 40, 0, 20" RelativePanel.AlignHorizontalCenterWithPanel="True">
                             <Ellipse.Fill>
-                                <ImageBrush ImageSource="Assets/Federer.jpg"/>
+                                <ImageBrush ImageSource="../Assets/Federer.jpg"/>
                             </Ellipse.Fill>
                         </Ellipse>
                         <TextBlock Name="Username" Text="TestUsername" FontSize="20" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="Icon" Margin="0, 0, 0, 4"/>
                         <TextBlock Name="StudentID" Text="TestStudentID" FontSize="20" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="Username" Margin="0, 0, 0, 12"/>
                         <Line Name="DivideLine" X1="0" X2="240" Stroke="Black" StrokeThickness="4" RelativePanel.Below="StudentID" RelativePanel.AlignHorizontalCenterWithPanel="True" />
                         <RelativePanel RelativePanel.Below="DivideLine" RelativePanel.AlignHorizontalCenterWithPanel="True">
-                            <Image Name="WeatherIcon" Source="Assets/Cloudy.png" Width="80" Height="80" Margin="0, 0, 20, 0"/>
+                            <Image Name="WeatherIcon" Source="../Assets/Cloudy.png" Width="80" Height="80" Margin="0, 0, 20, 0"/>
                             <StackPanel Orientation="Vertical" RelativePanel.RightOf="WeatherIcon" RelativePanel.AlignVerticalCenterWith="WeatherIcon">
                                 <TextBlock Name="WeatherCondition" Text="Cloudy" />
                                 <TextBlock Name="Temperature" Text="25℃" />
