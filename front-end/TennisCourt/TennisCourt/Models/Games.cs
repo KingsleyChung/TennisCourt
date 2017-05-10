@@ -19,7 +19,7 @@ namespace TennisCourt.Models
         private DateTime date;
         private DateTime start_time;
         private DateTime end_time;
-        private int court;
+        private string court;
         private string round;
         private string result;
         private List<string> gameScore;
@@ -70,7 +70,7 @@ namespace TennisCourt.Models
             get { return end_time; }
             set { SetProperty(ref this.end_time, value); }
         }
-        public int Court
+        public string Court
         {
             get { return court; }
             set { SetProperty(ref this.court, value); }
@@ -96,7 +96,7 @@ namespace TennisCourt.Models
             set { SetProperty(ref this.status, value); }
         }
 
-        public Games(string _setID, string _server, string _receiver, string _category, string _umpire, string _lineman, DateTime _date, DateTime _start_time, DateTime _end_time, int _court, string _round, string _result, List<string> _gameScore, string _status)
+        public Games(string _setID, string _server, string _receiver, string _category, string _umpire, string _lineman, DateTime _date, DateTime _start_time, DateTime _end_time, string _court, string _round, string _result, List<string> _gameScore, string _status)
         {
             setID = _setID;
             server = _server;

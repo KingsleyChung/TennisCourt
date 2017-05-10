@@ -62,7 +62,7 @@ module.exports = function (db) {
            let value = await childrenGameManager.returnAllGame();
            res.send(value).status(200).end();
        } catch(error) {
-           res.send(error).statue(204).end();
+           res.send(error).status(204).end();
        }
     });
 

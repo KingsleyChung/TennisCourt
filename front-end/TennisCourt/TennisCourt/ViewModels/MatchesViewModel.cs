@@ -58,7 +58,7 @@ namespace TennisCourt.ViewModels
 
 
         //add game
-        public void AddGame(string setID, string server, string receiver, string category, string umpire, string lineman, DateTime date, DateTime start_time, DateTime end_time, int court, string round, string result, List<string> gameScore, string status)
+        public void AddGame(string setID, string server, string receiver, string category, string umpire, string lineman, DateTime date, DateTime start_time, DateTime end_time, string court, string round, string result, List<string> gameScore, string status)
         {
             allSets.Add(new Models.Games(setID, server, receiver, category, umpire, lineman, date, start_time, end_time, court, round, result, gameScore, status));
         }
@@ -71,7 +71,7 @@ namespace TennisCourt.ViewModels
         }
 
         //update game
-        public void UpdateGame(string server, string receiver, string category, string umpire, string lineman, DateTime date, DateTime start_time, DateTime end_time, int court, string round, string status)
+        public void UpdateGame(string server, string receiver, string category, string umpire, string lineman, DateTime date, DateTime start_time, DateTime end_time, string court, string round, string status)
         {
             selectedSet.Server = server;
             selectedSet.Receiver = receiver;
@@ -93,7 +93,7 @@ namespace TennisCourt.ViewModels
         {
             var currentTime = System.DateTime.Now;
             List<string> t = new List<string>();
-            this.allSets.Add(new Models.Games("", "", "", "", "", "", currentTime, currentTime, currentTime, 1, "2nd", "", t, "-1"));
+            this.allSets.Add(new Models.Games("", "", "", "", "", "", currentTime, currentTime, currentTime, "court 1", "round 2", "", t, "-1"));
         }
     }
 }

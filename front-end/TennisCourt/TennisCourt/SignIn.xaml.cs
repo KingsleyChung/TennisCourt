@@ -35,6 +35,7 @@ namespace TennisCourt
             //前段验证输入框是否为空
             var username = UsernameInput.Text;
             var password = PasswordInput.Text;
+            //var studentid = StudentIDInput.Text;
             if (username == "")
             {
                 Message.Text = "Username can not be empty!";
@@ -45,6 +46,11 @@ namespace TennisCourt
                 Message.Text = "Password can not be empty!";
                 return;
             }
+            /*if (studentid == "")
+            {
+                Message.Text = "StudentID can not be empty!";
+                return;
+            }*/
             //向后端注册用户
             using (HttpClient client = new HttpClient())
             {
