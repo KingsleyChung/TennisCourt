@@ -1,0 +1,101 @@
+﻿<Page
+    x:Class="TennisCourt.NewGamePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TennisCourt"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <ScrollViewer Grid.Row="1" Grid.Column="1" VerticalScrollBarVisibility="Hidden">
+            <RelativePanel>
+                <ComboBox Name="MatchesSelector" PlaceholderText="Which match" Margin="0, 0, 0, 16">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+
+                    <ComboBoxItem>
+                        <TextBlock Text="2017年中东网球公开赛" />
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <TextBlock Text="2017年康乐杯网球联赛" />
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <TextBlock Text="2017年中山大学三校区网球联赛" />
+                    </ComboBoxItem>
+                </ComboBox>
+                <ListView Name="CategoriesSelector" Margin="0, 0, 0, 16" BorderBrush="Black" BorderThickness="1" RelativePanel.Below="MatchesSelector">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+                    <ListViewItem>
+                        <CheckBox Content="Men's Single" />
+                    </ListViewItem>
+                    <ListViewItem>
+                        <CheckBox Content="Men's Double" />
+                    </ListViewItem>
+                    <ListViewItem>
+                        <CheckBox Content="Women's Double" />
+                    </ListViewItem>
+                </ListView>
+                <TextBox Name="ServerInput" PlaceholderText="Server" RelativePanel.Below="CategoriesSelector"/>
+                <TextBox Name="ReceiverInput" PlaceholderText="Receiver" RelativePanel.Below="ServerInput" Margin="0, 0, 0, 16"/>
+                <TextBox Name="UmpireInput" PlaceholderText="Umpire" RelativePanel.Below="ReceiverInput"/>
+                <TextBox Name="LinemanInput" PlaceholderText="Lineman" RelativePanel.Below="UmpireInput" Margin="0, 0, 0, 16"/>
+                <ComboBox Name="AvaliableCourt" PlaceholderText="Avaliable Court" RelativePanel.Below="LinemanInput">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                    <ComboBoxItem>
+                        <TextBlock Text="Court 1"/>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <TextBlock Text="Court 2"/>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <TextBlock Text="Court 3"/>
+                    </ComboBoxItem>
+                </ComboBox>
+                <ComboBox Name="RoundSelector" PlaceholderText="Round" RelativePanel.Below="AvaliableCourt" Margin="0, 0, 0, 16">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                    <ComboBoxItem>
+                        <TextBlock Text="1st-Round"/>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <TextBlock Text="2nd-Round"/>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <TextBlock Text="Semi-Final"/>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <TextBlock Text="Final"/>
+                    </ComboBoxItem>
+                </ComboBox>
+                <Button Name="Create" Content="Create" RelativePanel.Below="RoundSelector" Click="Create_Click"/>
+                <Button Name="Cancel" Content="Cancel" RelativePanel.Below="RoundSelector" RelativePanel.AlignRightWithPanel="True" Click="Cancel_Click"/>
+            </RelativePanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

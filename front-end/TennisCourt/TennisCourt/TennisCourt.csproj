@@ -104,6 +104,9 @@
     <Compile Include="CourtPage.xaml.cs">
       <DependentUpon>CourtPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NewGamePage.xaml.cs">
+      <DependentUpon>NewGamePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NewMatchPage.xaml.cs">
       <DependentUpon>NewMatchPage.xaml</DependentUpon>
     </Compile>
@@ -181,6 +184,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CourtPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NewGamePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

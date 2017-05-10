@@ -20,16 +20,11 @@ namespace TennisCourt
     /// <summary>
     /// 可用于自身或导航至 Frame 内部的空白页。
     /// </summary>
-    public sealed partial class GamesPage : Page
+    public sealed partial class NewGamePage : Page
     {
-        public GamesPage()
+        public NewGamePage()
         {
             this.InitializeComponent();
-        }
-
-        private void AddGame_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(NewGamePage));
         }
     }
 }
