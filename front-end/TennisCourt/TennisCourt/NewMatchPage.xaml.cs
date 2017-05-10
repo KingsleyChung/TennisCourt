@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using TennisCourt.Models;
 
 // “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=234238 上有介绍
 
@@ -25,9 +26,12 @@ namespace TennisCourt
     /// </summary>
     public sealed partial class NewMatchPage : Page
     {
+        ViewModels.MatchesViewModel ViewModel { get; set; }
+
         public NewMatchPage()
         {
             this.InitializeComponent();
+            this.ViewModel = new ViewModels.MatchesViewModel();
         }
 
         private async void Create_Click(object sender, RoutedEventArgs e)
@@ -62,7 +66,7 @@ namespace TennisCourt
             if (box4 == false) s += "0";
             else s += "1";
             if (box5 == false) s += "0";
-            else s += "1";
+            string startdate = StartDate.Date.DateTime.ToString();
             using (HttpClient client = new HttpClient())
             {
                 try
@@ -70,7 +74,7 @@ namespace TennisCourt
                     var kvp = new List<KeyValuePair<string, string>>
                     {
                         new KeyValuePair<string,string>("matchTitle", title),
-                        new KeyValuePair<string,string>("date", StartDate.ToString()),
+                        new KeyValuePair<string,string>("date", startdate),
                         new KeyValuePair<string,string>("totalPlayers", totalplayer),
                         new KeyValuePair<string,string>("status", "-1"),
                         new KeyValuePair<string,string>("category", s)
@@ -83,7 +87,18 @@ namespace TennisCourt
                         //正确时创建赛事成功
                         if ((string)matchinfo["ok"] != "0")
                         {
-                            
+                            var all = matchinfo;
+                            var matchTitle = (string)matchinfo["matchTitle"];
+                            var fa = (string)matchinfo["date"];
+                            var date = Convert.ToDateTime(fa);
+                            var totalPlayers = (string)matchinfo["totalPlayers"];
+                            var status = (string)matchinfo["status"];
+                            var category = (string)matchinfo["category"];
+                            var matchId = (string)matchinfo["matchId"];
+                            List<string> categorylist = new List<string>();
+                            List<Games> gameslist = new List<Games>();
+                            categorylist.Add(category);
+                            ViewModel.AddMatch(matchTitle, matchId, date, date, categorylist, totalPlayers, gameslist);
                         }
                         //不正确时输出错误信息
                         else
@@ -104,7 +119,42 @@ namespace TennisCourt
 
         }
 
-        private void test()
+        public void test_matching()
+        {
+
+        }
+
+        public void test_endmatch()
+        {
+
+        }
+
+        public void test_allmatch()
+        {
+
+        }
+
+        public void test_creategame()
+        {
+
+        }
+
+        public void test_changegame()
+        {
+
+        }
+
+        public void test_returngame()
+        {
+
+        }
+
+        public void test_changescore()
+        {
+
+        }
+
+        public void test_resetscore()
         {
 
         }

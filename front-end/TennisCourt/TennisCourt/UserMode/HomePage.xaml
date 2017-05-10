@@ -20,10 +20,10 @@
         </Grid.RowDefinitions>
 
         <FlipView Name="PhotoGallery" Grid.Row="0" Grid.ColumnSpan="3">
-            <Image Source="Assets/Federer18.jpg" />
-            <Image Source="Assets/Forehand.jpg" />
-            <Image Source="Assets/Backhand.jpg" />
-            <Image Source="Assets/Volley.jpg" />
+            <Image Source="../Assets/Federer18.jpg" />
+            <Image Source="../Assets/Forehand.jpg" />
+            <Image Source="../Assets/Backhand.jpg" />
+            <Image Source="../Assets/Volley.jpg" />
         </FlipView>
         <ListView Name="MatchOverview" Grid.Row="1" IsItemClickEnabled="True" ItemClick="MatchOverview_ItemClick" ItemsSource="{x:Bind ViewModel.AllSets}">
             <ListView.ItemTemplate>

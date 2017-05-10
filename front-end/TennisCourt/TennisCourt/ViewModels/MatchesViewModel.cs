@@ -33,11 +33,11 @@ namespace TennisCourt.ViewModels
 
 
         //add match
-        public void AddMatch(string matchTitle, string matchID, DateTime start_date, DateTime end_date, List<string> categories, int total_set, int total_player, List<Games> game)
+        public void AddMatch(string matchTitle, string matchID, DateTime start_date, DateTime end_date, List<string> categories, string total_player, List<Games> game)
         {
             allMatches.Add(new Models.Matches(matchTitle, matchID, start_date, end_date, categories, total_player, game));
         }
-
+        /*
         //remove match
         public void RemoveMatch()
         {
@@ -55,14 +55,13 @@ namespace TennisCourt.ViewModels
             selectedMatch.Total_Player = total_player;
             this.selectedMatch = null;
         }
-
-
+        */
         //add game
         public void AddGame(string setID, string server, string receiver, string category, string umpire, string lineman, DateTime date, DateTime start_time, DateTime end_time, string court, string round, string result, List<string> gameScore, string status)
         {
             allSets.Add(new Models.Games(setID, server, receiver, category, umpire, lineman, date, start_time, end_time, court, round, result, gameScore, status));
         }
-
+        /*
         //remove game
         public void RemoveGame()
         {
@@ -87,7 +86,8 @@ namespace TennisCourt.ViewModels
 
             this.selectedSet = null;
         }
-
+        */
+        /*
         //a example for test of HomePage
         public MatchesViewModel()
         {
@@ -95,5 +95,6 @@ namespace TennisCourt.ViewModels
             List<string> t = new List<string>();
             this.allSets.Add(new Models.Games("", "", "", "", "", "", currentTime, currentTime, currentTime, "court 1", "round 2", "", t, "-1"));
         }
+        */
     }
 }

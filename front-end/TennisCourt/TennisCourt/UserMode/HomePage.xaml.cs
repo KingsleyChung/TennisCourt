@@ -44,6 +44,7 @@ namespace TennisCourt
     public sealed partial class HomePage : Page
     {
         ViewModels.MatchesViewModel ViewModel { get; set; }
+
         public HomePage()
         {
             this.InitializeComponent();

@@ -35,7 +35,7 @@ namespace TennisCourt
             //前段验证输入框是否为空
             var username = UsernameInput.Text;
             var password = PasswordInput.Text;
-            //var studentid = StudentIDInput.Text;
+            var studentid = StudentIDInput.Text;
             if (username == "")
             {
                 Message.Text = "Username can not be empty!";
@@ -46,11 +46,11 @@ namespace TennisCourt
                 Message.Text = "Password can not be empty!";
                 return;
             }
-            /*if (studentid == "")
+            if (studentid == "")
             {
                 Message.Text = "StudentID can not be empty!";
                 return;
-            }*/
+            }
             //向后端注册用户
             using (HttpClient client = new HttpClient())
             {
@@ -59,7 +59,7 @@ namespace TennisCourt
                     var kvp = new List<KeyValuePair<string, string>>
                     {
                         new KeyValuePair<string,string>("username", username),
-                        //new KeyValuePair<string,string>("studentid", studentid),
+                        new KeyValuePair<string,string>("studentid", studentid),
                         new KeyValuePair<string,string>("password", password)
                     };
                     HttpResponseMessage response = await client.PostAsync("http://localhost:3000/signin", new FormUrlEncodedContent(kvp));
