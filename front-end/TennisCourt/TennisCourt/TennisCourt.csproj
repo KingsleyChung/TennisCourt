@@ -160,6 +160,7 @@
     <Content Include="Assets\GeneralBackground.jpg" />
     <Content Include="Assets\Poster.jpg" />
     <Content Include="Assets\TennisAssociation.png" />
+    <Content Include="Assets\TennisBall.png" />
     <Content Include="Assets\TennisCourt.png" />
     <Content Include="Assets\Volley.jpg" />
     <Content Include="Properties\Default.rd.xml" />
