@@ -42,12 +42,13 @@ namespace TennisCourt
 
         private void Create_Click(object sender, RoutedEventArgs e)
         {
-
+            Frame.Navigate(typeof(GamesPage));
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
-
+            if (Frame.CanGoBack)
+                Frame.GoBack();
         }
     }
 }
