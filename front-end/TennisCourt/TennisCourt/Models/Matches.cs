@@ -14,6 +14,7 @@ namespace TennisCourt.Models
         private DateTime end_date;
         private string categories;
         private string total_player;
+        private string status;
         private List<Games> game;
 
         public string MatchTitle
@@ -46,13 +47,18 @@ namespace TennisCourt.Models
             get { return total_player; }
             set { SetProperty(ref this.total_player, value); }
         }
+        public string Status
+        {
+            get { return status; }
+            set { SetProperty(ref this.status, value); }
+        }
         public List<Games> Game
         {
             get { return game; }
             set { SetProperty(ref this.game, value); }
         }
 
-        public Matches(string _matchTitle, string _matchID, DateTime _start_date, DateTime _end_date, string _categories, string _total_player, List<Games> _game)
+        public Matches(string _matchTitle, string _matchID, DateTime _start_date, DateTime _end_date, string _categories, string _total_player, string _status, List<Games> _game)
         {
             matchTitle = _matchTitle;
             matchID = _matchID;
@@ -60,6 +66,7 @@ namespace TennisCourt.Models
             end_date = _end_date;
             categories = _categories;
             total_player = _total_player;
+            status = _status;
             game = _game;
         }
     }

@@ -33,9 +33,9 @@ namespace TennisCourt.ViewModels
 
 
         //add match
-        public void AddMatch(string matchTitle, string matchID, DateTime start_date, DateTime end_date, string categories, string total_player, List<Games> game)
+        public void AddMatch(string matchTitle, string matchID, DateTime start_date, DateTime end_date, string categories, string total_player, string status, List<Games> game)
         {
-            allMatches.Add(new Models.Matches(matchTitle, matchID, start_date, end_date, categories, total_player, game));
+            allMatches.Add(new Models.Matches(matchTitle, matchID, start_date, end_date, categories, total_player, status, game));
         }
         /*
         //remove match

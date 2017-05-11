@@ -96,7 +96,7 @@ namespace TennisCourt
                             var category = (string)matchinfo["category"];
                             var matchId = (string)matchinfo["matchId"];
                             List<Games> gameslist = new List<Games>();
-                            ViewModel.AddMatch(matchTitle, matchId, date, date, category, totalPlayers, gameslist);
+                            ViewModel.AddMatch(matchTitle, matchId, date, date, category, totalPlayers, status, gameslist);
 
                             //ViewModel.SelectedItem = (Models.MatchesViewModel)(e.ClickedItem);
                             Frame.Navigate(typeof(Matches), ViewModel);
@@ -119,46 +119,5 @@ namespace TennisCourt
         {
 
         }
-        /*
-        public void test_matching()
-        {
-
-        }
-
-        public void test_endmatch()
-        {
-
-        }
-
-        public void test_allmatch()
-        {
-
-        }
-
-        public void test_creategame()
-        {
-
-        }
-
-        public void test_changegame()
-        {
-
-        }
-
-        public void test_returngame()
-        {
-
-        }
-
-        public void test_changescore()
-        {
-
-        }
-
-        public void test_resetscore()
-        {
-
-        }
-        */
     }
 }

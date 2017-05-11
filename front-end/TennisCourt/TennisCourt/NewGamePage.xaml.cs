@@ -29,8 +29,6 @@ namespace TennisCourt
             this.InitializeComponent();
         }
 
-        private ViewModels.MatchesViewModel ViewModel;
-
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             // Not finish yet
