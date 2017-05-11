@@ -13,7 +13,7 @@ namespace TennisCourt.Models
         public string Password { get; set; }
         public string Mode { get; set; }
 
-        User(string username, string studentID, string password, string mode)
+        public User(string username, string studentID, string password, string mode)
         {
             Username = username;
             StudentID = studentID;

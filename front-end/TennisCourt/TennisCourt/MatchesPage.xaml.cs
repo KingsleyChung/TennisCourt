@@ -72,10 +72,13 @@ namespace TennisCourt
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            
-            if ((string)e.Parameter == "User")
+            if ((ViewModels.MatchesViewModel)e.Parameter != null)
             {
-                CommandBar.Visibility = Visibility.Collapsed;
+                ViewModel = (ViewModels.MatchesViewModel)e.Parameter;
+                if (ViewModel.CurrentUser.Mode == "User")
+                {
+                    CommandBar.Visibility = Visibility.Collapsed;
+                }
             }
         }
 

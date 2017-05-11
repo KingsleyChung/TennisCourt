@@ -35,6 +35,38 @@ namespace TennisCourt
             this.ViewModel = new ViewModels.MatchesViewModel();
         }
 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            if ((ViewModels.MatchesViewModel)e.Parameter != null)
+            {
+                ViewModel = (ViewModels.MatchesViewModel)e.Parameter;
+                if (ViewModel.SelectMatch != null)
+                {
+                    Title.Text = ViewModel.SelectMatch.MatchTitle;
+                    List<CheckBox> checkBoxList = new List<CheckBox>();
+                    checkBoxList.Add(CheckBox1);
+                    checkBoxList.Add(CheckBox2);
+                    checkBoxList.Add(CheckBox3);
+                    checkBoxList.Add(CheckBox4);
+                    checkBoxList.Add(CheckBox5);
+                    for (int i = 0; i < 5; i++)
+                    {
+                        if (ViewModel.SelectMatch.Categories[i] == '1')
+                        {
+                            checkBoxList.ElementAt(i).IsChecked = true;
+                        }
+                    }
+                    StartDate.Date = ViewModel.SelectMatch.Start_Date;
+                    EndDate.Date = ViewModel.SelectMatch.End_Date;
+                    TotalPlayers.Text = ViewModel.SelectMatch.Total_Player;
+                }
+                else
+                {
+                    Finish.Visibility = Visibility.Collapsed;
+                }
+            }
+        }
+
         private async void Create_Click(object sender, RoutedEventArgs e)
         {
             var title = Title.Text;
@@ -48,11 +80,11 @@ namespace TennisCourt
                 TotalPlayers.Text = "Player can not be zero!";
                 return;
             }
-            var box1 = ManSingle.IsChecked;
-            var box2 = WomanSingle.IsChecked;
-            var box3 = ManDouble.IsChecked;
-            var box4 = WomanDouble.IsChecked;
-            var box5 = MixDouble.IsChecked;
+            var box1 = CheckBox1.IsChecked;
+            var box2 = CheckBox2.IsChecked;
+            var box3 = CheckBox3.IsChecked;
+            var box4 = CheckBox4.IsChecked;
+            var box5 = CheckBox5.IsChecked;
             /*if (box1 == false && box2 == false && box3 == false && box4 == false && box5 == false)
             {
 

@@ -31,12 +31,20 @@ namespace TennisCourt
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            // Not finish yet
-            //ViewModel = ((ViewModels.MatchesViewModel)e.Parameter);
-            //if (ViewModel.SelectMatch != null)
+            //Not finish yet
+            //if ((ViewModels.MatchesViewModel)e.Parameter != null)
             //{
-            //    Create.Content = "Update";
-            //    MatchesSelector.SelectedValue = ViewModel.AllMatches.IndexOf(ViewModel.SelectMatch);
+            //    ViewModel = (ViewModels.MatchesViewModel)e.Parameter;
+            //    if (ViewModel.SelectMatch != null)
+            //    {
+            //        Create.Content = "Update";
+            //        MatchTitle.Text = ViewModel.SelectMatch.MatchTitle;
+            //        string category = ViewModel.SelectSet.Category;
+            //        switch (category)
+            //        {
+            //            case ""
+            //        }
+            //    }
             //}
         }
 
