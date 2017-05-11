@@ -10,6 +10,10 @@ namespace TennisCourt.ViewModels
 {
     class MatchesViewModel
     {
+        // User data
+        private Models.User currentUser;
+        public Models.User CurrentUser { get { return this.currentUser; } }
+
         // Matches data
         private ObservableCollection<Models.Matches> allMatches = new ObservableCollection<Models.Matches>();
         public ObservableCollection<Models.Matches> AllMatches { get { return this.allMatches; } }
@@ -31,6 +35,11 @@ namespace TennisCourt.ViewModels
             set { this.selectedSet = value; }
         }
 
+        // add User
+        public void AddUser(string userName, string studentID, string password, string mode)
+        {
+            currentUser = new Models.User(userName, studentID, password, mode);
+        }
 
         //add match
         public void AddMatch(string matchTitle, string matchID, DateTime start_date, DateTime end_date, string categories, string total_player, string status, List<Games> game)
