@@ -22,6 +22,8 @@ namespace TennisCourt
     /// </summary>
     public sealed partial class NewGamePage : Page
     {
+        private ViewModels.MatchesViewModel ViewModel;
+
         public NewGamePage()
         {
             this.InitializeComponent();

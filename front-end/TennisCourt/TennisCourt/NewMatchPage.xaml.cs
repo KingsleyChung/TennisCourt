@@ -95,15 +95,16 @@ namespace TennisCourt
                             var status = (string)matchinfo["status"];
                             var category = (string)matchinfo["category"];
                             var matchId = (string)matchinfo["matchId"];
-                            List<string> categorylist = new List<string>();
                             List<Games> gameslist = new List<Games>();
-                            categorylist.Add(category);
-                            ViewModel.AddMatch(matchTitle, matchId, date, date, categorylist, totalPlayers, gameslist);
+                            ViewModel.AddMatch(matchTitle, matchId, date, date, category, totalPlayers, gameslist);
+
+                            //ViewModel.SelectedItem = (Models.MatchesViewModel)(e.ClickedItem);
+                            Frame.Navigate(typeof(Matches), ViewModel);
                         }
                         //不正确时输出错误信息
                         else
                         {
-                            //Message.Text = (string)userinfo["error"];
+                            //Message.Text = (string)matchinfo["error"];
                         }
                     }
                 }
@@ -118,7 +119,7 @@ namespace TennisCourt
         {
 
         }
-
+        /*
         public void test_matching()
         {
 
@@ -158,5 +159,6 @@ namespace TennisCourt
         {
 
         }
+        */
     }
 }
