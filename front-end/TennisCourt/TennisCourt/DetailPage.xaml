@@ -8,6 +8,75 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <RelativePanel Grid.Row="1" Grid.Column="1">
+            <Ellipse Name="ServerIcon" Width="148" Height="148" Margin="0, 0, 80, 0">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="../Assets/Federer.jpg" />
+                </Ellipse.Fill>
+            </Ellipse>
+            <TextBlock Name="VS_Label" Text="VS" FontSize="100" RelativePanel.AlignVerticalCenterWith="ServerIcon" RelativePanel.RightOf="ServerIcon"/>
+            <Ellipse Name="ReceiverIcon" Width="148" Height="148" Margin="80, 0, 0, 0" RelativePanel.RightOf="VS_Label">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="../Assets/Federer.jpg" />
+                </Ellipse.Fill>
+            </Ellipse>
+            <ListView Name="ScoreDisplay" RelativePanel.AlignLeftWith="ServerIcon" RelativePanel.AlignRightWith="ReceiverIcon" RelativePanel.Below="ReceiverIcon">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListViewItem>
+                    <RelativePanel>
+                        <TextBlock Name="GameNo" Text="Game 6" FontSize="40" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+                        <StackPanel RelativePanel.RightOf="GameNo" >
+                            <Grid Name="DataGrid" BorderBrush="Black" BorderThickness="1"> 
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+                                <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="0">
+                                    <TextBlock Name="ServerName" Text="鍾文杰" FontSize="40"/>
+                                </Border>
+                                <Border BorderBrush="Black" BorderThickness="1" Grid.Row="1" Grid.Column="0" >
+                                    <TextBlock Name="ReceiverName" Text="德约科维奇" FontSize="40" />
+                                </Border>
+                                <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="1">
+                                    <TextBlock Name="Server_SetPoint" Text="5" FontSize="40" />
+                                </Border>
+                                <Border BorderBrush="Black" BorderThickness="1" Grid.Row="1" Grid.Column="1">
+                                    <TextBlock Name="Receiver_SetPoint" Text="0" FontSize="40" />
+                                </Border>
+                                <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="2">
+                                    <TextBlock Name="Server_GamePoint" Text="15" FontSize="40" />
+                                </Border>
+                                <Border BorderBrush="Black" BorderThickness="1" Grid.Row="1" Grid.Column="2">
+                                    <TextBlock Name="Receiver_GamePoint" Text="0" FontSize="40" />
+                                </Border>
+                                <Button Name="Server_Add" Content="Add" Grid.Row="0" Grid.Column="3"/>
+                                <Button Name="Receiver_Add" Content="Add" Grid.Row="1" Grid.Column="3"/>
+                                <Button Name="Recall" />
+                            </Grid>
+                        </StackPanel>
+                    </RelativePanel>
+                </ListViewItem>
+            </ListView>
+        </RelativePanel>
     </Grid>
 </Page>
