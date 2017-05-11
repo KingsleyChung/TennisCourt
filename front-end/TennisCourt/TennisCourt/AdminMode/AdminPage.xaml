@@ -42,24 +42,6 @@
                                 <TextBlock Text="Games" FontSize="40" VerticalAlignment="Center" Margin="16, 0, 0, 0"/>
                             </StackPanel>
                         </ListViewItem>
-                        <!--<ListViewItem Name="DrawsButton">
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="&#xE787;" FontSize="40" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" Margin="16, 0, 0, 0"/>
-                                <TextBlock Text="Draws" FontSize="40" VerticalAlignment="Center" Margin="16, 0, 0, 0"/>
-                            </StackPanel>
-                        </ListViewItem>
-                        <ListViewItem Name="LatestButton">
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="&#xEC44;" FontSize="40" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" Margin="16, 0, 0, 0"/>
-                                <TextBlock Text="Latest" FontSize="40" VerticalAlignment="Center" Margin="16, 0, 0, 0"/>
-                            </StackPanel>
-                        </ListViewItem>
-                        <ListViewItem Name="HistoryButton">
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="&#xE121;" FontSize="40" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" Margin="16, 0, 0, 0"/>
-                                <TextBlock Text="History" FontSize="40" VerticalAlignment="Center" Margin="16, 0, 0, 0"/>
-                            </StackPanel>
-                        </ListViewItem>-->
                     </ListView>
                     <Button Name="SettingsButton" Content="Settings" RelativePanel.AlignBottomWithPanel="True"/>
                     <Button Name="UserButton" Content="User Mode" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True" Click="UserButton_Click"/>

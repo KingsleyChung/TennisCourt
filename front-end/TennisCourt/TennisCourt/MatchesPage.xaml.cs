@@ -17,23 +17,23 @@ using Windows.UI.Xaml.Navigation;
 
 namespace myTransfer
 {
-    public class StatusConverter : IValueConverter
-    {
-        object IValueConverter.Convert(object value, Type targetType, object parameter, string language)
-        {
-            string res = "";
-            string s = (string)value;
-            if (s == "-1") res = "Prepare";
-            else if (s == "0") res = "Play";
-            else res = "End";
-            return res;
-        }
+    //public class StatusConverter : IValueConverter
+    //{
+    //    object IValueConverter.Convert(object value, Type targetType, object parameter, string language)
+    //    {
+    //        string res = "";
+    //        string s = (string)value;
+    //        if (s == "-1") res = "Prepare";
+    //        else if (s == "0") res = "Play";
+    //        else res = "End";
+    //        return res;
+    //    }
 
-        object IValueConverter.ConvertBack(object value, Type targetType, object parameter, string language)
-        {
-            throw new NotImplementedException();
-        }
-    }
+    //    object IValueConverter.ConvertBack(object value, Type targetType, object parameter, string language)
+    //    {
+    //        throw new NotImplementedException();
+    //    }
+    //}
 
     public class CategoriesConverter : IValueConverter
     {
@@ -68,9 +68,11 @@ namespace TennisCourt
             this.InitializeComponent();
         }
 
+        ViewModels.MatchesViewModel ViewModel { get; set; }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            
             if ((string)e.Parameter == "User")
             {
                 CommandBar.Visibility = Visibility.Collapsed;

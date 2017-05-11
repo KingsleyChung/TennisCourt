@@ -16,6 +16,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using TennisCourt.Models;
+using System.Diagnostics;
 
 // “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=234238 上有介绍
 
@@ -66,6 +67,7 @@ namespace TennisCourt
             if (box4 == false) s += "0";
             else s += "1";
             if (box5 == false) s += "0";
+            else s += "1";
             string startdate = StartDate.Date.DateTime.ToString();
             using (HttpClient client = new HttpClient())
             {
@@ -79,10 +81,11 @@ namespace TennisCourt
                         new KeyValuePair<string,string>("status", "-1"),
                         new KeyValuePair<string,string>("category", s)
                     };
-                    HttpResponseMessage response = await client.PostAsync("http://localhost:3000/creatematch", new FormUrlEncodedContent(kvp));
+                    HttpResponseMessage response = await client.PostAsync("http://www.zhengweimumu.cn:3000/creatematch", new FormUrlEncodedContent(kvp));
                     if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
                     {
                         string responseBody = await response.Content.ReadAsStringAsync();
+                        Debug.WriteLine(responseBody);
                         var matchinfo = JObject.Parse(responseBody);
                         //正确时创建赛事成功
                         if ((string)matchinfo["ok"] != "0")
@@ -99,7 +102,7 @@ namespace TennisCourt
                             ViewModel.AddMatch(matchTitle, matchId, date, date, category, totalPlayers, status, gameslist);
 
                             //ViewModel.SelectedItem = (Models.MatchesViewModel)(e.ClickedItem);
-                            Frame.Navigate(typeof(Matches), ViewModel);
+                            Frame.Navigate(typeof(MatchesPage), ViewModel);
                         }
                         //不正确时输出错误信息
                         else

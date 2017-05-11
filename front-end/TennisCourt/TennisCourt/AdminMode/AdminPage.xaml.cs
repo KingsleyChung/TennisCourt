@@ -27,9 +27,13 @@ namespace TennisCourt
             this.InitializeComponent();
         }
 
+
+        ViewModels.MatchesViewModel ViewModel;
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             myFrame.Navigate(typeof(MatchesPage), "Administrator");
+            ViewModel = (ViewModels.MatchesViewModel)e.Parameter;
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
