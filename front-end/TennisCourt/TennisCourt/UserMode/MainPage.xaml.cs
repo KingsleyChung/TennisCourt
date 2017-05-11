@@ -45,7 +45,7 @@ namespace TennisCourt
                     myFrame.Navigate(typeof(HomePage));
                     break;
                 case 1:
-                    myFrame.Navigate(typeof(MatchesPage), "User");
+                    myFrame.Navigate(typeof(MatchesPage));
                     break;
                 case 2:
                     myFrame.Navigate(typeof(DrawsPage));

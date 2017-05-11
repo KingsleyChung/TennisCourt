@@ -15,7 +15,8 @@
     </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <GridView Name ="matches" IsItemClickEnabled="True" ItemClick="matches_ItemClick" ItemsSource="{x:Bind ViewModel.AllMatches}">
+        <GridView Name ="matches" IsItemClickEnabled="True" 
+                  ItemClick="matches_ItemClick" ItemsSource="{x:Bind ViewModel.AllMatches}">
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="md:Matches">
                     <RelativePanel>
@@ -29,7 +30,7 @@
                 </DataTemplate>
             </GridView.ItemTemplate>
         </GridView>
-        <GridViewItem>
+        <!--<GridViewItem>
             <RelativePanel>
                 <Image Name="Poster" Height="200" Source="Assets/Poster.jpg"/>
                 <RelativePanel Margin="20, 0, 0, 0" RelativePanel.RightOf="Poster" RelativePanel.AlignVerticalCenterWithPanel="True">
@@ -38,7 +39,7 @@
                     <TextBlock Name="Status" Text="Finished" FontSize="36" RelativePanel.Below="Categories"/>
                 </RelativePanel>
             </RelativePanel>
-        </GridViewItem>
+        </GridViewItem>-->
     </Grid>
     <Page.BottomAppBar>
         <CommandBar Name="CommandBar">

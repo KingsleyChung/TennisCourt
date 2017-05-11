@@ -40,12 +40,12 @@ namespace TennisCourt
             var title = Title.Text;
             var totalplayer = TotalPlayers.Text;
             if (title == "") {
-                Title.Text = "Title can not be empty!";
+                Message.Text = "Title can not be empty!";
                 return;
             }
             if (totalplayer == "")
             {
-                TotalPlayers.Text = "Player can not be zero!";
+                Message.Text = "Player can not be zero!";
                 return;
             }
             var box1 = ManSingle.IsChecked;
@@ -53,10 +53,10 @@ namespace TennisCourt
             var box3 = ManDouble.IsChecked;
             var box4 = WomanDouble.IsChecked;
             var box5 = MixDouble.IsChecked;
-            /*if (box1 == false && box2 == false && box3 == false && box4 == false && box5 == false)
+            if (box1 == false && box2 == false && box3 == false && box4 == false && box5 == false)
             {
-
-            }*/
+                Message.Text = "Catalory can not empty!";
+            }
             string s = "";
             if (box1 == false) s += "0";
             else s += "1";
@@ -81,7 +81,7 @@ namespace TennisCourt
                         new KeyValuePair<string,string>("status", "-1"),
                         new KeyValuePair<string,string>("category", s)
                     };
-                    HttpResponseMessage response = await client.PostAsync("http://www.zhengweimumu.cn:3000/creatematch", new FormUrlEncodedContent(kvp));
+                    HttpResponseMessage response = await client.PostAsync("http://localhost:3000/creatematch", new FormUrlEncodedContent(kvp));
                     if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
                     {
                         string responseBody = await response.Content.ReadAsStringAsync();
@@ -107,7 +107,7 @@ namespace TennisCourt
                         //不正确时输出错误信息
                         else
                         {
-                            //Message.Text = (string)matchinfo["error"];
+                            Message.Text = (string)matchinfo["error"];
                         }
                     }
                 }

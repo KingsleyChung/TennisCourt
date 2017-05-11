@@ -30,7 +30,22 @@ namespace TennisCourt.ViewModels
             get { return selectedSet; }
             set { this.selectedSet = value; }
         }
+        // SpecialGames data
+        private ObservableCollection<Models.Games> allspecialSets = new ObservableCollection<Models.Games>();
+        public ObservableCollection<Models.Games> AllSpecialSets { get { return this.allSets; } }
 
+        private Models.Games selectedspecialSet = default(Models.Games);
+        public Models.Games SelectSpecialSet
+        {
+            get { return selectedspecialSet; }
+            set { this.selectedspecialSet = value; }
+        }
+
+        //add specialgame
+        public void AddSpecialGame(string setID, string server, string receiver, string category, string umpire, string lineman, DateTime date, DateTime start_time, DateTime end_time, string court, string round, string result, List<string> gameScore, string status)
+        {
+            allspecialSets.Add(new Models.Games(setID, server, receiver, category, umpire, lineman, date, start_time, end_time, court, round, result, gameScore, status));
+        }
 
         //add match
         public void AddMatch(string matchTitle, string matchID, DateTime start_date, DateTime end_date, string categories, string total_player, string status, List<Games> game)

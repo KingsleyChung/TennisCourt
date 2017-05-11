@@ -41,10 +41,10 @@ namespace myTransfer
         {
             string res = "";
             string s = (string)value;
-            if (s[0] == '1') res += "Man-Single";
-            if (s[1] == '1') res += "Woman-Single";
-            if (s[2] == '1') res += "Men-Double";
-            if (s[3] == '1') res += "Women-Dobule";
+            if (s[0] == '1') res += "Man-Single ";
+            if (s[1] == '1') res += "Woman-Single ";
+            if (s[2] == '1') res += "Men-Double ";
+            if (s[3] == '1') res += "Women-Dobule ";
             if (s[4] == '1') res += "Mix-Double";
             return res;
         }
@@ -68,25 +68,29 @@ namespace TennisCourt
             this.InitializeComponent();
         }
 
-        ViewModels.MatchesViewModel ViewModel { get; set; }
+        private ViewModels.MatchesViewModel ViewModel;
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            
+            /*
             if ((string)e.Parameter == "User")
             {
                 CommandBar.Visibility = Visibility.Collapsed;
             }
+            */
+
+            ViewModel = ((ViewModels.MatchesViewModel)e.Parameter);
         }
 
         private void AddMatch_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(NewMatchPage));
+            Frame.Navigate(typeof(NewMatchPage), ViewModel);
         }
 
         private void matches_ItemClick(object sender, ItemClickEventArgs e)
         {
-
+            ViewModel.SelectMatch = (Models.Matches)(e.ClickedItem);
+            Frame.Navigate(typeof(GamesPage), ViewModel);
         }
     }
 }
