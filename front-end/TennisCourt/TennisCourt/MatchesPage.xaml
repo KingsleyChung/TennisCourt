@@ -34,7 +34,7 @@
         </GridViewItem>
     </Grid>
     <Page.BottomAppBar>
-        <CommandBar>
+        <CommandBar Name="CommandBar">
             <AppBarButton Name="AddMatch" Icon="Add" Label="Add Match" Click="AddMatch_Click"/>
         </CommandBar>
     </Page.BottomAppBar>

@@ -95,6 +95,7 @@
                     </RelativePanel>
                 </ListViewItem>
             </ListView>
+            <Button Name="GameOver" Content="Game Over" RelativePanel.Below="ScoreDisplay"/>
         </RelativePanel>
     </Grid>
 </Page>

@@ -27,6 +27,11 @@ namespace TennisCourt
             this.InitializeComponent();
         }
 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            myFrame.Navigate(typeof(MatchesPage), "Administrator");
+        }
+
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (myFrame == null)
@@ -36,20 +41,11 @@ namespace TennisCourt
             switch (AdminMenu.SelectedIndex)
             {
                 case 0:
-                    myFrame.Navigate(typeof(MatchesPage));
+                    myFrame.Navigate(typeof(MatchesPage), "Administrator");
                     break;
                 case 1:
                     myFrame.Navigate(typeof(GamesPage));
                     break;
-                //case 2:
-                //    myFrame.Navigate(typeof(DrawsPage));
-                //    break;
-                //case 3:
-                //    myFrame.Navigate(typeof(LatestPage));
-                //    break;
-                //case 4:
-                //    myFrame.Navigate(typeof(HistoryPage));
-                //    break;
             }
         }
 

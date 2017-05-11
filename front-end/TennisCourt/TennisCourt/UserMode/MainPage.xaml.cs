@@ -27,6 +27,12 @@ namespace TennisCourt
             this.InitializeComponent();
         }
 
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            myFrame.Navigate(typeof(HomePage));
+        }
+
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (myFrame == null)
@@ -39,7 +45,7 @@ namespace TennisCourt
                     myFrame.Navigate(typeof(HomePage));
                     break;
                 case 1:
-                    myFrame.Navigate(typeof(MatchesPage));
+                    myFrame.Navigate(typeof(MatchesPage), "User");
                     break;
                 case 2:
                     myFrame.Navigate(typeof(DrawsPage));

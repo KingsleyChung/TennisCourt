@@ -27,6 +27,19 @@ namespace TennisCourt
             this.InitializeComponent();
         }
 
+        private ViewModels.MatchesViewModel ViewModel;
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            // Not finish yet
+            //ViewModel = ((ViewModels.MatchesViewModel)e.Parameter);
+            //if (ViewModel.SelectMatch != null)
+            //{
+            //    Create.Content = "Update";
+            //    MatchesSelector.SelectedValue = ViewModel.AllMatches.IndexOf(ViewModel.SelectMatch);
+            //}
+        }
+
         private void Create_Click(object sender, RoutedEventArgs e)
         {
 

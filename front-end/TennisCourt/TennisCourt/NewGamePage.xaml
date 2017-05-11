@@ -20,7 +20,7 @@
         </Grid.ColumnDefinitions>
         <ScrollViewer Grid.Row="1" Grid.Column="1" VerticalScrollBarVisibility="Hidden">
             <RelativePanel>
-                <ComboBox Name="MatchesSelector" PlaceholderText="Which match" Margin="0, 0, 0, 16">
+                <!--<ComboBox Name="MatchesSelector" PlaceholderText="Which match" Margin="0, 0, 0, 16">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             
@@ -36,34 +36,30 @@
                     <ComboBoxItem>
                         <TextBlock Text="2017年中山大学三校区网球联赛" />
                     </ComboBoxItem>
+                </ComboBox>-->
+                <TextBlock Name="MatchTitle" Text="2017年中山大学三校区网球联赛" Margin="0, 0, 0, 16"/>
+                <ComboBox Name="CategoriesSelector" PlaceholderText="比赛项目" Margin="0, 0, 0, 16" BorderBrush="Black" BorderThickness="1" RelativePanel.Below="MatchTitle">
+                    <ComboBoxItem>
+                        <CheckBox Content="男子单打" />
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <CheckBox Content="女子单打" />
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <CheckBox Content="男子双打" />
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <CheckBox Content="女子双打" />
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <CheckBox Content="混合双打" />
+                    </ComboBoxItem>
                 </ComboBox>
-                <ListView Name="CategoriesSelector" Margin="0, 0, 0, 16" BorderBrush="Black" BorderThickness="1" RelativePanel.Below="MatchesSelector">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-
-                    <ListViewItem>
-                        <CheckBox Content="Men's Single" />
-                    </ListViewItem>
-                    <ListViewItem>
-                        <CheckBox Content="Men's Double" />
-                    </ListViewItem>
-                    <ListViewItem>
-                        <CheckBox Content="Women's Double" />
-                    </ListViewItem>
-                </ListView>
-                <TextBox Name="ServerInput" PlaceholderText="Server" RelativePanel.Below="CategoriesSelector"/>
-                <TextBox Name="ReceiverInput" PlaceholderText="Receiver" RelativePanel.Below="ServerInput" Margin="0, 0, 0, 16"/>
-                <TextBox Name="UmpireInput" PlaceholderText="Umpire" RelativePanel.Below="ReceiverInput"/>
-                <TextBox Name="LinemanInput" PlaceholderText="Lineman" RelativePanel.Below="UmpireInput" Margin="0, 0, 0, 16"/>
-                <ComboBox Name="AvaliableCourt" PlaceholderText="Avaliable Court" RelativePanel.Below="LinemanInput">
-                    <ComboBox.ItemTemplate>
-                        <DataTemplate>
-                            
-                        </DataTemplate>
-                    </ComboBox.ItemTemplate>
+                <TextBox Name="ServerInput" PlaceholderText="发球方" RelativePanel.Below="CategoriesSelector"/>
+                <TextBox Name="ReceiverInput" PlaceholderText="接发方" RelativePanel.Below="ServerInput" Margin="0, 0, 0, 16"/>
+                <TextBox Name="UmpireInput" PlaceholderText="裁判" RelativePanel.Below="ReceiverInput"/>
+                <TextBox Name="LinemanInput" PlaceholderText="线审" RelativePanel.Below="UmpireInput" Margin="0, 0, 0, 16"/>
+                <ComboBox Name="AvaliableCourt" PlaceholderText="可用场地" RelativePanel.Below="LinemanInput">
                     <ComboBoxItem>
                         <TextBlock Text="Court 1"/>
                     </ComboBoxItem>
@@ -72,6 +68,15 @@
                     </ComboBoxItem>
                     <ComboBoxItem>
                         <TextBlock Text="Court 3"/>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <TextBlock Text="Court 4"/>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <TextBlock Text="Court 5"/>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <TextBlock Text="Court 6"/>
                     </ComboBoxItem>
                 </ComboBox>
                 <ComboBox Name="RoundSelector" PlaceholderText="Round" RelativePanel.Below="AvaliableCourt" Margin="0, 0, 0, 16">
@@ -93,8 +98,9 @@
                         <TextBlock Text="Final"/>
                     </ComboBoxItem>
                 </ComboBox>
-                <Button Name="Create" Content="Create" RelativePanel.Below="RoundSelector" Click="Create_Click"/>
-                <Button Name="Cancel" Content="Cancel" RelativePanel.Below="RoundSelector" RelativePanel.AlignRightWithPanel="True" Click="Cancel_Click"/>
+                <TextBlock Name="Message" Text="Error Message" Foreground="Red" RelativePanel.Below="RoundSelector" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0, 0, 0, 16"/>
+                <Button Name="Create" Content="Create" RelativePanel.Below="Message" Click="Create_Click"/>
+                <Button Name="Cancel" Content="Cancel" RelativePanel.Below="Message" RelativePanel.AlignRightWithPanel="True" Click="Cancel_Click"/>
             </RelativePanel>
         </ScrollViewer>
     </Grid>

@@ -27,6 +27,15 @@ namespace TennisCourt
             this.InitializeComponent();
         }
 
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            if ((string)e.Parameter == "User")
+            {
+                CommandBar.Visibility = Visibility.Collapsed;
+            }
+        }
+
         private void AddMatch_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(NewMatchPage));

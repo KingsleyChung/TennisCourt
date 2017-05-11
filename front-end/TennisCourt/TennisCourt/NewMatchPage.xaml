@@ -33,8 +33,9 @@
                 <DatePicker Name="StartDate" RelativePanel.Below="CategoriesSeletor"/>
                 <DatePicker Name="EndDate" RelativePanel.Below="StartDate" Margin="0, 0, 0, 20"/>
                 <TextBox Name="TotalPlayers" PlaceholderText="Total players" RelativePanel.Below="EndDate" Margin="0, 0, 0, 16"/>
-                <Button Name="Create" Content="Create" RelativePanel.Below="TotalPlayers" Click="Create_Click"/>
-                <Button Name="Cancel" Content="Cancel" RelativePanel.Below="TotalPlayers" RelativePanel.AlignRightWithPanel="True" Click="Cancel_Click"/>
+                <TextBlock Name="Message" Text="Error Message" Foreground="Red" RelativePanel.Below="TotalPlayers" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0, 0, 0, 16"/>
+                <Button Name="Create" Content="Create" RelativePanel.Below="Message" Click="Create_Click"/>
+                <Button Name="Cancel" Content="Cancel" RelativePanel.Below="Message" RelativePanel.AlignRightWithPanel="True" Click="Cancel_Click"/>
             </RelativePanel>
         </ScrollViewer>
     </Grid>
