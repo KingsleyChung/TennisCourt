@@ -146,8 +146,18 @@ module.exports = function (db) {
                 value.totalGames = game;
                 value.result = result;
                 console.log(value);
+                if(!value) {
+                    return new Promise(function (resolve, reject) {
+                        var resetError = {};
+                        resetError.ok = "0";
+                        resetError.error = "The Database don't has this game";
+                        return new Promise(function (resolve, result) {
+                            reject(resetError);
+                        })
+                    })
+                }
                 if(value.hasOwnProperty(str)) {
-                    value[str] += score + ",";
+                    value[str].push(score);
                     return childrenGames.findOneAndReplace({matchId : matchId}, value).then(function () {
                        return new Promise(function (resolve, reject) {
                           resolve(value);
@@ -155,7 +165,9 @@ module.exports = function (db) {
                     });
                 }
                 else {
-                    value[str] = score + ",";
+                    var array = [];
+                    array.push(score);
+                    value[str] = array;
                     return childrenGames.findOneAndReplace({matchId : matchId}, value).then(function () {
                         return new Promise(function (resolve, reject) {
                             resolve(value);
@@ -169,17 +181,24 @@ module.exports = function (db) {
             return childrenGames.findOne({matchId : matchId}).then(function (value) {
                var num = 1;
                var str = "game" + num;
+               if(!value) {
+                   return new Promise(function (resolve, reject) {
+                       var resetError = {};
+                       resetError.ok = "0";
+                       resetError.error = "The Database don't has this game";
+                       return new Promise(function (resolve, result) {
+                           reject(resetError);
+                       })
+                   })
+               }
                while(value.hasOwnProperty(str)) {
                    num++;
                    str = "game" + num;
                }
                var gamenum = "game" + (num - 1);
-               var testscore = value[gamenum].substr(0, value[gamenum].length - 1);
-               var tot = testscore.lastIndexOf(",");
-               console.log(testscore);
-               console.log(testscore.substr(tot + 1));
-               if(testscore.substr(tot + 1) == score) {
-                   value[gamenum] = value[gamenum].substr(0, tot + 1);
+               var item = value[gamenum];
+               if(item[item.length - 1] == score) {
+                   value[gamenum].pop();
                    return childrenGames.findOneAndReplace({matchId : matchId}, value).then(function () {
                        return new Promise(function (resolve, result) {
                           resolve(value);
