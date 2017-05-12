@@ -65,6 +65,17 @@ module.exports = function (db) {
            res.send(error).status(204).end();
        }
     });
+    //放回指定赛事下的子比赛
+    router.post('/matchgame', async function (req, res, next) {
+        var matchId = req.body.matchId;
+        try {
+            let returnValue = await childrenGameManager.returnOneMatchGames(matchId);
+            res.send(returnValue).status(200).end();
+        }
+        catch (error) {
+            res.send(error).status(204).end();
+        }
+    });
 
 
     //赛事创建相关api

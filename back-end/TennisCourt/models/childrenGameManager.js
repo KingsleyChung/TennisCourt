@@ -197,6 +197,24 @@ module.exports = function (db) {
                    })
                }
             });
+        },
+
+        returnOneMatchGames : async function (matchId) {
+            var returnValue = {};
+            let message = await childrenGames.find({parentId : matchId}).toArray();
+            return new Promise(function (resolve, reject) {
+                if(message.length) {
+                    returnValue.games = message;
+                    returnValue.ok = "1";
+                    returnValue.error = "";
+                    resolve(returnValue);
+                }
+                else {
+                    returnValue.error = "This Match has no games";
+                    returnValue.ok = "0";
+                    reject(returnValue);
+                }
+            })
         }
     };
     return childrenGamesManager;
