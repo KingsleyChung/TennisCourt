@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using TennisCourt.Models;
 
 // “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=234238 上有介绍
 
@@ -45,7 +46,7 @@ namespace TennisCourt
             court6.Visibility = Visibility.Visible;
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             // Not finish yet
             //ViewModel = ((ViewModels.MatchesViewModel)e.Parameter);
@@ -56,6 +57,58 @@ namespace TennisCourt
             //}
 
             ViewModel = ((ViewModels.MatchesViewModel)e.Parameter);
+
+            //插入games到matches
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    var kvp = new List<KeyValuePair<string, string>>
+                    {
+                        new KeyValuePair<string,string>("matchId", ViewModel.SelectMatch.MatchID)
+                    };
+                    HttpResponseMessage response = await client.PostAsync("http://localhost:3000/matchgame", new FormUrlEncodedContent(kvp));
+                    if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
+                    {
+                        string responseBody = await response.Content.ReadAsStringAsync();
+                        var gameinfo = JObject.Parse(responseBody);
+                        if ((string)gameinfo["ok"] != "0")
+                        {
+                            var allgame = (JArray)gameinfo["games"];
+                            for (int i = 0; i < allgame.Count; i++)
+                            {
+                                var setId = (string)allgame[i]["matchId"];
+                                var player1 = (string)allgame[i]["player1"];
+                                var player2 = (string)allgame[i]["player2"];
+                                var cata = (string)allgame[i]["catagory"];
+                                var ump = (string)allgame[i]["umpire"];
+                                var line = (string)allgame[i]["lineman"];
+                                var res = (string)allgame[i]["result"];
+                                var cour = (string)allgame[i]["court"];
+                                var rou = (string)allgame[i]["round"];
+                                var status = (string)allgame[i]["status"];
+                                var fa = (string)allgame[i]["date"];
+                                var date = Convert.ToDateTime(fa);
+                                List<string> score = new List<string>();
+                                ViewModel.AddSpecialGame(setId, player1, player2, cata, ump, line, date, date, date, cour, rou, res, score, status);
+                                Games game = ViewModel.AllSpecialSets.ElementAt(ViewModel.AllSpecialSets.Count - 1);
+                                for (int j = 0; j < ViewModel.AllMatches.Count; j++)
+                                {
+                                    if (ViewModel.AllMatches.ElementAt(j).MatchID == ViewModel.SelectMatch.MatchID)
+                                    {
+                                        var selectMatch = ViewModel.AllMatches.ElementAt(j);
+                                        selectMatch.Game.Add(game);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                catch (HttpRequestException ex)
+                {
+                    await new MessageDialog(ex.Message).ShowAsync();
+                }
+            }
 
             MatchTitle.Text = ViewModel.SelectMatch.MatchTitle;
             string catagory = "";
@@ -70,7 +123,9 @@ namespace TennisCourt
                     {
                         if (tmp[j].Status == "0" || tmp[j].Status == "-1")
                         {
-                            int num = int.Parse(tmp[j].Court);
+                            string s = tmp[j].Court;
+                            s = s.Substring(6, 1);
+                            int num = int.Parse(s);
                             emptycourt[num] = '0';
                         }
                     }
@@ -115,15 +170,22 @@ namespace TennisCourt
                 return;
             }
 
+            string[] allcatagory = new string[5] { "男子单打", "女子单打", "男子双打", "女子双打", "混合双打" };
+            string[] allcourt = new string[6] { "Court 1", "Court 2", "Court 3", "Court 4", "Court 5", "Court 6" };
+            string[] allround = new string[4] { "1st-Round", "2nd-Round", "Semi-Final", "Final" };
+
             var matchId = ViewModel.SelectMatch.MatchID;
             var server = ServerInput.Text;
             var receiver = ReceiverInput.Text;
             var umpire = UmpireInput.Text;
             var lineman = LinemanInput.Text;
-            var court = AvaliableCourt.SelectedItem.ToString();
-            var round = RoundSelector.SelectedItem.ToString();
-            var selectcatagory = CategoriesSelector.SelectedItem.ToString();
-            CategoriesSelector.PlaceholderText = selectcatagory;
+            var courtnum = AvaliableCourt.SelectedIndex;
+            var roundnum = RoundSelector.SelectedIndex;
+            var catagorynum = CategoriesSelector.SelectedIndex;
+            var court = allcourt[courtnum];
+            var round = allround[roundnum];
+            var catagory = allcatagory[catagorynum];
+            CategoriesSelector.PlaceholderText = catagory;
             AvaliableCourt.PlaceholderText = court;
             RoundSelector.PlaceholderText = round;
             using (HttpClient client = new HttpClient())
@@ -135,11 +197,11 @@ namespace TennisCourt
                         new KeyValuePair<string,string>("matchId", matchId),
                         new KeyValuePair<string,string>("player1", server),
                         new KeyValuePair<string,string>("player2", receiver),
-                        new KeyValuePair<string,string>("catagory", selectcatagory),
+                        new KeyValuePair<string,string>("catagory", catagory),
                         new KeyValuePair<string,string>("umpire", umpire),
                         new KeyValuePair<string,string>("lineman", lineman),
                         new KeyValuePair<string,string>("court", court),
-                        new KeyValuePair<string,string>("round", round),
+                        new KeyValuePair<string,string>("round", round)
                     };
                     HttpResponseMessage response = await client.PostAsync("http://localhost:3000/creategame", new FormUrlEncodedContent(kvp));
                     if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
@@ -155,13 +217,23 @@ namespace TennisCourt
                             var player2 = (string)gameinfo["player2"];
                             var cata = (string)gameinfo["catagory"];
                             var ump = (string)gameinfo["umpire"];
-                            //var line = (string)gameinfo["lineman"];
-                            var line = lineman;
+                            var line = (string)gameinfo["lineman"];
                             var cour = (string)gameinfo["court"];
                             var rou = (string)gameinfo["round"];
-                            var date = System.DateTime.Now;
+                            var fa = (string)gameinfo["date"];
+                            var date = Convert.ToDateTime(fa);
                             List<string> score = new List<string>();
-                            ViewModel.AddGame(setId, player1, player2, cata, ump, line, date, date, date, cour, rou, "0-0", score, "-1");
+                            ViewModel.AddSpecialGame(setId, player1, player2, cata, ump, line, date, date, date, cour, rou, "0-0", score, "-1");
+
+                            Games game = ViewModel.AllSpecialSets.ElementAt(ViewModel.AllSpecialSets.Count - 1);
+                            for (int j = 0; j < ViewModel.AllMatches.Count; j++)
+                            {
+                                if (ViewModel.AllMatches.ElementAt(j).MatchID == ViewModel.SelectMatch.MatchID)
+                                {
+                                    var selectMatch = ViewModel.AllMatches.ElementAt(j);
+                                    selectMatch.Game.Add(game);
+                                }
+                            }
 
                             Frame.Navigate(typeof(GamesPage), ViewModel);
                         }
@@ -177,8 +249,6 @@ namespace TennisCourt
                     await new MessageDialog(ex.Message).ShowAsync();
                 }
             }
-
-            Frame.Navigate(typeof(GamesPage), ViewModel);
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)

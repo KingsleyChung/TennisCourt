@@ -22,19 +22,22 @@ namespace TennisCourt
     /// </summary>
     public sealed partial class EntrancePage : Page
     {
+        ViewModels.MatchesViewModel ViewModel { get; set; }
+        
         public EntrancePage()
         {
             this.InitializeComponent();
+            this.ViewModel = new ViewModels.MatchesViewModel();
         }
 
         private void SignInButton_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(SignIn));
+            Frame.Navigate(typeof(SignIn), ViewModel);
         }
 
         private void SignUpButton_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(SignUp));
+            Frame.Navigate(typeof(SignUp), ViewModel);
         }
     }
 }
