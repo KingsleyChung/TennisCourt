@@ -22,19 +22,32 @@ namespace TennisCourt
     /// </summary>
     public sealed partial class ReadyPage : Page
     {
+        private ViewModels.MatchesViewModel ViewModel;
+
         public ReadyPage()
         {
             this.InitializeComponent();
         }
 
-        ViewModels.MatchesViewModel ViewModel { get; set; }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             ViewModel = (ViewModels.MatchesViewModel)e.Parameter;
+            Player1.Text = ViewModel.SelectSpecialSet.Server;
+            Player2.Text = ViewModel.SelectSpecialSet.Receiver;
         }
 
         private void Start_Click(object sender, RoutedEventArgs e)
         {
+            if (ViewModel.SelectSpecialSet != null)
+            {
+                string[] tmp = new string[2] { Player1.Text, Player2.Text };
+                if (tmp[Server.SelectedIndex] != Player1.Text)
+                {
+                    Server.PlaceholderText = tmp[Server.SelectedIndex];
+                    ViewModel.SelectSpecialSet.Server = Player2.Text;
+                    ViewModel.SelectSpecialSet.Receiver = Player1.Text;
+                }
+            }
             Frame.Navigate(typeof(DetailPage), ViewModel);
         }
     }

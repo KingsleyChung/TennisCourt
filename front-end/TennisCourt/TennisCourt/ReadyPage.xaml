@@ -23,10 +23,10 @@
             <TextBlock Name="Time" Text="5:00" RelativePanel.Below="Label"/>
             <ComboBox Name="Server" PlaceholderText="发球方" RelativePanel.Below="Time">
                 <ComboBoxItem>
-                    <TextBlock Text="鍾文杰"/>
+                    <TextBlock Name="Player1" Text="鍾文杰"/>
                 </ComboBoxItem>
                 <ComboBoxItem>
-                    <TextBlock Text="德约科维奇" />
+                    <TextBlock  Name="Player2" Text="德约科维奇" />
                 </ComboBoxItem>
             </ComboBox>
             <Button Name="Start" Content="Start Game" RelativePanel.Below="Server" Click="Start_Click"/>

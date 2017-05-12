@@ -106,7 +106,8 @@ namespace TennisCourt
 
         private void games_ItemClick(object sender, ItemClickEventArgs e)
         {
-
+            ViewModel.SelectSpecialSet = (Models.Games)(e.ClickedItem);
+            Frame.Navigate(typeof(ReadyPage), ViewModel);
         }
     }
 }
