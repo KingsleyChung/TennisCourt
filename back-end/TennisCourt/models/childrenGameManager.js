@@ -153,6 +153,7 @@ module.exports = function (db) {
                 }
                 value.totalGames = game;
                 value.result = result;
+                value.finalscore = score;
                 console.log(value);
                 if(value.hasOwnProperty(str)) {
                     value[str].push(score);
@@ -195,6 +196,7 @@ module.exports = function (db) {
                var item = value[gamenum];
                if(item[item.length - 1] == score) {
                    value[gamenum].pop();
+                   value.finalscore = value[gamenum][value[gamenum].length - 1];
                    return childrenGames.findOneAndReplace({matchId : matchId}, value).then(function () {
                        return new Promise(function (resolve, result) {
                           resolve(value);
