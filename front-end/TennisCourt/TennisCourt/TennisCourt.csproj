@@ -92,9 +92,6 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminMode\AdminPage.xaml.cs">
-      <DependentUpon>AdminPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -114,22 +111,22 @@
     <Compile Include="NewMatchPage.xaml.cs">
       <DependentUpon>NewMatchPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserMode\DrawsPage.xaml.cs">
+    <Compile Include="DrawsPage.xaml.cs">
       <DependentUpon>DrawsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="EntrancePage.xaml.cs">
       <DependentUpon>EntrancePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserMode\HistoryPage.xaml.cs">
+    <Compile Include="HistoryPage.xaml.cs">
       <DependentUpon>HistoryPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserMode\HomePage.xaml.cs">
+    <Compile Include="HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserMode\LatestPage.xaml.cs">
+    <Compile Include="LatestPage.xaml.cs">
       <DependentUpon>LatestPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserMode\MainPage.xaml.cs">
+    <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MatchesPage.xaml.cs">
@@ -157,6 +154,7 @@
     <Content Include="Assets\Cloudy.png" />
     <Content Include="Assets\Federer.jpg" />
     <Content Include="Assets\Federer18.jpg" />
+    <Content Include="Assets\FlipBackground.jpg" />
     <Content Include="Assets\Forehand.jpg" />
     <Content Include="Assets\GeneralBackground.jpg" />
     <Content Include="Assets\Poster.jpg" />
@@ -180,10 +178,6 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="AdminMode\AdminPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="GamesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -204,7 +198,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserMode\DrawsPage.xaml">
+    <Page Include="DrawsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -212,19 +206,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserMode\HistoryPage.xaml">
+    <Page Include="HistoryPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserMode\HomePage.xaml">
+    <Page Include="HomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserMode\LatestPage.xaml">
+    <Page Include="LatestPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserMode\MainPage.xaml">
+    <Page Include="MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -34,7 +34,7 @@ namespace TennisCourt
         {
             //前段验证输入框是否为空
             var username = UsernameInput.Text;
-            var password = PasswordInput.Text;
+            var password = PasswordInput.Password;
             var studentid = StudentIDInput.Text;
             if (username == "")
             {

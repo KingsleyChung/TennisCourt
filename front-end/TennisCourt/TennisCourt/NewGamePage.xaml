@@ -20,33 +20,16 @@
         </Grid.ColumnDefinitions>
         <ScrollViewer Grid.Row="1" Grid.Column="1" VerticalScrollBarVisibility="Hidden">
             <RelativePanel>
-                <!--<ComboBox Name="MatchesSelector" PlaceholderText="Which match" Margin="0, 0, 0, 16">
-                    <ComboBox.ItemTemplate>
-                        <DataTemplate>
-                            
-                        </DataTemplate>
-                    </ComboBox.ItemTemplate>
-
-                    <ComboBoxItem>
-                        <TextBlock Text="2017年中东网球公开赛" />
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        <TextBlock Text="2017年康乐杯网球联赛" />
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        <TextBlock Text="2017年中山大学三校区网球联赛" />
-                    </ComboBoxItem>
-                </ComboBox>-->
                 <TextBlock Name="MatchTitle" Text="2017年中山大学三校区网球联赛" Margin="0, 0, 0, 16"/>
                 <ComboBox Name="CategoriesSelector" PlaceholderText="比赛项目" Margin="0, 0, 0, 16" BorderBrush="Black" BorderThickness="1" RelativePanel.Below="MatchTitle">
                     <ComboBoxItem>
-                        <TextBlock Name="ManSingle" Text="男子单打" />
+                        <TextBlock Name="ManSingle" Text="男子单打"/>
                     </ComboBoxItem>
                     <ComboBoxItem>
-                        <TextBlock Name="WomanSingle" Text="女子单打" />
+                        <TextBlock Name="WomanSingle" Text="女子单打"/>
                     </ComboBoxItem>
                     <ComboBoxItem>
-                        <TextBlock Name="MenDouble" Text="男子双打" />
+                        <TextBlock Name="MenDouble" Text="男子双打"/>
                     </ComboBoxItem>
                     <ComboBoxItem>
                         <TextBlock Name="WomenDobule" Text="女子双打" />

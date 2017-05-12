@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -20,20 +21,17 @@ namespace TennisCourt
     /// <summary>
     /// 可用于自身或导航至 Frame 内部的空白页。
     /// </summary>
-    public sealed partial class AdminPage : Page
+    public sealed partial class MainPage : Page
     {
-        public AdminPage()
+        public MainPage()
         {
             this.InitializeComponent();
         }
 
 
-        ViewModels.MatchesViewModel ViewModel;
-
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            myFrame.Navigate(typeof(MatchesPage), "Administrator");
-            ViewModel = (ViewModels.MatchesViewModel)e.Parameter;
+            myFrame.Navigate(typeof(HomePage));
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -42,20 +40,29 @@ namespace TennisCourt
             {
                 return;
             }
-            switch (AdminMenu.SelectedIndex)
+            switch (Menu.SelectedIndex)
             {
                 case 0:
-                    myFrame.Navigate(typeof(MatchesPage), "Administrator");
+                    myFrame.Navigate(typeof(HomePage));
                     break;
                 case 1:
-                    myFrame.Navigate(typeof(GamesPage));
+                    myFrame.Navigate(typeof(MatchesPage));
+                    break;
+                case 2:
+                    myFrame.Navigate(typeof(DrawsPage));
+                    break;
+                case 3:
+                    myFrame.Navigate(typeof(LatestPage));
+                    break;
+                case 4:
+                    myFrame.Navigate(typeof(HistoryPage));
                     break;
             }
         }
 
-        private void UserButton_Click(object sender, RoutedEventArgs e)
+        private void AdministratorButton_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(MainPage));
+            
         }
     }
 }

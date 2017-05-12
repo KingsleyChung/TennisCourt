@@ -35,8 +35,8 @@ namespace TennisCourt
             //前段验证输入框是否为空以及重复密码是否正确
             var username = UsernameInput.Text;
             var studentid = StudentIDInput.Text;
-            var password = PasswordInput.Text;
-            var repeatpassword = CheckPasswordInput.Text;
+            var password = PasswordInput.Password;
+            var repeatpassword = CheckPasswordInput.Password;
             if (username == "")
             {
                 Message.Text = "Username can not be empty!";

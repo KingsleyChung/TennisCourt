@@ -25,11 +25,11 @@
         <RelativePanel Grid.Row="1" Grid.Column="1">
             <Image Name="LogoImage" Source="Assets/TennisCourt.png" Width="480"/>
             <StackPanel Name="AppName" Orientation="Horizontal" Margin="0, 0, 0, 20" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="LogoImage" >
-                <TextBlock Text="Tennis" FontSize="40" FontWeight="Medium" Foreground="LightGreen" />
-                <TextBlock Text="Court" FontSize="40" FontWeight="Bold" Foreground="LightGreen" Margin="8, 0, 0, 0" />
+                <TextBlock Text="Tennis" FontSize="40" FontWeight="Medium" Foreground="#FF00FF8B" />
+                <TextBlock Text="Court" FontSize="40" FontWeight="Bold" Foreground="#FF00FF8B" Margin="8, 0, 0, 0" />
             </StackPanel>
-            <Button Name="SignInButton" Content="Sign In" Width="480" RelativePanel.Below="AppName" Margin="0, 0, 0, 12" Click="SignInButton_Click"/>
-            <Button Name="SignUpButton" Content="Sign Up" Width="480" RelativePanel.Below="SignInButton" Click="SignUpButton_Click"/>
+            <Button Name="SignInButton" Content="Sign In" Width="400" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="AppName" Margin="0, 0, 0, 12" Click="SignInButton_Click" Background="#FF00FF8B" Foreground="White" FontSize="24" FontWeight="Medium" HorizontalAlignment="Center" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsRightTapEnabled="False"/>
+            <Button Name="SignUpButton" Content="Sign Up" Width="400" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="SignInButton" Click="SignUpButton_Click" Foreground="White" FontSize="24" FontWeight="Medium"/>
         </RelativePanel>
     </Grid>
 </Page>

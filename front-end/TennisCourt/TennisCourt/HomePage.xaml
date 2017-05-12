@@ -14,54 +14,60 @@
     </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="4*"/>
-            <RowDefinition Height="7*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
 
         <FlipView Name="PhotoGallery" Grid.Row="0" Grid.ColumnSpan="3">
+            <FlipView.Background>
+                <ImageBrush Stretch="Fill" ImageSource="../Assets/FlipBackground.jpg" Opacity="0.5"/>
+            </FlipView.Background>
             <Image Source="../Assets/Federer18.jpg" />
             <Image Source="../Assets/Forehand.jpg" />
             <Image Source="../Assets/Backhand.jpg" />
             <Image Source="../Assets/Volley.jpg" />
         </FlipView>
-        <ListView Name="MatchOverview" Grid.Row="1" IsItemClickEnabled="True" ItemClick="MatchOverview_ItemClick" ItemsSource="{x:Bind ViewModel.AllSets}">
+        <ListView Name="MatchOverview" Grid.Row="1" IsItemClickEnabled="True" ItemClick="MatchOverview_ItemClick" ItemsSource="{x:Bind ViewModel.AllSets}" Grid.Column="1">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="md:Games">
-                    <RelativePanel HorizontalAlignment="Center" Margin="0, 12, 0, 12">
-                        <RelativePanel Name="Icons" RelativePanel.AlignHorizontalCenterWithPanel="True">
-                            <Ellipse Name="ServerIcon" Width="148" Height="148" Margin="0, 0, 80, 0">
+                    <RelativePanel Margin="6, 12, 6, 12" BorderBrush="Gray" BorderThickness="2">
+                        <RelativePanel Name="Icons" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="12, 12, 12, 12">
+                            <Ellipse Name="ServerIcon" Width="148" Height="148">
                                 <Ellipse.Fill>
                                     <ImageBrush ImageSource="../Assets/Federer.jpg" />
                                 </Ellipse.Fill>
                             </Ellipse>
-                            <TextBlock Name="VS_Label" Text="VS" FontSize="100" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.RightOf="ServerIcon"/>
-                            <Ellipse Name="ReceiverIcon" Width="148" Height="148" Margin="80, 0, 0, 0" RelativePanel.RightOf="VS_Label">
+                            <TextBlock Name="VS_Label" Text="VS" FontSize="100" Margin="80, 0, 80, 0" RelativePanel.AlignVerticalCenterWith="ServerIcon" RelativePanel.RightOf="ServerIcon"/>
+                            <Ellipse Name="ReceiverIcon" Width="148" Height="148" RelativePanel.RightOf="VS_Label">
                                 <Ellipse.Fill>
                                     <ImageBrush ImageSource="../Assets/Federer.jpg" />
                                 </Ellipse.Fill>
                             </Ellipse>
-                        </RelativePanel>
-                        <RelativePanel Name="InfoPreview" Margin="0, 20, 0, 0" RelativePanel.Below="Icons" RelativePanel.AlignLeftWith="Icons" RelativePanel.AlignRightWith="Icons">
-                            <TextBlock Name="Round" Text="{x:Bind Round}" FontSize="32"/>
-                            <TextBlock Name="Court" Text="{x:Bind Court}" FontSize="32" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
-                            <TextBlock Name="Status" Text="{x:Bind Status, Converter={StaticResource statusConverter}}" FontSize="32" RelativePanel.AlignRightWithPanel="True" />
+                            <TextBlock Name="Round" Text="{x:Bind Round}" FontSize="32" RelativePanel.Below="ServerIcon" RelativePanel.AlignHorizontalCenterWith="ServerIcon"/>
+                            <TextBlock Name="Court" Text="{x:Bind Court}" FontSize="32" RelativePanel.AlignVerticalCenterWith="Round" RelativePanel.AlignHorizontalCenterWith="VS_Label"/>
+                            <TextBlock Name="Status" Text="{x:Bind Status, Converter={StaticResource statusConverter}}" FontSize="32" RelativePanel.Below="ReceiverIcon" RelativePanel.AlignHorizontalCenterWith="ReceiverIcon" />
                         </RelativePanel>
                     </RelativePanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
-            <ListViewItem>
-                <RelativePanel HorizontalAlignment="Center" Margin="0, 12, 0, 12">
+            <!--<ListViewItem HorizontalAlignment="Center" VerticalAlignment="Center">
+                <RelativePanel Margin="0, 12, 0, 12">
                     <RelativePanel Name="Icons" RelativePanel.AlignHorizontalCenterWithPanel="True">
                         <Ellipse Name="ServerIcon" Width="148" Height="148" Margin="0, 0, 80, 0">
                             <Ellipse.Fill>
-                                <ImageBrush ImageSource="Assets/Federer.jpg" />
+                                <ImageBrush ImageSource="../Assets/Federer.jpg" />
                             </Ellipse.Fill>
                         </Ellipse>
                         <TextBlock Name="VS_Label" Text="VS" FontSize="100" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.RightOf="ServerIcon"/>
                         <Ellipse Name="ReceiverIcon" Width="148" Height="148" Margin="80, 0, 0, 0" RelativePanel.RightOf="VS_Label">
                             <Ellipse.Fill>
-                                <ImageBrush ImageSource="Assets/Federer.jpg" />
+                                <ImageBrush ImageSource="../Assets/Federer.jpg" />
                             </Ellipse.Fill>
                         </Ellipse>
                     </RelativePanel>
@@ -72,18 +78,18 @@
                     </RelativePanel>
                 </RelativePanel>
             </ListViewItem>
-            <ListViewItem>
-                <RelativePanel HorizontalAlignment="Center" Margin="0, 12, 0, 12">
+            <ListViewItem HorizontalAlignment="Center" VerticalAlignment="Center">
+                <RelativePanel Margin="0, 12, 0, 12">
                     <RelativePanel Name="Icons_" RelativePanel.AlignHorizontalCenterWithPanel="True">
                         <Ellipse Name="ServerIcon_" Width="148" Height="148" Margin="0, 0, 80, 0">
                             <Ellipse.Fill>
-                                <ImageBrush ImageSource="Assets/Federer.jpg" />
+                                <ImageBrush ImageSource="../Assets/Federer.jpg" />
                             </Ellipse.Fill>
                         </Ellipse>
                         <TextBlock Name="VS_Label_" Text="VS" FontSize="100" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.RightOf="ServerIcon_"/>
                         <Ellipse Name="ReceiverIcon_" Width="148" Height="148" Margin="80, 0, 0, 0" RelativePanel.RightOf="VS_Label_">
                             <Ellipse.Fill>
-                                <ImageBrush ImageSource="Assets/Federer.jpg" />
+                                <ImageBrush ImageSource="../Assets/Federer.jpg" />
                             </Ellipse.Fill>
                         </Ellipse>
                     </RelativePanel>
@@ -93,7 +99,7 @@
                         <TextBlock Name="Status_" Text="Playing" FontSize="32" RelativePanel.AlignRightWithPanel="True" />
                     </RelativePanel>
                 </RelativePanel>
-            </ListViewItem>
+            </ListViewItem>-->
         </ListView>
     </Grid>
 </Page>
