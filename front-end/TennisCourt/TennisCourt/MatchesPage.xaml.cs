@@ -31,14 +31,11 @@ namespace TennisCourt
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            /*
-            if ((string)e.Parameter == "User")
+            ViewModel = (ViewModels.MatchesViewModel)e.Parameter;
+            if (ViewModel.CurrentUser.Mode == "0")
             {
                 CommandBar.Visibility = Visibility.Collapsed;
             }
-            */
-
-            ViewModel = ((ViewModels.MatchesViewModel)e.Parameter);
         }
 
         private void AddMatch_Click(object sender, RoutedEventArgs e)

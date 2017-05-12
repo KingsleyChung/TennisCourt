@@ -24,11 +24,11 @@
                 <AppBarButton Name="SelectImageButton" Icon="Pictures" Width="48" Height="48" RelativePanel.Below="Poster" RelativePanel.AlignRightWithPanel="True"/>
                 <TextBox Name="Title" PlaceholderText="Title" FontSize="40" RelativePanel.Below="SelectImageButton" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" Margin="0, 0, 0, 16"/>
                 <RelativePanel Name="CategoriesSeletor" RelativePanel.Below="Title" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0, 0, 0, 16">
-                    <CheckBox Name="ManSingle" Content="Man-Single"/>
-                    <CheckBox Name="WomanSingle" Content="Woman-Single" RelativePanel.RightOf="ManSingle"/>
-                    <CheckBox Name="ManDouble" Content="Men-Double" RelativePanel.Below="ManSingle"/>
-                    <CheckBox Name="WomanDouble" Content="Women-Double" RelativePanel.Below="WomanSingle" RelativePanel.RightOf="ManDouble"/>
-                    <CheckBox Name="MixDouble" Content="Mix-Double" RelativePanel.Below="WomanDouble"/>
+                    <CheckBox Name="MenSingle" Content="男子单打"/>
+                    <CheckBox Name="WomenSingle" Content="女子单打" RelativePanel.RightOf="MenSingle"/>
+                    <CheckBox Name="MenDouble" Content="男子双打" RelativePanel.Below="MenSingle"/>
+                    <CheckBox Name="WomenDouble" Content="女子双打" RelativePanel.Below="WomenSingle" RelativePanel.RightOf="MenDouble"/>
+                    <CheckBox Name="MixDouble" Content="混合双打" RelativePanel.Below="WomenDouble"/>
                 </RelativePanel>
                 <DatePicker Name="StartDate" RelativePanel.Below="CategoriesSeletor"/>
                 <DatePicker Name="EndDate" RelativePanel.Below="StartDate" Margin="0, 0, 0, 20"/>
@@ -36,6 +36,7 @@
                 <TextBlock Name="Message" Text="Error Message" Foreground="Red" RelativePanel.Below="TotalPlayers" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0, 0, 0, 16"/>
                 <Button Name="Create" Content="Create" RelativePanel.Below="Message" Click="Create_Click"/>
                 <Button Name="Cancel" Content="Cancel" RelativePanel.Below="Message" RelativePanel.AlignRightWithPanel="True" Click="Cancel_Click"/>
+                <Button Name="Finish" Content="Finish The Match" RelativePanel.Below="Create" />
             </RelativePanel>
         </ScrollViewer>
     </Grid>
