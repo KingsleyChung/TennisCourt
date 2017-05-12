@@ -43,6 +43,8 @@ module.exports = function (db) {
        console.log(req.body);
        childrenGameManager.changeScore(matchId, game, result, score).then(function (value) {
           res.send(value).status(200).end();
+       }).catch(function (error) {
+           res.send(error).status(204).end();
        });
     });
     //撤回比赛最后一个比分

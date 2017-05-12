@@ -143,19 +143,17 @@ module.exports = function (db) {
         changeScore : function (matchId, game, result, score) {
             var str = "game" + game;
             return childrenGames.findOne({matchId : matchId}).then(function (value) {
+                if(!value) {
+                    var resetError = {};
+                    resetError.ok = "0";
+                    resetError.error = "The Database don't has this game";
+                    return new Promise(function (resolve, reject) {
+                        reject(resetError);
+                    })
+                }
                 value.totalGames = game;
                 value.result = result;
                 console.log(value);
-                if(!value) {
-                    return new Promise(function (resolve, reject) {
-                        var resetError = {};
-                        resetError.ok = "0";
-                        resetError.error = "The Database don't has this game";
-                        return new Promise(function (resolve, result) {
-                            reject(resetError);
-                        })
-                    })
-                }
                 if(value.hasOwnProperty(str)) {
                     value[str].push(score);
                     return childrenGames.findOneAndReplace({matchId : matchId}, value).then(function () {
@@ -186,9 +184,7 @@ module.exports = function (db) {
                        var resetError = {};
                        resetError.ok = "0";
                        resetError.error = "The Database don't has this game";
-                       return new Promise(function (resolve, result) {
-                           reject(resetError);
-                       })
+                       reject(resetError);
                    })
                }
                while(value.hasOwnProperty(str)) {
