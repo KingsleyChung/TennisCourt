@@ -38,9 +38,9 @@
                         <TextBlock Name="MixDouble" Text="混合双打" />
                     </ComboBoxItem>
                 </ComboBox>
-                <TextBox Name="ServerInput" PlaceholderText="发球方" RelativePanel.Below="CategoriesSelector"/>
-                <TextBox Name="ReceiverInput" PlaceholderText="接发方" RelativePanel.Below="ServerInput" Margin="0, 0, 0, 16"/>
-                <TextBox Name="UmpireInput" PlaceholderText="裁判" RelativePanel.Below="ReceiverInput"/>
+                <TextBox Name="Player1Input" PlaceholderText="选手1" RelativePanel.Below="CategoriesSelector"/>
+                <TextBox Name="Player2Input" PlaceholderText="选手2" RelativePanel.Below="Player1Input" Margin="0, 0, 0, 16"/>
+                <TextBox Name="UmpireInput" PlaceholderText="裁判" RelativePanel.Below="Player2Input"/>
                 <TextBox Name="LinemanInput" PlaceholderText="线审" RelativePanel.Below="UmpireInput" Margin="0, 0, 0, 16"/>
                 <ComboBox Name="AvaliableCourt" PlaceholderText="可用场地" RelativePanel.Below="LinemanInput">
                     <ComboBoxItem>

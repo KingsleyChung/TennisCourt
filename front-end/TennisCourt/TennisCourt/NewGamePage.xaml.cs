@@ -141,12 +141,12 @@ namespace TennisCourt
 
         private async void Create_Click(object sender, RoutedEventArgs e)
         {
-            if (ServerInput.Text == "")
+            if (Player1Input.Text == "")
             {
                 Message.Text = "Server can not be empty";
                 return;
             }
-            if (ReceiverInput.Text == "")
+            if (Player2Input.Text == "")
             {
                 Message.Text = "Receiver can not be empty";
                 return;
@@ -167,8 +167,8 @@ namespace TennisCourt
             string[] allround = new string[4] { "1st-Round", "2nd-Round", "Semi-Final", "Final" };
 
             var matchId = ViewModel.SelectMatch.MatchID;
-            var server = ServerInput.Text;
-            var receiver = ReceiverInput.Text;
+            var server = Player1Input.Text;
+            var receiver = Player2Input.Text;
             var umpire = UmpireInput.Text;
             var lineman = LinemanInput.Text;
             var courtnum = AvaliableCourt.SelectedIndex;
@@ -227,7 +227,7 @@ namespace TennisCourt
                                 }
                             }
 
-                            Frame.Navigate(typeof(GamesPage), ViewModel);
+                            Frame.Navigate(typeof(ReadyPage), ViewModel);
                         }
                         //不正确时输出错误信息
                         else
