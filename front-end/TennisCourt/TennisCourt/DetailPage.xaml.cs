@@ -25,6 +25,19 @@ namespace TennisCourt
         public DetailPage()
         {
             this.InitializeComponent();
+            Server.Text = ViewModel.SelectSet.Server;
+            Receiver.Text = ViewModel.SelectSet.Receiver;
+            Umpire.Text = ViewModel.SelectSet.Umpire;
+            Lineman.Text = ViewModel.SelectSet.Lineman;
+            Category.Text = ViewModel.SelectSet.Category;
+            Round.Text = ViewModel.SelectSet.Round;
+        }
+
+        ViewModels.MatchesViewModel ViewModel { get; set; }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            ViewModel = (ViewModels.MatchesViewModel)e.Parameter;
         }
     }
 }
