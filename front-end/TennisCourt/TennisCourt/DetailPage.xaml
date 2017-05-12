@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:TennisCourt"
+    xmlns:md="using:TennisCourt.Models"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
@@ -47,13 +48,58 @@
             <TextBlock Name="Round" Text="决赛" FontSize="24" RelativePanel.RightOf="RoundLabel" RelativePanel.AlignVerticalCenterWith="RoundLabel" Foreground="White" />
         </RelativePanel>
         <ScrollViewer Grid.Row="2" Grid.Column="1" Margin="0,16,0,0" HorizontalAlignment="Center">
-            <ListView Name="ScoreDisplay"  >
+            <ListView Name="ScoreDisplay" ItemClick="ScoreDisplay_ItemClick" ItemsSource="{x:Bind ViewModel.AllSpecialSets}">
                 <ListView.ItemTemplate>
-                    <DataTemplate>
-
+                    <DataTemplate x:DataType="md:Games">
+                        <RelativePanel>
+                            <TextBlock Name="GameNo" Text="Game 6" FontSize="28" RelativePanel.AlignVerticalCenterWithPanel="True" FontWeight="Bold"/>
+                            <StackPanel RelativePanel.RightOf="GameNo" >
+                                <Grid Name="DataGrid">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="1*"/>
+                                        <RowDefinition Height="1*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="1*"/>
+                                        <ColumnDefinition Width="1*"/>
+                                        <ColumnDefinition Width="1*"/>
+                                        <ColumnDefinition Width="1*"/>
+                                        <ColumnDefinition Width="1*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Border BorderBrush="Black" BorderThickness="2, 2, 0, 1" Grid.Row="0" Grid.Column="0">
+                                        <TextBlock Name="ServerName" Text="鍾文杰" FontSize="40"/>
+                                    </Border>
+                                    <Border BorderBrush="Black" BorderThickness="2, 1, 0, 2" Grid.Row="1" Grid.Column="0" >
+                                        <TextBlock Name="ReceiverName" Text="德约科维奇" FontSize="40" />
+                                    </Border>
+                                    <Border BorderBrush="Black" BorderThickness="0, 2, 1, 1" Grid.Row="0" Grid.Column="1">
+                                        <Image Source="Assets/TennisBall.png" Width="28" Height="28" Margin="4, 0, 0, 0"/>
+                                    </Border>
+                                    <Border BorderBrush="Black" BorderThickness="0, 1, 1, 2" Grid.Row="1" Grid.Column="1">
+                                        <Image Source="Assets/TennisBall.png" Width="28" Height="28" Margin="4, 0, 0, 0"/>
+                                    </Border>
+                                    <Border BorderBrush="Black" BorderThickness="1, 2, 1, 1" Grid.Row="0" Grid.Column="2">
+                                        <TextBlock Name="Server_SetPoint" Text="5" FontSize="40" />
+                                    </Border>
+                                    <Border BorderBrush="Black" BorderThickness="1, 1, 1, 2" Grid.Row="1" Grid.Column="2">
+                                        <TextBlock Name="Receiver_SetPoint" Text="0" FontSize="40" />
+                                    </Border>
+                                    <Border BorderBrush="Black" BorderThickness="1, 2, 2, 1" Grid.Row="0" Grid.Column="3">
+                                        <TextBlock Name="Server_GamePoint" Text="15" FontSize="40" />
+                                    </Border>
+                                    <Border BorderBrush="Black" BorderThickness="1, 1, 2, 2" Grid.Row="1" Grid.Column="3">
+                                        <TextBlock Name="Receiver_GamePoint" Text="0" FontSize="40" />
+                                    </Border>
+                                    <Button Name="Server_Add" Content="Add" Grid.Row="0" Grid.Column="4"/>
+                                    <Button Name="Receiver_Add" Content="Add" Grid.Row="1" Grid.Column="4"/>
+                                    <Button Name="Recall" Content="Recall" Grid.RowSpan="2" Grid.Column="5" Margin="4, 0, 0, 0"/>
+                                </Grid>
+                            </StackPanel>
+                        </RelativePanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-                <ListViewItem>
+                <!--<ListViewItem>
                     <RelativePanel>
                         <TextBlock Name="GameNo" Text="Game 6" FontSize="28" RelativePanel.AlignVerticalCenterWithPanel="True" FontWeight="Bold"/>
                         <StackPanel RelativePanel.RightOf="GameNo" >
@@ -100,7 +146,7 @@
                             </Grid>
                         </StackPanel>
                     </RelativePanel>
-                </ListViewItem>
+                </ListViewItem>-->
             </ListView>
         </ScrollViewer>
         <Button Name="GameOver" Content="Game Over" Width="520" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" Grid.Column="1"/>

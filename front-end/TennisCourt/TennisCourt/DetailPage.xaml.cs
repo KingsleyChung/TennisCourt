@@ -22,22 +22,28 @@ namespace TennisCourt
     /// </summary>
     public sealed partial class DetailPage : Page
     {
+        private ViewModels.MatchesViewModel ViewModel;
+
         public DetailPage()
         {
             this.InitializeComponent();
-            Server.Text = ViewModel.SelectSet.Server;
-            Receiver.Text = ViewModel.SelectSet.Receiver;
-            Umpire.Text = ViewModel.SelectSet.Umpire;
-            Lineman.Text = ViewModel.SelectSet.Lineman;
-            Category.Text = ViewModel.SelectSet.Category;
-            Round.Text = ViewModel.SelectSet.Round;
         }
-
-        ViewModels.MatchesViewModel ViewModel { get; set; }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             ViewModel = (ViewModels.MatchesViewModel)e.Parameter;
+
+            Server.Text = ViewModel.SelectSpecialSet.Server;
+            Receiver.Text = ViewModel.SelectSpecialSet.Receiver;
+            Umpire.Text = ViewModel.SelectSpecialSet.Umpire;
+            Lineman.Text = ViewModel.SelectSpecialSet.Lineman;
+            Category.Text = ViewModel.SelectSpecialSet.Category;
+            Round.Text = ViewModel.SelectSpecialSet.Round;
+        }
+
+        private void ScoreDisplay_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
         }
     }
 }
