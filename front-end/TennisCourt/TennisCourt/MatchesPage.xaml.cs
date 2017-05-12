@@ -15,47 +15,6 @@ using Windows.UI.Xaml.Navigation;
 
 // “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=234238 上有介绍
 
-namespace myTransfer
-{
-    //public class StatusConverter : IValueConverter
-    //{
-    //    object IValueConverter.Convert(object value, Type targetType, object parameter, string language)
-    //    {
-    //        string res = "";
-    //        string s = (string)value;
-    //        if (s == "-1") res = "Prepare";
-    //        else if (s == "0") res = "Play";
-    //        else res = "End";
-    //        return res;
-    //    }
-
-    //    object IValueConverter.ConvertBack(object value, Type targetType, object parameter, string language)
-    //    {
-    //        throw new NotImplementedException();
-    //    }
-    //}
-
-    public class CategoriesConverter : IValueConverter
-    {
-        object IValueConverter.Convert(object value, Type targetType, object parameter, string language)
-        {
-            string res = "";
-            string s = (string)value;
-            if (s[0] == '1') res += "Man-Single ";
-            if (s[1] == '1') res += "Woman-Single ";
-            if (s[2] == '1') res += "Men-Double ";
-            if (s[3] == '1') res += "Women-Dobule ";
-            if (s[4] == '1') res += "Mix-Double";
-            return res;
-        }
-
-        object IValueConverter.ConvertBack(object value, Type targetType, object parameter, string language)
-        {
-            throw new NotImplementedException();
-        }
-    }
-}
-
 namespace TennisCourt
 {
     /// <summary>

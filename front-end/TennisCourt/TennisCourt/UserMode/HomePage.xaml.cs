@@ -34,6 +34,26 @@ namespace myTransfer
             throw new NotImplementedException();
         }
     }
+
+    public class CategoriesConverter : IValueConverter
+    {
+        object IValueConverter.Convert(object value, Type targetType, object parameter, string language)
+        {
+            string res = "";
+            string s = (string)value;
+            if (s[0] == '1') res += "Man-Single ";
+            if (s[1] == '1') res += "Woman-Single ";
+            if (s[2] == '1') res += "Men-Double ";
+            if (s[3] == '1') res += "Women-Dobule ";
+            if (s[4] == '1') res += "Mix-Double";
+            return res;
+        }
+
+        object IValueConverter.ConvertBack(object value, Type targetType, object parameter, string language)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
 
 namespace TennisCourt

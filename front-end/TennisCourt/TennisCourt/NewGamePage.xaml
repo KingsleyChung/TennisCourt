@@ -38,7 +38,7 @@
                     </ComboBoxItem>
                 </ComboBox>-->
                 <TextBlock Name="MatchTitle" Text="2017年中山大学三校区网球联赛" Margin="0, 0, 0, 16"/>
-                <ComboBox Name="CategoriesSelector" PlaceholderText="比赛项目haha" Margin="0, 0, 0, 16" BorderBrush="Black" BorderThickness="1" RelativePanel.Below="MatchTitle">
+                <ComboBox Name="CategoriesSelector" PlaceholderText="比赛项目" Margin="0, 0, 0, 16" BorderBrush="Black" BorderThickness="1" RelativePanel.Below="MatchTitle">
                     <ComboBoxItem>
                         <TextBlock Name="ManSingle" Text="男子单打" />
                     </ComboBoxItem>
