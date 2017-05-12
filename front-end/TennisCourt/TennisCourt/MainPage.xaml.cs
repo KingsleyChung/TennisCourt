@@ -23,14 +23,18 @@ namespace TennisCourt
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private ViewModels.MatchesViewModel ViewModel;
+
         public MainPage()
         {
             this.InitializeComponent();
         }
 
-
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            ViewModel = ((ViewModels.MatchesViewModel)e.Parameter);
+            Username.Text = ViewModel.CurrentUser.Username;
+            StudentID.Text = ViewModel.CurrentUser.StudentID;
             myFrame.Navigate(typeof(HomePage));
         }
 
@@ -43,26 +47,21 @@ namespace TennisCourt
             switch (Menu.SelectedIndex)
             {
                 case 0:
-                    myFrame.Navigate(typeof(HomePage));
+                    myFrame.Navigate(typeof(HomePage), ViewModel);
                     break;
                 case 1:
-                    myFrame.Navigate(typeof(MatchesPage));
+                    myFrame.Navigate(typeof(MatchesPage), ViewModel);
                     break;
                 case 2:
-                    myFrame.Navigate(typeof(DrawsPage));
+                    myFrame.Navigate(typeof(DrawsPage), ViewModel);
                     break;
                 case 3:
-                    myFrame.Navigate(typeof(LatestPage));
+                    myFrame.Navigate(typeof(LatestPage), ViewModel);
                     break;
                 case 4:
-                    myFrame.Navigate(typeof(HistoryPage));
+                    myFrame.Navigate(typeof(HistoryPage), ViewModel);
                     break;
             }
-        }
-
-        private void AdministratorButton_Click(object sender, RoutedEventArgs e)
-        {
-            
         }
     }
 }

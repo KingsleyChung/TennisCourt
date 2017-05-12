@@ -25,9 +25,17 @@ namespace TennisCourt
     /// </summary>
     public sealed partial class SignUp : Page
     {
+        private ViewModels.MatchesViewModel ViewModel;
+
         public SignUp()
         {
             this.InitializeComponent();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            Message.Opacity = 0;
+            ViewModel = ((ViewModels.MatchesViewModel)e.Parameter);
         }
 
         private async void SignUpButton_Click(object sender, RoutedEventArgs e)
@@ -39,21 +47,25 @@ namespace TennisCourt
             var repeatpassword = CheckPasswordInput.Password;
             if (username == "")
             {
+                Message.Opacity = 1;
                 Message.Text = "Username can not be empty!";
                 return;
             }
             if (studentid == "")
             {
+                Message.Opacity = 1;
                 Message.Text = "Studentid can not be empty!";
                 return;
             }
             if (password == "")
             {
+                Message.Opacity = 1;
                 Message.Text = "Password can not be empty!";
                 return;
             }
             if (password != repeatpassword)
             {
+                Message.Opacity = 1;
                 Message.Text = "Password is different from repeatpassword!";
                 return;
             }
@@ -65,11 +77,11 @@ namespace TennisCourt
                     var kvp = new List<KeyValuePair<string, string>>
                     {
                         new KeyValuePair<string,string>("username", username),
-                        new KeyValuePair<string,string>("studentid", studentid),
+                        new KeyValuePair<string,string>("studentId", studentid),
                         new KeyValuePair<string,string>("password", password),
-                        new KeyValuePair<string,string>("mode", "0")
+                        new KeyValuePair<string,string>("mode", "1")
                     };
-                    HttpResponseMessage response = await client.PostAsync("http://www.zhengweimumu.cn:3000/regist", new FormUrlEncodedContent(kvp));
+                    HttpResponseMessage response = await client.PostAsync("http://localhost:3000/regist", new FormUrlEncodedContent(kvp));
                     if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
                     {
                         string responseBody = await response.Content.ReadAsStringAsync();
@@ -77,11 +89,17 @@ namespace TennisCourt
                         //正确时跳转
                         if ((string)userinfo["ok"] != "0")
                         {
-                            Frame.Navigate(typeof(MainPage));
+                            var name = (string)userinfo["username"];
+                            var ps = (string)userinfo["password"];
+                            var sid = (string)userinfo["studentId"];
+                            var mode = (string)userinfo["mode"];
+                            ViewModel.AddUser(name, sid, ps, mode);
+                            Frame.Navigate(typeof(MainPage), ViewModel);
                         }
                         //不正确时输出错误信息
                         else
                         {
+                            Message.Opacity = 1;
                             Message.Text = (string)userinfo["error"];
                         }
                     }

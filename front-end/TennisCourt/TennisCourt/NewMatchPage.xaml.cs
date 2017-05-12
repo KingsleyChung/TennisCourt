@@ -27,12 +27,11 @@ namespace TennisCourt
     /// </summary>
     public sealed partial class NewMatchPage : Page
     {
-        ViewModels.MatchesViewModel ViewModel { get; set; }
+        private ViewModels.MatchesViewModel ViewModel;
 
         public NewMatchPage()
         {
             this.InitializeComponent();
-            this.ViewModel = new ViewModels.MatchesViewModel();
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)

@@ -36,7 +36,7 @@ namespace TennisCourt.ViewModels
         }
         // SpecialGames data
         private ObservableCollection<Models.Games> allspecialSets = new ObservableCollection<Models.Games>();
-        public ObservableCollection<Models.Games> AllSpecialSets { get { return this.allSets; } }
+        public ObservableCollection<Models.Games> AllSpecialSets { get { return this.allspecialSets; } }
 
         private Models.Games selectedspecialSet = default(Models.Games);
         public Models.Games SelectSpecialSet

@@ -25,9 +25,9 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <ScrollViewer Grid.Row="1" Grid.Column="1">
-            <ListView Name ="games" IsItemClickEnabled="True" ItemClick="games_ItemClick"
+            <GridView Name ="games" IsItemClickEnabled="True" ItemClick="games_ItemClick"
                       ItemsSource="{x:Bind ViewModel.AllSpecialSets}">
-                <ListView.ItemTemplate>
+                <GridView.ItemTemplate>
                     <DataTemplate x:DataType="md:Games">
                         <RelativePanel HorizontalAlignment="Center" Margin="0, 12, 0, 12" BorderBrush="Black" BorderThickness="1">
                             <RelativePanel Name="Icons" RelativePanel.AlignHorizontalCenterWithPanel="True">
@@ -51,7 +51,7 @@
                             <TextBlock Name="Result" Text="{x:Bind Result}" FontSize="60" RelativePanel.Below="InfoPreview" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
                         </RelativePanel>
                     </DataTemplate>
-                </ListView.ItemTemplate>
+                </GridView.ItemTemplate>
                 <!--<ListViewItem>
                     <RelativePanel HorizontalAlignment="Center" Margin="0, 12, 0, 12" BorderBrush="Black" BorderThickness="1">
                         <RelativePanel Name="Icons" RelativePanel.AlignHorizontalCenterWithPanel="True">
@@ -75,7 +75,7 @@
                         <TextBlock Name="Result" Text="7-5" FontSize="60" RelativePanel.Below="InfoPreview" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
                     </RelativePanel>
                 </ListViewItem>-->
-            </ListView>
+            </GridView>
         </ScrollViewer>
     </Grid>
     <Page.BottomAppBar>

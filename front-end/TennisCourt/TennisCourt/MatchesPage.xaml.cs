@@ -1,10 +1,14 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
+using TennisCourt.Models;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -31,10 +35,63 @@ namespace TennisCourt
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            
             ViewModel = (ViewModels.MatchesViewModel)e.Parameter;
+            
+            //remove AllMatches
+            while (ViewModel.AllMatches.Count > 0)
+            {
+                ViewModel.AllMatches.RemoveAt(0);
+            }
+            
+            //user mode
             if (ViewModel.CurrentUser.Mode == "0")
             {
                 CommandBar.Visibility = Visibility.Collapsed;
+            }
+
+            //show all matches
+            show_allMatches();
+        }
+
+        private async void show_allMatches()
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    HttpResponseMessage response = await client.GetAsync("http://localhost:3000/allmatch");
+                    if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
+                    {
+                        string responseBody = await response.Content.ReadAsStringAsync();
+                        var matchinfo = JObject.Parse(responseBody);
+                        if ((string)matchinfo["ok"] != "0")
+                        {
+                            var allmatch = (JArray)matchinfo["match"];
+                            for (int i = 0; i < allmatch.Count; i++)
+                            {
+                                var matchTitle = (string)allmatch[i]["matchTitle"];
+                                var fa = (string)allmatch[i]["date"];
+                                var date = Convert.ToDateTime(fa);
+                                var totalPlayers = (string)allmatch[i]["totalPlayers"];
+                                var status = (string)allmatch[i]["status"];
+                                var category = (string)allmatch[i]["category"];
+                                var matchId = (string)allmatch[i]["matchId"];
+                                //var allgames = allmatch[i]["games"];
+                                List<Games> gameslist = new List<Games>();
+                                ViewModel.AddMatch(matchTitle, matchId, date, date, category, totalPlayers, status, gameslist);
+
+                            }
+
+
+                            //Frame.Navigate(typeof(MainPage), ViewModel);
+                        }
+                    }
+                }
+                catch (HttpRequestException ex)
+                {
+                    await new MessageDialog(ex.Message).ShowAsync();
+                }
             }
         }
 
