@@ -26,5 +26,12 @@ namespace TennisCourt
         {
             this.InitializeComponent();
         }
+
+        ViewModels.MatchesViewModel ViewModel { get; set; }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            ViewModel = (ViewModels.MatchesViewModel)e.Parameter;
+        }
     }
 }
