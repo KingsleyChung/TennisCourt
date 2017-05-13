@@ -37,20 +37,20 @@
                     <TextBox Name="UmpireInput" PlaceholderText="裁判" Width="104"/>
                     <TextBox Name="LinemanInput" PlaceholderText="线审" Width="104" RelativePanel.AlignVerticalCenterWith="UmpireInput" RelativePanel.RightOf="UmpireInput" Margin="24, 0, 0, 0"/>
                     <ComboBox Name="CategoriesSelector" PlaceholderText="比赛项目"  Width="104" Margin="0, 16, 0, 16" BorderBrush="Black" BorderThickness="1" RelativePanel.Below="LinemanInput">
-                        <ComboBoxItem>
-                            <TextBlock Name="ManSingle" Text="男子单打"/>
+                        <ComboBoxItem  Name="ManSingle">
+                            <TextBlock Text="男子单打"/>
                         </ComboBoxItem>
-                        <ComboBoxItem>
-                            <TextBlock Name="WomanSingle" Text="女子单打"/>
+                        <ComboBoxItem Name="WomanSingle">
+                            <TextBlock Text="女子单打"/>
                         </ComboBoxItem>
-                        <ComboBoxItem>
-                            <TextBlock Name="MenDouble" Text="男子双打"/>
+                        <ComboBoxItem Name="MenDouble">
+                            <TextBlock Text="男子双打"/>
                         </ComboBoxItem>
-                        <ComboBoxItem>
-                            <TextBlock Name="WomenDobule" Text="女子双打" />
+                        <ComboBoxItem Name="WomenDobule">
+                            <TextBlock Text="女子双打" />
                         </ComboBoxItem>
-                        <ComboBoxItem>
-                            <TextBlock Name="MixDouble" Text="混合双打" />
+                        <ComboBoxItem Name="MixDouble">
+                            <TextBlock Text="混合双打" />
                         </ComboBoxItem>
                     </ComboBox>
                     <ComboBox Name="RoundSelector" PlaceholderText="比赛伦次" Width="104" RelativePanel.RightOf="CategoriesSelector" RelativePanel.AlignVerticalCenterWith="CategoriesSelector" Margin="24, 0, 0, 0">
@@ -60,36 +60,36 @@
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
                         <ComboBoxItem>
-                            <TextBlock Text="1st-Round"/>
+                            <TextBlock Text="第1轮"/>
                         </ComboBoxItem>
                         <ComboBoxItem>
-                            <TextBlock Text="2nd-Round"/>
+                            <TextBlock Text="第2轮"/>
                         </ComboBoxItem>
                         <ComboBoxItem>
-                            <TextBlock Text="Semi-Final"/>
+                            <TextBlock Text="半决赛"/>
                         </ComboBoxItem>
                         <ComboBoxItem>
-                            <TextBlock Text="Final"/>
+                            <TextBlock Text="决赛"/>
                         </ComboBoxItem>
                     </ComboBox>
                     <ComboBox Name="AvaliableCourt" PlaceholderText="可用场地" Width="232" RelativePanel.Below="CategoriesSelector">
-                        <ComboBoxItem>
-                            <TextBlock Name="court1" Text="Court 1"/>
+                        <ComboBoxItem Name="court1">
+                            <TextBlock Text="Court 1"/>
                         </ComboBoxItem>
-                        <ComboBoxItem>
-                            <TextBlock Name="court2" Text="Court 2"/>
+                        <ComboBoxItem  Name="court2">
+                            <TextBlock Text="Court 2"/>
                         </ComboBoxItem>
-                        <ComboBoxItem>
-                            <TextBlock Name="court3" Text="Court 3"/>
+                        <ComboBoxItem Name="court3">
+                            <TextBlock Text="Court 3"/>
                         </ComboBoxItem>
-                        <ComboBoxItem>
-                            <TextBlock Name="court4" Text="Court 4"/>
+                        <ComboBoxItem Name="court4">
+                            <TextBlock Text="Court 4"/>
                         </ComboBoxItem>
-                        <ComboBoxItem>
-                            <TextBlock Name="court5" Text="Court 5"/>
+                        <ComboBoxItem Name="court5">
+                            <TextBlock Text="Court 5"/>
                         </ComboBoxItem>
-                        <ComboBoxItem>
-                            <TextBlock Name="court6" Text="Court 6"/>
+                        <ComboBoxItem Name="court6">
+                            <TextBlock Text="Court 6"/>
                         </ComboBoxItem>
                     </ComboBox>
                 </RelativePanel>

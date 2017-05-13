@@ -57,7 +57,6 @@
         <CommandBar>
             <AppBarButton Name="EditMatch" Icon="Edit" Label="Edit Match" Click="EditMatch_Click" />
             <AppBarButton Name="FinishMatch" Icon="Stop" Label="Finish Match" Click="FinishMatch_Click" />
-            <AppBarButton Name="DeleteMatch" Icon="Delete" Label="Delete Match" Click="DeleteMatch_Click" />
             <AppBarButton Name="AddGame" Icon="Add" Label="Add Game" Click="AddGame_Click"/>
         </CommandBar>
     </Page.BottomAppBar>

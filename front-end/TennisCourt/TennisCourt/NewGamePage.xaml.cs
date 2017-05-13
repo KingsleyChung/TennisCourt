@@ -31,6 +31,7 @@ namespace TennisCourt
         public NewGamePage()
         {
             this.InitializeComponent();
+            Message.Opacity = 0;
 
             ManSingle.Visibility = Visibility.Visible;
             WomanSingle.Visibility = Visibility.Visible;
@@ -233,6 +234,7 @@ namespace TennisCourt
                         else
                         {
                             Message.Text = (string)gameinfo["error"];
+                            Message.Opacity = 1;
                         }
                     }
                 }
