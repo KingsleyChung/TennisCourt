@@ -34,10 +34,12 @@ module.exports = function (db) {
 
       //结束赛事
       validateEnd: function (matchId) {
-          return mainGames.updateOne({matchId : matchId}, {$set:{status:"2"}}).then(function (value) {
+          var str = new Date();
+          return mainGames.updateOne({matchId : matchId}, {$set:{status:"2", endTime : str.toLocaleDateString()}}).then(function (value) {
               return new Promise(function (resolve, reject) {
                   var endMatchError = {};
                   if(value.modifiedCount) {
+                      endMatchError.endTime = str.toLocaleDateString();
                       endMatchError.ok = "1";
                       resolve(endMatchError);
                   }
