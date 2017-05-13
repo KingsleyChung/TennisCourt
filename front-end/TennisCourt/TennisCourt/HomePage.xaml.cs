@@ -1,10 +1,13 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -136,6 +139,30 @@ namespace TennisCourt
             time.Start();
         }
 
+        protected async override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    HttpResponseMessage response = await client.GetAsync("http://localhost:3000/returndategame");
+                    if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
+                    {
+                        string responseBody = await response.Content.ReadAsStringAsync();
+                        var gameinfo = JObject.Parse(responseBody);
+                        if ((string)gameinfo["ok"] != "0")
+                        {
+                            
+                        }
+                    }
+                }
+                catch (HttpRequestException ex)
+                {
+                    await new MessageDialog(ex.Message).ShowAsync();
+                }
+            }
+    }
+
         private void Time_Tick(object sender, object e)
         {
             int i = PhotoGallery.SelectedIndex;
@@ -150,6 +177,7 @@ namespace TennisCourt
         private void MatchOverview_ItemClick(object sender, ItemClickEventArgs e)
         {
             ViewModel.SelectSet = (Models.Games)(e.ClickedItem);
+            
         }
     }
 }

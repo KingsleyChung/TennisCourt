@@ -33,7 +33,7 @@
             <Image Source="../Assets/Backhand.jpg" />
             <Image Source="../Assets/Volley.jpg" />
         </FlipView>
-        <ListView Name="MatchOverview" Grid.Row="1" IsItemClickEnabled="True" ItemClick="MatchOverview_ItemClick" ItemsSource="{x:Bind ViewModel.AllSets}" Grid.Column="1">
+        <ListView Name="MatchOverview" Grid.Row="1" IsItemClickEnabled="True" ItemClick="MatchOverview_ItemClick" ItemsSource="{x:Bind ViewModel.AllSpecialSets}" Grid.Column="1">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="md:Games">
                     <RelativePanel Name="Icons" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="12, 12, 12, 12" Padding="12, 12, 12, 12" Background="#7F7BD4F5" >
@@ -54,50 +54,6 @@
                     </RelativePanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
-            <!--<ListViewItem HorizontalAlignment="Center" VerticalAlignment="Center">
-                <RelativePanel Margin="0, 12, 0, 12">
-                    <RelativePanel Name="Icons" RelativePanel.AlignHorizontalCenterWithPanel="True">
-                        <Ellipse Name="ServerIcon" Width="148" Height="148" Margin="0, 0, 80, 0">
-                            <Ellipse.Fill>
-                                <ImageBrush ImageSource="../Assets/Federer.jpg" />
-                            </Ellipse.Fill>
-                        </Ellipse>
-                        <TextBlock Name="VS_Label" Text="VS" FontSize="100" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.RightOf="ServerIcon"/>
-                        <Ellipse Name="ReceiverIcon" Width="148" Height="148" Margin="80, 0, 0, 0" RelativePanel.RightOf="VS_Label">
-                            <Ellipse.Fill>
-                                <ImageBrush ImageSource="../Assets/Federer.jpg" />
-                            </Ellipse.Fill>
-                        </Ellipse>
-                    </RelativePanel>
-                    <RelativePanel Name="InfoPreview" Margin="0, 20, 0, 0" RelativePanel.Below="Icons" RelativePanel.AlignLeftWith="Icons" RelativePanel.AlignRightWith="Icons">
-                        <TextBlock Name="Round" Text="2nd Round" FontSize="32"/>
-                        <TextBlock Name="Court" Text="Court 1" FontSize="32" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
-                        <TextBlock Name="Status" Text="Playing" FontSize="32" RelativePanel.AlignRightWithPanel="True" />
-                    </RelativePanel>
-                </RelativePanel>
-            </ListViewItem>
-            <ListViewItem HorizontalAlignment="Center" VerticalAlignment="Center">
-                <RelativePanel Margin="0, 12, 0, 12">
-                    <RelativePanel Name="Icons_" RelativePanel.AlignHorizontalCenterWithPanel="True">
-                        <Ellipse Name="ServerIcon_" Width="148" Height="148" Margin="0, 0, 80, 0">
-                            <Ellipse.Fill>
-                                <ImageBrush ImageSource="../Assets/Federer.jpg" />
-                            </Ellipse.Fill>
-                        </Ellipse>
-                        <TextBlock Name="VS_Label_" Text="VS" FontSize="100" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.RightOf="ServerIcon_"/>
-                        <Ellipse Name="ReceiverIcon_" Width="148" Height="148" Margin="80, 0, 0, 0" RelativePanel.RightOf="VS_Label_">
-                            <Ellipse.Fill>
-                                <ImageBrush ImageSource="../Assets/Federer.jpg" />
-                            </Ellipse.Fill>
-                        </Ellipse>
-                    </RelativePanel>
-                    <RelativePanel Name="InfoPreview_" Margin="0, 20, 0, 0" RelativePanel.Below="Icons_" RelativePanel.AlignLeftWith="Icons_" RelativePanel.AlignRightWith="Icons_">
-                        <TextBlock Name="Round_" Text="2nd Round" FontSize="32"/>
-                        <TextBlock Name="Court_" Text="Court 1" FontSize="32" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
-                        <TextBlock Name="Status_" Text="Playing" FontSize="32" RelativePanel.AlignRightWithPanel="True" />
-                    </RelativePanel>
-                </RelativePanel>
-            </ListViewItem>-->
         </ListView>
     </Grid>
 </Page>
