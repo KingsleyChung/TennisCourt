@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -41,6 +42,16 @@ namespace TennisCourt
             Round.Text = ViewModel.SelectSpecialSet.Round;
 
             
+            var totalGames = 1;
+            var gameID = ViewModel.SelectSpecialSet.SetID + totalGames.ToString();
+            var serverName = ViewModel.SelectSpecialSet.Server;
+            var receiverName = ViewModel.SelectSpecialSet.Receiver;
+            var ballFlag = "1";
+            var serverSet = "0";
+            var receiverSet = "0";
+            var serverScore = "0";
+            var receiverScore = "0";
+            ViewModel.AddGameScore(gameID, totalGames, serverName, receiverName, ballFlag, serverSet, receiverSet, serverScore, receiverScore);
         }
 
         private void ScoreDisplay_ItemClick(object sender, ItemClickEventArgs e)
@@ -59,6 +70,11 @@ namespace TennisCourt
         }
 
         private void Recall_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void GameOver_Click(object sender, RoutedEventArgs e)
         {
 
         }

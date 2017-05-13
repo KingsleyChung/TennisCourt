@@ -9,7 +9,7 @@ namespace TennisCourt.Models
     class Score : BindableBase
     {
         private string gameID;
-        private string totalGames;
+        private int totalGames;
         private string serverName;
         private string receiverName;
         private string ballFlag;
@@ -24,7 +24,7 @@ namespace TennisCourt.Models
             set { SetProperty(ref this.gameID, value); }
         }
 
-        public string TotalGames
+        public int TotalGames
         {
             get { return totalGames; }
             set { SetProperty(ref this.totalGames, value); }
@@ -72,7 +72,7 @@ namespace TennisCourt.Models
             set { SetProperty(ref this.receiverScore, value); }
         }
 
-        public Score(string _gameID, string _totalGames, string _serverName, string _receiverName, string _ballFlag, string _serverSet, string _receiverSet, string _serverScore, string _receiverScore)
+        public Score(string _gameID, int _totalGames, string _serverName, string _receiverName, string _ballFlag, string _serverSet, string _receiverSet, string _serverScore, string _receiverScore)
         {
             gameID = _gameID;
             totalGames = _totalGames;
