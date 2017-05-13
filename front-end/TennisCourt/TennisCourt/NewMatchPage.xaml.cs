@@ -37,6 +37,7 @@ namespace TennisCourt
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            Message.Opacity = 0;
             if ((ViewModels.MatchesViewModel)e.Parameter != null)
             {
                 ViewModel = (ViewModels.MatchesViewModel)e.Parameter;
@@ -73,13 +74,13 @@ namespace TennisCourt
             var totalplayer = TotalPlayers.Text;
             if (title == "")
             {
-                Message.Visibility = Visibility.Visible;
+                Message.Opacity = 1;
                 Message.Text = "Title can not be empty!";
                 return;
             }
             if (totalplayer == "")
             {
-                Message.Visibility = Visibility.Visible;
+                Message.Opacity = 1;
                 Message.Text = "Player can not be zero!";
                 return;
             }
@@ -90,7 +91,7 @@ namespace TennisCourt
             var box5 = MixDouble.IsChecked;
             if (box1 == false && box2 == false && box3 == false && box4 == false && box5 == false)
             {
-                Message.Visibility = Visibility.Visible;
+                Message.Opacity = 1;
                 Message.Text = "Catalory can not empty!";
                 return;
             }
@@ -190,6 +191,7 @@ namespace TennisCourt
                             //不正确时输出错误信息
                             else
                             {
+                                Message.Opacity = 1;
                                 Message.Text = (string)matchinfo["error"];
                             }
                         }

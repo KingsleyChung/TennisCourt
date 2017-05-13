@@ -48,6 +48,8 @@ namespace TennisCourt
 
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
+            Message.Opacity = 0;
+
             ViewModel = ((ViewModels.MatchesViewModel)e.Parameter);
 
             //插入games到matches
@@ -143,21 +145,25 @@ namespace TennisCourt
         {
             if (Player1Input.Text == "")
             {
-                Message.Text = "Server can not be empty";
+                Message.Opacity = 1;
+                Message.Text = "Player1 can not be empty";
                 return;
             }
             if (Player2Input.Text == "")
             {
-                Message.Text = "Receiver can not be empty";
+                Message.Opacity = 1;
+                Message.Text = "Player2 can not be empty";
                 return;
             }
             if (UmpireInput.Text == "")
             {
+                Message.Opacity = 1;
                 Message.Text = "Umpire can not be empty";
                 return;
             }
             if (LinemanInput.Text == "")
             {
+                Message.Opacity = 1;
                 Message.Text = "Lineman can not be empty";
                 return;
             }
@@ -224,6 +230,7 @@ namespace TennisCourt
                         //不正确时输出错误信息
                         else
                         {
+                            Message.Opacity = 1;
                             Message.Text = (string)gameinfo["error"];
                         }
                     }
