@@ -115,7 +115,7 @@ namespace TennisCourt
                         new KeyValuePair<string,string>("result", selectserverset + "-" + selectreceiverset),
                         new KeyValuePair<string,string>("score", selectserverscore + "-" + selectreceiverscore)
                     };
-                    HttpResponseMessage response = await client.PostAsync("http://localhost:3000/changescore", new FormUrlEncodedContent(kvp));
+                    HttpResponseMessage response = await client.PostAsync("http://www.zhengweimumu.cn:3000/changescore", new FormUrlEncodedContent(kvp));
                     if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
                     {
                         string responseBody = await response.Content.ReadAsStringAsync();
