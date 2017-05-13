@@ -44,11 +44,27 @@ namespace TennisCourt.ViewModels
             get { return selectedspecialSet; }
             set { this.selectedspecialSet = value; }
         }
+        //GameScore data
+        private ObservableCollection<Models.Score> allgameScore = new ObservableCollection<Models.Score>();
+        public ObservableCollection<Models.Score> AllGameScore { get { return this.allgameScore; } }
+
+        private Models.Score selectedgameScore = default(Models.Score);
+        public Models.Score SelectGameScore
+        {
+            get { return selectedgameScore; }
+            set { this.selectedgameScore = value; }
+        }
 
         // add User
         public void AddUser(string userName, string studentID, string password, string mode)
         {
             currentUser = new Models.User(userName, studentID, password, mode);
+        }
+
+        //add GameScore
+        public void AddGameScore(string gameID, string totalGames, string serverName, string receiverName, string ballFlag, string serverSet, string receiverSet, string serverScore, string receiverScore)
+        {
+            allgameScore.Add(new Models.Score(gameID, totalGames, serverName, receiverName, ballFlag, serverSet, receiverSet, serverScore, receiverScore));
         }
 
         //add specialgame

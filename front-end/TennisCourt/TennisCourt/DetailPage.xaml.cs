@@ -39,9 +39,26 @@ namespace TennisCourt
             Lineman.Text = ViewModel.SelectSpecialSet.Lineman;
             Category.Text = ViewModel.SelectSpecialSet.Category;
             Round.Text = ViewModel.SelectSpecialSet.Round;
+
+            
         }
 
         private void ScoreDisplay_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+        private void Server_Add_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Receiver_Add_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Recall_Click(object sender, RoutedEventArgs e)
         {
 
         }
