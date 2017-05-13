@@ -41,11 +41,11 @@ namespace myTransfer
         {
             string res = "";
             string s = (string)value;
-            if (s[0] == '1') res += "Man-Single ";
-            if (s[1] == '1') res += "Woman-Single ";
-            if (s[2] == '1') res += "Men-Double ";
-            if (s[3] == '1') res += "Women-Dobule ";
-            if (s[4] == '1') res += "Mix-Double";
+            if (s[0] == '1') res += "男单  ";
+            if (s[1] == '1') res += "女单  ";
+            if (s[2] == '1') res += "男双  ";
+            if (s[3] == '1') res += "女双  ";
+            if (s[4] == '1') res += "混双  ";
             return res;
         }
 
