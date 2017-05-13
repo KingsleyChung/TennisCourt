@@ -37,6 +37,11 @@ namespace TennisCourt
         {
             ViewModel = (ViewModels.MatchesViewModel)e.Parameter;
 
+            while (ViewModel.AllGameScore.Count > 0)
+            {
+                ViewModel.AllGameScore.RemoveAt(0);
+            }
+
             Server.Text = ViewModel.SelectSpecialSet.Server;
             Receiver.Text = ViewModel.SelectSpecialSet.Receiver;
             Umpire.Text = ViewModel.SelectSpecialSet.Umpire;
