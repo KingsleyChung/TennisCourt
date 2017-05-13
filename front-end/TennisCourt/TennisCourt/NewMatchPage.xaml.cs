@@ -153,5 +153,43 @@ namespace TennisCourt
         {
 
         }
+
+        private async void Finish_Click(object sender, RoutedEventArgs e)
+        {
+            if (ViewModel.SelectMatch.MatchID != null)
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    try
+                    {
+                        var kvp = new List<KeyValuePair<string, string>>
+                    {
+                        new KeyValuePair<string,string>("matchId", ViewModel.SelectMatch.MatchID)
+                    };
+                        HttpResponseMessage response = await client.PostAsync("http://www.zhengweimumu.cn:3000/creatematch", new FormUrlEncodedContent(kvp));
+                        if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
+                        {
+                            string responseBody = await response.Content.ReadAsStringAsync();
+                            Debug.WriteLine(responseBody);
+                            var matchinfo = JObject.Parse(responseBody);
+                            //正确时创建赛事成功
+                            if ((string)matchinfo["ok"] != "0")
+                            {
+                                Frame.Navigate(typeof(MatchesPage), ViewModel);
+                            }
+                            //不正确时输出错误信息
+                            else
+                            {
+                                Message.Text = (string)matchinfo["error"];
+                            }
+                        }
+                    }
+                    catch (HttpRequestException ex)
+                    {
+                        await new MessageDialog(ex.Message).ShowAsync();
+                    }
+                }
+            }
+        }
     }
 }

@@ -37,7 +37,7 @@
         <RelativePanel Grid.Row="2" HorizontalAlignment="Center">
             <Button Name="Create" Content="创建" Width="80" Click="Create_Click" Margin="0, 0, 40, 0"/>
             <Button Name="Cancel" Content="取消" Width="80" RelativePanel.AlignVerticalCenterWith="Create" RelativePanel.RightOf="Create" Click="Cancel_Click"/>
-            <Button Name="Finish" Content="结束比赛" Width="200" RelativePanel.Below="Create" RelativePanel.AlignLeftWith="Create" Margin="0, 4, 0, 0" Background="Red"/>
+            <Button Name="Finish" Content="结束比赛" Width="200" RelativePanel.Below="Create" RelativePanel.AlignLeftWith="Create" Margin="0, 4, 0, 0" Background="Red" Click="Finish_Click"/>
         </RelativePanel>
         
     </Grid>
