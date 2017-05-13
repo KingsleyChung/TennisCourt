@@ -4,9 +4,16 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:TennisCourt"
     xmlns:md="using:TennisCourt.Models"
+    xmlns:common="using:myTransfer"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+
+    <Page.Resources>
+        <common:TotalConverter x:Key="totalConverter"></common:TotalConverter>
+        <common:Flag1Converter x:Key="flag1Converter"></common:Flag1Converter>
+        <common:Flag2Converter x:Key="flag2Converter"></common:Flag2Converter>
+    </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
@@ -52,7 +59,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="md:Score">
                         <RelativePanel>
-                            <TextBlock Name="GameNo" Text="Game 6" FontSize="28" RelativePanel.AlignVerticalCenterWithPanel="True" FontWeight="Bold"/>
+                            <TextBlock Name="GameNo" Text="{x:Bind TotalGames, Converter={StaticResource totalConverter}}" FontSize="28" RelativePanel.AlignVerticalCenterWithPanel="True" FontWeight="Bold"/>
                             <StackPanel RelativePanel.RightOf="GameNo" >
                                 <Grid Name="DataGrid">
                                     <Grid.RowDefinitions>
@@ -68,28 +75,28 @@
                                         <ColumnDefinition Width="1*"/>
                                     </Grid.ColumnDefinitions>
                                     <Border BorderBrush="Black" BorderThickness="2, 2, 0, 1" Grid.Row="0" Grid.Column="0">
-                                        <TextBlock Name="ServerName" Text="鍾文杰" FontSize="40"/>
+                                        <TextBlock Name="ServerName" Text="{x:Bind ServerName}" FontSize="40"/>
                                     </Border>
                                     <Border BorderBrush="Black" BorderThickness="2, 1, 0, 2" Grid.Row="1" Grid.Column="0" >
-                                        <TextBlock Name="ReceiverName" Text="德约科维奇" FontSize="40" />
+                                        <TextBlock Name="ReceiverName" Text="{x:Bind ReceiverName}" FontSize="40" />
                                     </Border>
                                     <Border BorderBrush="Black" BorderThickness="0, 2, 1, 1" Grid.Row="0" Grid.Column="1">
-                                        <Image Name="Player1_ball" Source="Assets/TennisBall.png" Width="28" Height="28" Margin="4, 0, 0, 0"/>
+                                        <Image Name="Player1_ball" Source="Assets/TennisBall.png" Width="28" Height="28" Margin="4, 0, 0, 0" Opacity="{x:Bind BallFlag, Converter={StaticResource flag1Converter}}"/>
                                     </Border>
                                     <Border BorderBrush="Black" BorderThickness="0, 1, 1, 2" Grid.Row="1" Grid.Column="1">
-                                        <Image Name="Player2_ball" Source="Assets/TennisBall.png" Width="28" Height="28" Margin="4, 0, 0, 0"/>
+                                        <Image Name="Player2_ball" Source="Assets/TennisBall.png" Width="28" Height="28" Margin="4, 0, 0, 0" Opacity="{x:Bind BallFlag, Converter={StaticResource flag2Converter}}"/>
                                     </Border>
                                     <Border BorderBrush="Black" BorderThickness="1, 2, 1, 1" Grid.Row="0" Grid.Column="2">
-                                        <TextBlock Name="Server_SetPoint" Text="5" FontSize="40" />
+                                        <TextBlock Name="Server_SetPoint" Text="{x:Bind ServerSet}" FontSize="40" />
                                     </Border>
                                     <Border BorderBrush="Black" BorderThickness="1, 1, 1, 2" Grid.Row="1" Grid.Column="2">
-                                        <TextBlock Name="Receiver_SetPoint" Text="0" FontSize="40" />
+                                        <TextBlock Name="Receiver_SetPoint" Text="{x:Bind ReceiverSet}" FontSize="40" />
                                     </Border>
                                     <Border BorderBrush="Black" BorderThickness="1, 2, 2, 1" Grid.Row="0" Grid.Column="3">
-                                        <TextBlock Name="Server_GamePoint" Text="15" FontSize="40" />
+                                        <TextBlock Name="Server_GamePoint" Text="{x:Bind ServerScore}" FontSize="40" />
                                     </Border>
                                     <Border BorderBrush="Black" BorderThickness="1, 1, 2, 2" Grid.Row="1" Grid.Column="3">
-                                        <TextBlock Name="Receiver_GamePoint" Text="0" FontSize="40" />
+                                        <TextBlock Name="Receiver_GamePoint" Text="{x:Bind ReceiverScore}" FontSize="40" />
                                     </Border>
                                     <Button Name="Server_Add" Content="Add" Grid.Row="0" Grid.Column="4" Click="Server_Add_Click"/>
                                     <Button Name="Receiver_Add" Content="Add" Grid.Row="1" Grid.Column="4" Click="Receiver_Add_Click"/>
@@ -149,6 +156,6 @@
                 </ListViewItem>-->
             </ListView>
         </ScrollViewer>
-        <Button Name="GameOver" Content="Game Over" Width="520" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" Grid.Column="1"/>
+        <Button Name="GameOver" Content="Game Over" Width="520" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" Grid.Column="1" Click="GameOver_Click"/>
     </Grid>
 </Page>

@@ -62,7 +62,7 @@ namespace TennisCourt.ViewModels
         }
 
         //add GameScore
-        public void AddGameScore(string gameID, string totalGames, string serverName, string receiverName, string ballFlag, string serverSet, string receiverSet, string serverScore, string receiverScore)
+        public void AddGameScore(string gameID, int totalGames, string serverName, string receiverName, string ballFlag, string serverSet, string receiverSet, string serverScore, string receiverScore)
         {
             allgameScore.Add(new Models.Score(gameID, totalGames, serverName, receiverName, ballFlag, serverSet, receiverSet, serverScore, receiverScore));
         }

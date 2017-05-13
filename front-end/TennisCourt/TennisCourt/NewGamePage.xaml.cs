@@ -227,7 +227,7 @@ namespace TennisCourt
                                 }
                             }
 
-                            Frame.Navigate(typeof(ReadyPage), ViewModel);
+                            Frame.Navigate(typeof(GamesPage), ViewModel);
                         }
                         //不正确时输出错误信息
                         else

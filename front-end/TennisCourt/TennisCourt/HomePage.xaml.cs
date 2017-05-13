@@ -54,6 +54,52 @@ namespace myTransfer
             throw new NotImplementedException();
         }
     }
+
+    public class TotalConverter : IValueConverter
+    {
+        object IValueConverter.Convert(object value, Type targetType, object parameter, string language)
+        {
+            string res = "";
+            int num = (int)value;
+            res = "Game " + num.ToString();
+            return res;
+        }
+
+        object IValueConverter.ConvertBack(object value, Type targetType, object parameter, string language)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class Flag1Converter : IValueConverter
+    {
+        object IValueConverter.Convert(object value, Type targetType, object parameter, string language)
+        {
+            string s = (string)value;
+            if (s == "1") return 1.0;
+            else return 0.0;
+        }
+
+        object IValueConverter.ConvertBack(object value, Type targetType, object parameter, string language)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class Flag2Converter : IValueConverter
+    {
+        object IValueConverter.Convert(object value, Type targetType, object parameter, string language)
+        {
+            string s = (string)value;
+            if (s == "1") return 0.0;
+            else return 1.0;
+        }
+
+        object IValueConverter.ConvertBack(object value, Type targetType, object parameter, string language)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
 
 namespace TennisCourt
