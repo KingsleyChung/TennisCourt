@@ -20,22 +20,22 @@
             <RowDefinition Height="11*"/>
         </Grid.RowDefinitions>
         <Rectangle Grid.Row="0" Grid.ColumnSpan="3" Fill="#FF0093BD" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" />
-        <TextBlock Text="场地情况" FontSize="160" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+        <TextBlock Text="场地情况" FontSize="100" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
         <GridView Name="CourtGrid" ItemsSource="{x:Bind ViewModel.CourtStatus}" Grid.Row="1" HorizontalAlignment="Center" Margin="0, 20, 0, 20">
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="md:Games">
                     <RelativePanel>
-                        <TextBlock Name="Title" Text="{x:Bind Court}" FontSize="68" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
-                        <Image Name="Court" Source="Assets/TennisCourt.png" Width="400" RelativePanel.Below="Title"/>
+                        <TextBlock Name="Title" Text="{x:Bind Court}" FontSize="60" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+                        <Image Name="Court" Source="Assets/TennisCourt.png" Width="320" RelativePanel.Below="Title" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
                         <TextBlock Name="Status" Text="{x:Bind Status, Converter={StaticResource statusConverter}}" FontSize="36" Foreground="Red" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWith="Court"/>
-                        <TextBlock Name="Server" Text="{x:Bind Server}" FontSize="40" RelativePanel.AlignVerticalCenterWith="VS_Label" RelativePanel.LeftOf="VS_Label"/>
-                        <TextBlock Name="VS_Label" Text="VS" FontSize="40" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="Court" Margin=" 20, 0, 20, 0"/>
-                        <TextBlock Name="Receiver" Text="{x:Bind Receiver}" FontSize="40" RelativePanel.AlignVerticalCenterWith="VS_Label" RelativePanel.RightOf="VS_Label"/>
+                        <TextBlock Name="Server" Text="{x:Bind Server}" FontSize="36" RelativePanel.AlignVerticalCenterWith="VS_Label" RelativePanel.LeftOf="VS_Label"/>
+                        <TextBlock Name="VS_Label" Text="VS" FontSize="36" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="Court" Margin=" 20, 0, 20, 0"/>
+                        <TextBlock Name="Receiver" Text="{x:Bind Receiver}" FontSize="36" RelativePanel.AlignVerticalCenterWith="VS_Label" RelativePanel.RightOf="VS_Label"/>
                     </RelativePanel>
                 </DataTemplate>
             </GridView.ItemTemplate>
 
-            <GridViewItem>
+            <!--<GridViewItem>
                 <RelativePanel>
                     <TextBlock Name="Title1" Text="Court 1" FontSize="68" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
                     <Image Name="Court1" Source="Assets/TennisCourt.png" Width="400" RelativePanel.Below="Title1"/>
@@ -82,7 +82,7 @@
                     <TextBlock Name="Status6" Text="Playing" FontSize="36" Foreground="Red" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWith="Court6"/>
                     <TextBlock Name="Competitors6" Text="Federer VS Nadal" FontSize="40" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="Court6" />
                 </RelativePanel>
-            </GridViewItem>
+            </GridViewItem>-->
         </GridView>
 
     </Grid>
