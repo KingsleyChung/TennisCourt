@@ -26,7 +26,7 @@ namespace myTransfer
         {
             string res = "";
             string s = (string)value;
-            if (s == "-1") res = "准备中";
+            if (s == "1") res = "准备中";
             else if (s == "0") res = "进行中";
             else res = "已结束";
             return res;
@@ -152,7 +152,25 @@ namespace TennisCourt
                         var gameinfo = JObject.Parse(responseBody);
                         if ((string)gameinfo["ok"] != "0")
                         {
-                            var games = gameinfo["games"];
+                            var allgame = (JArray)gameinfo["games"];
+                            for (int i = 0; i < allgame.Count; i++)
+                            {
+                                var setId = (string)allgame[i]["matchId"];
+                                var player1 = (string)allgame[i]["player1"];
+                                var player2 = (string)allgame[i]["player2"];
+                                var cata = (string)allgame[i]["catagory"];
+                                var ump = (string)allgame[i]["umpire"];
+                                var line = (string)allgame[i]["lineman"];
+                                var res = (string)allgame[i]["result"];
+                                var cour = (string)allgame[i]["court"];
+                                var rou = (string)allgame[i]["round"];
+                                var status = (string)allgame[i]["status"];
+                                var fa = (string)allgame[i]["date"];
+                                var date = Convert.ToDateTime(fa);
+                                List<string> score = new List<string>();
+                                ViewModel.AddSpecialGame(setId, player1, player2, cata, ump, line, date, date, date, cour, rou, res, score, status);
+
+                            }
                         }
                     }
                 }
@@ -172,6 +190,7 @@ namespace TennisCourt
                 i = 0;
             }
             PhotoGallery.SelectedIndex = i;
+
         }
 
         private void MatchOverview_ItemClick(object sender, ItemClickEventArgs e)

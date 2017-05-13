@@ -70,12 +70,15 @@ namespace TennisCourt
         {
             var title = Title.Text;
             var totalplayer = TotalPlayers.Text;
-            if (title == "") {
+            if (title == "")
+            {
+                Message.Visibility = Visibility.Visible;
                 Message.Text = "Title can not be empty!";
                 return;
             }
             if (totalplayer == "")
             {
+                Message.Visibility = Visibility.Visible;
                 Message.Text = "Player can not be zero!";
                 return;
             }
@@ -86,7 +89,9 @@ namespace TennisCourt
             var box5 = MixDouble.IsChecked;
             if (box1 == false && box2 == false && box3 == false && box4 == false && box5 == false)
             {
+                Message.Visibility = Visibility.Visible;
                 Message.Text = "Catalory can not empty!";
+                return;
             }
             string s = "";
             if (box1 == false) s += "0";
@@ -109,10 +114,10 @@ namespace TennisCourt
                         new KeyValuePair<string,string>("matchTitle", title),
                         new KeyValuePair<string,string>("date", startdate),
                         new KeyValuePair<string,string>("totalPlayers", totalplayer),
-                        new KeyValuePair<string,string>("status", "-1"),
+                        new KeyValuePair<string,string>("status", "1"),
                         new KeyValuePair<string,string>("category", s)
                     };
-                    HttpResponseMessage response = await client.PostAsync("http://www.zhengweimumu.cn:3000/creatematch", new FormUrlEncodedContent(kvp));
+                    HttpResponseMessage response = await client.PostAsync("http://localhost:3000/creatematch", new FormUrlEncodedContent(kvp));
                     if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
                     {
                         string responseBody = await response.Content.ReadAsStringAsync();
@@ -138,6 +143,7 @@ namespace TennisCourt
                         //不正确时输出错误信息
                         else
                         {
+                            Message.Visibility = Visibility.Visible;
                             Message.Text = (string)matchinfo["error"];
                         }
                     }
@@ -166,7 +172,7 @@ namespace TennisCourt
                     {
                         new KeyValuePair<string,string>("matchId", ViewModel.SelectMatch.MatchID)
                     };
-                        HttpResponseMessage response = await client.PostAsync("http://www.zhengweimumu.cn:3000/creatematch", new FormUrlEncodedContent(kvp));
+                        HttpResponseMessage response = await client.PostAsync("http://localhost:3000/endmatch", new FormUrlEncodedContent(kvp));
                         if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
                         {
                             string responseBody = await response.Content.ReadAsStringAsync();
