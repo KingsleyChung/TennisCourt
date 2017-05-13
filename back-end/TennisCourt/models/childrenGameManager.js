@@ -67,7 +67,7 @@ module.exports = function (db) {
 
         childrenGameCreate : function (childrenGame) {
             childrenGame.date = returnDate(0);
-            childrenGame.status = "-1";
+            childrenGame.status = "1";
             childrenGame.parentId = childrenGame.matchId;
             childrenGame.matchId += "/" + num;
             childrenGame.result = "0-0";
