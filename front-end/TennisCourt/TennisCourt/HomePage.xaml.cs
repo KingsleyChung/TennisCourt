@@ -23,8 +23,8 @@ namespace myTransfer
         {
             string res = "";
             string s = (string)value;
-            if (s == "-1") res = "Prepare";
-            else if (s == "0") res = "Play";
+            if (s == "-1") res = "Preparing";
+            else if (s == "0") res = "Playing";
             else res = "End";
             return res;
         }

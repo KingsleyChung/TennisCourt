@@ -137,5 +137,33 @@ namespace TennisCourt.ViewModels
             this.allSets.Add(new Models.Games("", "", "", "", "", "", currentTime, currentTime, currentTime, "court 1", "round 2", "", t, "-1"));
         }
         */
+
+        // get court status
+        public ObservableCollection<Models.Games> CourtStatus = new ObservableCollection<Models.Games>();
+        public void initializeCourtStatus()
+        {
+            Models.Games[] courtStatus = new Models.Games[6];
+            foreach (Models.Matches match in allMatches)
+            {
+                foreach(Models.Games game in match.Game)
+                {
+                    if (game.Status != "1")
+                    {
+                        courtStatus[int.Parse(game.Court) - 1] = game;
+                    }
+                }
+            }
+            for (int i = 0; i < 6; i++)
+            {
+                if (courtStatus[i] != null)
+                {
+                    CourtStatus.Add(courtStatus[i]);
+                }
+                else
+                {
+                    CourtStatus.Add(new Games("", "", "", "", "", "", DateTime.Now, DateTime.Now, DateTime.Now, (i+1).ToString(), "", "", null, "-1"));
+                }
+            }
+        }
     }
 }

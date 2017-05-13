@@ -32,6 +32,21 @@ namespace TennisCourt
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             ViewModel = (ViewModels.MatchesViewModel)e.Parameter;
+            ViewModel.initializeCourtStatus();
+
+
+            //for testing
+            //ViewModel = new ViewModels.MatchesViewModel();
+            //ViewModel.AddUser("Kingsley", "15331429", "123123", "0");
+            //List<Models.Games> tempGameList = new List<Models.Games>();
+            //List<string> tempGameSocre = new List<string>();
+            //tempGameList.Add(new Models.Games("1231", "鍾文杰", "费德勒", "Man's Single", "郑伟林", "", DateTime.Now, DateTime.Now, DateTime.Now, "1", "2nd", "0-5", tempGameSocre, "-1"));
+            //tempGameList.Add(new Models.Games("1231", "纳达尔", "费德勒", "Man's Single", "郑伟林", "", DateTime.Now, DateTime.Now, DateTime.Now, "4", "2nd", "0-5", tempGameSocre, "-1"));
+            //tempGameList.Add(new Models.Games("1231", "迪米", "费德勒", "Man's Single", "郑伟林", "", DateTime.Now, DateTime.Now, DateTime.Now, "6", "2nd", "0-5", tempGameSocre, "-1"));
+            //ViewModel.AddMatch("中东网球公开赛", "1321123213", DateTime.Now, DateTime.Now, "Man's Single", "40", "-1", tempGameList);
+
+
+            
         }
     }
 }
