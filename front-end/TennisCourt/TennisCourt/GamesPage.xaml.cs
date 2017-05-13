@@ -60,7 +60,7 @@ namespace TennisCourt
                     {
                         new KeyValuePair<string,string>("matchId", ViewModel.SelectMatch.MatchID)
                     };
-                    HttpResponseMessage response = await client.PostAsync("http://www.zhengweimumu.cn:3000/matchgame", new FormUrlEncodedContent(kvp));
+                    HttpResponseMessage response = await client.PostAsync("http://localhost:3000/matchgame", new FormUrlEncodedContent(kvp));
                     if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
                     {
                         string responseBody = await response.Content.ReadAsStringAsync();
@@ -107,7 +107,7 @@ namespace TennisCourt
         private void games_ItemClick(object sender, ItemClickEventArgs e)
         {
             ViewModel.SelectSpecialSet = (Models.Games)(e.ClickedItem);
-            Frame.Navigate(typeof(ReadyPage), ViewModel);
+            Frame.Navigate(typeof(DetailPage), ViewModel);
         }
     }
 }

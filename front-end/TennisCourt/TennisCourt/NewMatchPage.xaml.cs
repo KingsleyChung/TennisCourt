@@ -112,7 +112,7 @@ namespace TennisCourt
                         new KeyValuePair<string,string>("status", "-1"),
                         new KeyValuePair<string,string>("category", s)
                     };
-                    HttpResponseMessage response = await client.PostAsync("http://www.zhengweimumu.cn:3000/creatematch", new FormUrlEncodedContent(kvp));
+                    HttpResponseMessage response = await client.PostAsync("http://localhost:3000/creatematch", new FormUrlEncodedContent(kvp));
                     if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
                     {
                         string responseBody = await response.Content.ReadAsStringAsync();
