@@ -23,9 +23,9 @@ namespace myTransfer
         {
             string res = "";
             string s = (string)value;
-            if (s == "-1") res = "Preparing";
-            else if (s == "0") res = "Playing";
-            else res = "End";
+            if (s == "-1") res = "准备中";
+            else if (s == "0") res = "进行中";
+            else res = "已结束";
             return res;
         }
 

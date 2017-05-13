@@ -16,10 +16,10 @@
         <Rectangle Grid.Row="0" Fill="#FF0093BD" />
         <TextBlock Text="赛前准备" FontSize="100" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
         <RelativePanel Grid.Row="1" HorizontalAlignment="Center" Grid.RowSpan="2">
-            <TextBlock Name="Label" Text="热身时间" Foreground="#FF0093BD" FontSize="48"/>
-            <TextBlock Name="Time" Text="5:00" RelativePanel.Below="Label" FontSize="164" Margin="20, 6, 20, 12"/>
+            <TextBlock Name="Label" Text="热身时间" Foreground="#FF0093BD" FontSize="48" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+            <TextBlock Name="Time" Text="5:00" RelativePanel.Below="Label" FontSize="136" Margin="8, 6, 8, 24"/>
             <Button Name="StartCounting" Content="开始计时" Width="180" RelativePanel.Below="Time" RelativePanel.AlignHorizontalCenterWith="Time" />
-            <ComboBox Name="Server" PlaceholderText="发球方" Width="180" RelativePanel.Below="StartCounting" RelativePanel.AlignHorizontalCenterWith="StartCounting" Margin="0, 80, 0, 0" >
+            <ComboBox Name="Server" PlaceholderText="发球方" Width="180" RelativePanel.Below="StartCounting" RelativePanel.AlignHorizontalCenterWith="StartCounting" Margin="0, 40, 0, 0" >
                 <ComboBoxItem>
                     <TextBlock Name="Player1" Text="鍾文杰"/>
                 </ComboBoxItem>
@@ -28,6 +28,6 @@
                 </ComboBoxItem>
             </ComboBox>
         </RelativePanel>
-        <Button Name="Start" Content="Start Game" Grid.Row="2" Click="Start_Click" HorizontalAlignment="Center" Width="300"/>
+        <Button Name="Start" Content="Start Game" Grid.Row="2" Click="Start_Click" HorizontalAlignment="Center" Width="200"/>
     </Grid>
 </Page>
