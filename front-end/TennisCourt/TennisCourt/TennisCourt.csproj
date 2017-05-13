@@ -146,6 +146,7 @@
       <DependentUpon>SignUp.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\MatchesViewModel.cs" />
+    <Compile Include="ViewModels\MyObservableCollection.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">

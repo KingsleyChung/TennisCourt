@@ -100,6 +100,21 @@ namespace myTransfer
             throw new NotImplementedException();
         }
     }
+
+    public class ButtonConverter : IValueConverter
+    {
+        object IValueConverter.Convert(object value, Type targetType, object parameter, string language)
+        {
+            string s = (string)value;
+            if (s == "1") return true;
+            else return false;
+        }
+
+        object IValueConverter.ConvertBack(object value, Type targetType, object parameter, string language)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
 
 namespace TennisCourt

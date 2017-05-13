@@ -17,6 +17,7 @@ namespace TennisCourt.Models
         private string receiverSet;
         private string serverScore;
         private string receiverScore;
+        private string buttonFlag;
 
         public string GameID
         {
@@ -72,7 +73,13 @@ namespace TennisCourt.Models
             set { SetProperty(ref this.receiverScore, value); }
         }
 
-        public Score(string _gameID, int _totalGames, string _serverName, string _receiverName, string _ballFlag, string _serverSet, string _receiverSet, string _serverScore, string _receiverScore)
+        public string ButtonFlag
+        {
+            get { return buttonFlag; }
+            set { SetProperty(ref this.buttonFlag, value); }
+        }
+
+        public Score(string _gameID, int _totalGames, string _serverName, string _receiverName, string _ballFlag, string _serverSet, string _receiverSet, string _serverScore, string _receiverScore, string _buttonFlag)
         {
             gameID = _gameID;
             totalGames = _totalGames;
@@ -83,6 +90,7 @@ namespace TennisCourt.Models
             receiverSet = _receiverSet;
             serverScore = _serverScore;
             receiverScore = _receiverScore;
+            buttonFlag = _buttonFlag;
         }
     }
 }
