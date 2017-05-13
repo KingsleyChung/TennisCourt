@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using TennisCourt.ViewModels;
 
 // “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=234238 上有介绍
 
@@ -43,18 +44,25 @@ namespace TennisCourt
             Category.Text = ViewModel.SelectSpecialSet.Category;
             Round.Text = ViewModel.SelectSpecialSet.Round;
 
+            create_set("1");
+            //ViewModel.SelectGameScore = ViewModel.AllGameScore.ElementAt(ViewModel.AllGameScore.Count - 1);
+        }
 
-            var totalGames = 1;
+        private void create_set(string flag)
+        {
+            var count = ViewModel.AllGameScore.Count;
+            var totalGames = 0;
+            if (count == 0) totalGames = 0;
+            else totalGames = ViewModel.AllGameScore.ElementAt(ViewModel.AllGameScore.Count-1).TotalGames;
             var gameID = ViewModel.SelectSpecialSet.SetID + totalGames.ToString();
             var serverName = ViewModel.SelectSpecialSet.Server;
             var receiverName = ViewModel.SelectSpecialSet.Receiver;
-            var ballFlag = "1";
             var serverSet = "0";
             var receiverSet = "0";
             var serverScore = "0";
             var receiverScore = "0";
+            var ballFlag = flag;
             ViewModel.AddGameScore(gameID, totalGames, serverName, receiverName, ballFlag, serverSet, receiverSet, serverScore, receiverScore);
-            //ViewModel.SelectGameScore = ViewModel.AllGameScore.ElementAt(ViewModel.AllGameScore.Count - 1);
         }
 
         private void ScoreDisplay_ItemClick(object sender, ItemClickEventArgs e)
@@ -64,13 +72,14 @@ namespace TennisCourt
 
         private async void Server_Add_Click(object sender, RoutedEventArgs e)
         {
+            int flag = 0;
             var select = ((Button)e.OriginalSource).DataContext as Models.Score;
             var selectgame = select.TotalGames;
             var selectserverset = select.ServerSet;
             var selectreceiverset = select.ReceiverSet;
             var selectserverscore = select.ServerScore;
             var selectreceiverscore = select.ReceiverScore;
-
+            var ballflag = select.BallFlag;
             if (selectserverscore == "0") selectserverscore = "15";
             else if (selectserverscore == "15") selectserverscore = "30";
             else if (selectserverscore == "30") selectserverscore = "40";
@@ -82,10 +91,15 @@ namespace TennisCourt
             }
             else if (selectserverscore == "Ad" || (selectserverscore == "40" && selectreceiverscore != "40"))
             {
-                selectserverscore = "0";
-                int set = int.Parse(selectserverset);
-                set++;
-                selectserverset = set.ToString();
+                var set1 = int.Parse(selectserverset);
+                var set2 = int.Parse(selectreceiverset);
+                set1++;
+                //判断是否进行下一局
+                if ((set1 == 6 && set2 < 5) || (set1 == 7))
+                {
+                    flag++;
+                }
+                selectserverset = set1.ToString();
             }
 
             using (HttpClient client = new HttpClient())
@@ -108,7 +122,24 @@ namespace TennisCourt
                         var gameinfo = JObject.Parse(responseBody);
                         if ((string)gameinfo["ok"] != "0")
                         {
-                            
+                            var game = selectgame;
+                            var id = ViewModel.SelectSpecialSet.SetID + game.ToString();
+                            var servername = select.ServerName;
+                            var receivername = select.ReceiverName;
+                            var ball = ballflag;
+                            var serverset = selectserverset;
+                            var receiverset = selectreceiverset;
+                            var serverscore = selectserverscore;
+                            var receiverscore = selectreceiverscore;
+
+                            ViewModel.AddGameScore(id, game, servername, receivername, ball, serverset, receiverset, serverscore, receiverscore);
+                            if (flag != 0)
+                            {
+                                string tmp = "";
+                                if (ball == "1") tmp = "0";
+                                else tmp = "1";
+                                create_set(tmp);
+                            }
                         }
                     }
                 }
