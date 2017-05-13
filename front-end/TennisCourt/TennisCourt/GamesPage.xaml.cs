@@ -109,5 +109,20 @@ namespace TennisCourt
             ViewModel.SelectSpecialSet = (Models.Games)(e.ClickedItem);
             Frame.Navigate(typeof(ReadyPage), ViewModel);
         }
+
+        private void EditMatch_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(NewMatchPage), ViewModel);
+        }
+
+        private void DeleteMatch_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void FinishMatch_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
