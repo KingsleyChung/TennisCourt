@@ -45,8 +45,8 @@ namespace TennisCourt.ViewModels
             set { this.selectedspecialSet = value; }
         }
         //GameScore data
-        private ObservableCollection<Models.Score> allgameScore = new ObservableCollection<Models.Score>();
-        public ObservableCollection<Models.Score> AllGameScore { get { return this.allgameScore; } }
+        private MyObservableCollection<Models.Score> allgameScore = new MyObservableCollection<Models.Score>();
+        public MyObservableCollection<Models.Score> AllGameScore { get { return this.allgameScore; } }
 
         private Models.Score selectedgameScore = default(Models.Score);
         public Models.Score SelectGameScore
@@ -62,9 +62,36 @@ namespace TennisCourt.ViewModels
         }
 
         //add GameScore
-        public void AddGameScore(string gameID, int totalGames, string serverName, string receiverName, string ballFlag, string serverSet, string receiverSet, string serverScore, string receiverScore)
+        public void AddGameScore(string gameID, int totalGames, string serverName, string receiverName, string ballFlag, string serverSet, string receiverSet, string serverScore, string receiverScore, string buttonFlag)
         {
-            allgameScore.Add(new Models.Score(gameID, totalGames, serverName, receiverName, ballFlag, serverSet, receiverSet, serverScore, receiverScore));
+            allgameScore.Add(new Models.Score(gameID, totalGames, serverName, receiverName, ballFlag, serverSet, receiverSet, serverScore, receiverScore, buttonFlag));
+        }
+        //update GameScore
+        public void UpdateGameScore(string gameID, string serverScore, string receiverScore)
+        {
+            for (int i = 0; i < allgameScore.Count; i++)
+            {
+                Models.Score select = this.allgameScore.ElementAt(i);
+                if (select.GameID == gameID)
+                {
+                    allgameScore[i].ServerScore = serverScore;
+                    allgameScore[i].ReceiverScore = receiverScore;
+                    allgameScore.SetItem(i, select);
+                }
+            }
+        }
+        //change button flag
+        public void ChangeButtonFlag(string gameID, string flag)
+        {
+            for (int i = 0; i < allgameScore.Count; i++)
+            {
+                Models.Score select = this.allgameScore.ElementAt(i);
+                if (select.GameID == gameID)
+                {
+                    allgameScore[i].ButtonFlag = flag;
+                    allgameScore.SetItem(i, select);
+                }
+            }
         }
 
         //add specialgame
