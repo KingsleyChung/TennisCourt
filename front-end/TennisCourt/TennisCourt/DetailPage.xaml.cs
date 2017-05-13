@@ -44,25 +44,34 @@ namespace TennisCourt
             Category.Text = ViewModel.SelectSpecialSet.Category;
             Round.Text = ViewModel.SelectSpecialSet.Round;
 
-            create_set("1");
+            create_set("1", "0", "0");
             //ViewModel.SelectGameScore = ViewModel.AllGameScore.ElementAt(ViewModel.AllGameScore.Count - 1);
         }
 
-        private void create_set(string flag)
+        private void create_set(string flag, string set1, string set2)
         {
             var count = ViewModel.AllGameScore.Count;
             var totalGames = 0;
-            if (count == 0) totalGames = 0;
-            else totalGames = ViewModel.AllGameScore.ElementAt(ViewModel.AllGameScore.Count-1).TotalGames;
-            var gameID = ViewModel.SelectSpecialSet.SetID + totalGames.ToString();
+            if (count == 0) totalGames = 1;
+            else totalGames = ViewModel.AllGameScore.ElementAt(ViewModel.AllGameScore.Count-1).TotalGames + 1;
+            var gameID = ViewModel.SelectSpecialSet.SetID + "/" + totalGames.ToString();
             var serverName = ViewModel.SelectSpecialSet.Server;
             var receiverName = ViewModel.SelectSpecialSet.Receiver;
-            var serverSet = "0";
-            var receiverSet = "0";
-            var serverScore = "0";
-            var receiverScore = "0";
+            var serverSet = set1;
+            var receiverSet = set2;
+            var serverScore = "00";
+            var receiverScore = "00";
             var ballFlag = flag;
-            ViewModel.AddGameScore(gameID, totalGames, serverName, receiverName, ballFlag, serverSet, receiverSet, serverScore, receiverScore);
+            ViewModel.AddGameScore(gameID, totalGames, serverName, receiverName, ballFlag, serverSet, receiverSet, serverScore, receiverScore, "1");
+
+            var one = int.Parse(serverSet);
+            var two = int.Parse(receiverSet);
+            //判断是否进行下一局
+            if ((one == 6 && two < 5) || (one == 7))
+            {
+                ViewModel.ChangeButtonFlag(gameID, "0");
+                GameOver.Visibility = Visibility.Visible;
+            }
         }
 
         private void ScoreDisplay_ItemClick(object sender, ItemClickEventArgs e)
@@ -70,9 +79,8 @@ namespace TennisCourt
 
         }
 
-        private async void Server_Add_Click(object sender, RoutedEventArgs e)
-        {
-            int flag = 0;
+        private void Server_Add_Click(object sender, RoutedEventArgs e)
+        { 
             var select = ((Button)e.OriginalSource).DataContext as Models.Score;
             var selectgame = select.TotalGames;
             var selectserverset = select.ServerSet;
@@ -80,7 +88,25 @@ namespace TennisCourt
             var selectserverscore = select.ServerScore;
             var selectreceiverscore = select.ReceiverScore;
             var ballflag = select.BallFlag;
-            if (selectserverscore == "0") selectserverscore = "15";
+            AddPoint(0, selectgame, select.ServerName, select.ReceiverName, selectserverset, selectreceiverset, selectserverscore, selectreceiverscore, ballflag);
+        }
+
+        private void Receiver_Add_Click(object sender, RoutedEventArgs e)
+        {
+            var select = ((Button)e.OriginalSource).DataContext as Models.Score;
+            var selectgame = select.TotalGames;
+            var selectserverset = select.ServerSet;
+            var selectreceiverset = select.ReceiverSet;
+            var selectserverscore = select.ServerScore;
+            var selectreceiverscore = select.ReceiverScore;
+            var ballflag = select.BallFlag;
+            AddPoint(1, selectgame, select.ServerName, select.ReceiverName, selectreceiverset, selectserverset, selectreceiverscore, selectserverscore, ballflag);
+        }
+
+        private async void AddPoint(int my, int selectgame, string serverName, string receiverName, string selectserverset, string selectreceiverset, string selectserverscore, string selectreceiverscore, string ballflag)
+        {
+            int flag = 1;
+            if (selectserverscore == "00") selectserverscore = "15";
             else if (selectserverscore == "15") selectserverscore = "30";
             else if (selectserverscore == "30") selectserverscore = "40";
             else if (selectserverscore == "40" && selectreceiverscore == "40") selectserverscore = "Ad";
@@ -93,52 +119,74 @@ namespace TennisCourt
             {
                 var set1 = int.Parse(selectserverset);
                 var set2 = int.Parse(selectreceiverset);
-                set1++;
                 //判断是否进行下一局
                 if ((set1 == 6 && set2 < 5) || (set1 == 7))
                 {
-                    flag++;
+                    flag = -1;
+                }
+                else
+                {
+                    flag = 0;
+                    set1++;
+                    selectgame++;
+                    selectserverscore = "00";
+                    selectreceiverscore = "00";
                 }
                 selectserverset = set1.ToString();
             }
 
             using (HttpClient client = new HttpClient())
             {
+                string res = "", sco = "";
+                if (my == 0)
+                {
+                    res = selectserverset + "-" + selectreceiverset;
+                    sco = selectserverscore + "-" + selectreceiverscore;
+                }
+                else if (my == 1)
+                {
+                    res = selectreceiverset + "-" + selectserverset;
+                    sco = selectreceiverscore + "-" + selectserverscore;
+                }
                 try
                 {
-                    //var result = ViewModel.SelectGameScore.ServerSet + "-" + ViewModel.SelectGameScore.ReceiverSet;
-                    
                     var kvp = new List<KeyValuePair<string, string>>
                     {
                         new KeyValuePair<string,string>("matchId", ViewModel.SelectSpecialSet.SetID),
                         new KeyValuePair<string,string>("game", selectgame.ToString()),
-                        new KeyValuePair<string,string>("result", selectserverset + "-" + selectreceiverset),
-                        new KeyValuePair<string,string>("score", selectserverscore + "-" + selectreceiverscore)
+                        new KeyValuePair<string,string>("result", res),
+                        new KeyValuePair<string,string>("score", sco)
                     };
-                    HttpResponseMessage response = await client.PostAsync("http://www.zhengweimumu.cn:3000/changescore", new FormUrlEncodedContent(kvp));
+                    HttpResponseMessage response = await client.PostAsync("http://localhost:3000/changescore", new FormUrlEncodedContent(kvp));
                     if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
                     {
                         string responseBody = await response.Content.ReadAsStringAsync();
                         var gameinfo = JObject.Parse(responseBody);
                         if ((string)gameinfo["ok"] != "0")
                         {
-                            var game = selectgame;
-                            var id = ViewModel.SelectSpecialSet.SetID + game.ToString();
-                            var servername = select.ServerName;
-                            var receivername = select.ReceiverName;
+                            var game = --selectgame;
+                            var id = ViewModel.SelectSpecialSet.SetID + "/" + game.ToString();
                             var ball = ballflag;
                             var serverset = selectserverset;
                             var receiverset = selectreceiverset;
                             var serverscore = selectserverscore;
                             var receiverscore = selectreceiverscore;
 
-                            ViewModel.AddGameScore(id, game, servername, receivername, ball, serverset, receiverset, serverscore, receiverscore);
-                            if (flag != 0)
+                            if (flag == 0)
                             {
+                                ViewModel.ChangeButtonFlag(id, "0");
                                 string tmp = "";
                                 if (ball == "1") tmp = "0";
                                 else tmp = "1";
-                                create_set(tmp);
+                                if (my == 0) create_set(tmp, serverset, receiverset);
+                                else if (my == 1) create_set(tmp, receiverset, serverset);
+                            }
+                            else
+                            {
+                                game++;
+                                id = ViewModel.SelectSpecialSet.SetID + "/" + game.ToString();
+                                if (my == 0) ViewModel.UpdateGameScore(id, serverscore, receiverscore);
+                                else if (my == 1) ViewModel.UpdateGameScore(id, receiverscore, serverscore);
                             }
                         }
                     }
@@ -148,13 +196,6 @@ namespace TennisCourt
                     await new MessageDialog(ex.Message).ShowAsync();
                 }
             }
-
-            
-        }
-
-        private async void Receiver_Add_Click(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void Recall_Click(object sender, RoutedEventArgs e)
@@ -162,9 +203,33 @@ namespace TennisCourt
 
         }
 
-        private void GameOver_Click(object sender, RoutedEventArgs e)
+        private async void GameOver_Click(object sender, RoutedEventArgs e)
         {
-
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    var kvp = new List<KeyValuePair<string, string>>
+                    {
+                        new KeyValuePair<string,string>("matchId", ViewModel.SelectSpecialSet.SetID),
+                        new KeyValuePair<string,string>("status", "1")
+                    };
+                    HttpResponseMessage response = await client.PostAsync("http://localhost:3000/changegame", new FormUrlEncodedContent(kvp));
+                    if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
+                    {
+                        string responseBody = await response.Content.ReadAsStringAsync();
+                        var info = JObject.Parse(responseBody);
+                        if ((string)info["ok"] != "0")
+                        {
+                            Frame.Navigate(typeof(GamesPage), ViewModel);
+                        }
+                    }
+                }
+                catch (HttpRequestException ex)
+                {
+                    await new MessageDialog(ex.Message).ShowAsync();
+                }
+            }
         }
     }
 }

@@ -34,56 +34,6 @@
                     </RelativePanel>
                 </DataTemplate>
             </GridView.ItemTemplate>
-
-            <!--<GridViewItem>
-                <RelativePanel>
-                    <TextBlock Name="Title1" Text="Court 1" FontSize="68" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
-                    <Image Name="Court1" Source="Assets/TennisCourt.png" Width="400" RelativePanel.Below="Title1"/>
-                    <TextBlock Name="Status1" Text="Playing" FontSize="36" Foreground="Red" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWith="Court1"/>
-                    <TextBlock Name="Competitors1" Text="Federer VS Nadal" FontSize="40" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="Court1" />
-                </RelativePanel>
-            </GridViewItem>
-            <GridViewItem>
-                <RelativePanel>
-                    <TextBlock Name="Title2" Text="Court 2" FontSize="68" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
-                    <Image Name="Court2" Source="Assets/TennisCourt.png" Width="400" RelativePanel.Below="Title2"/>
-                    <TextBlock Name="Status2" Text="Playing" FontSize="36" Foreground="Red" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWith="Court2"/>
-                    <TextBlock Name="Competitors2" Text="Federer VS Nadal" FontSize="40" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="Court2" />
-                </RelativePanel>
-            </GridViewItem>
-            <GridViewItem>
-                <RelativePanel>
-                    <TextBlock Name="Title3" Text="Court 3" FontSize="68" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
-                    <Image Name="Court3" Source="Assets/TennisCourt.png" Width="400" RelativePanel.Below="Title3"/>
-                    <TextBlock Name="Status3" Text="Playing" FontSize="36" Foreground="Red" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWith="Court3"/>
-                    <TextBlock Name="Competitors3" Text="Federer VS Nadal" FontSize="40" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="Court3" />
-                </RelativePanel>
-            </GridViewItem>
-            <GridViewItem>
-                <RelativePanel>
-                    <TextBlock Name="Title4" Text="Court 4" FontSize="68" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
-                    <Image Name="Court4" Source="Assets/TennisCourt.png" Width="400" RelativePanel.Below="Title4"/>
-                    <TextBlock Name="Status4" Text="Playing" FontSize="36" Foreground="Red" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWith="Court4"/>
-                    <TextBlock Name="Competitors4" Text="Federer VS Nadal" FontSize="40" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="Court4" />
-                </RelativePanel>
-            </GridViewItem>
-            <GridViewItem>
-                <RelativePanel>
-                    <TextBlock Name="Title5" Text="Court 5" FontSize="68" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
-                    <Image Name="Court5" Source="Assets/TennisCourt.png" Width="400" RelativePanel.Below="Title5"/>
-                    <TextBlock Name="Status5" Text="Playing" FontSize="36" Foreground="Red" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWith="Court5"/>
-                    <TextBlock Name="Competitors5" Text="Federer VS Nadal" FontSize="40" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="Court5" />
-                </RelativePanel>
-            </GridViewItem>
-            <GridViewItem>
-                <RelativePanel>
-                    <TextBlock Name="Title6" Text="Court 4" FontSize="68" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
-                    <Image Name="Court6" Source="Assets/TennisCourt.png" Width="400" RelativePanel.Below="Title6"/>
-                    <TextBlock Name="Status6" Text="Playing" FontSize="36" Foreground="Red" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWith="Court6"/>
-                    <TextBlock Name="Competitors6" Text="Federer VS Nadal" FontSize="40" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="Court6" />
-                </RelativePanel>
-            </GridViewItem>-->
         </GridView>
-
     </Grid>
 </Page>

@@ -79,7 +79,7 @@
                         </Ellipse>
                         <TextBlock Name="Username" Text="TestUsername" FontSize="20" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="Icon" Margin="0, 0, 0, 4" Foreground="White"/>
                         <TextBlock Name="StudentID" Text="TestStudentID" FontSize="20" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="Username" Margin="0, 0, 0, 12" Foreground="White"/>
-                        <Line Name="DivideLine" X1="0" X2="240" Stroke="White" StrokeThickness="4" RelativePanel.Below="StudentID" RelativePanel.AlignHorizontalCenterWithPanel="True" Fill="White" FocusVisualPrimaryBrush="White" />
+                        <Line Name="DivideLine" X1="0" X2="240" Stroke="White" StrokeThickness="2" RelativePanel.Below="StudentID" RelativePanel.AlignHorizontalCenterWithPanel="True" Fill="White" FocusVisualPrimaryBrush="White" />
                         <RelativePanel RelativePanel.Below="DivideLine" RelativePanel.AlignHorizontalCenterWithPanel="True">
                             <Image Name="WeatherIcon" Source="../Assets/Cloudy.png" Width="80" Height="80" Margin="0, 0, 20, 0"/>
                             <StackPanel Orientation="Vertical" RelativePanel.RightOf="WeatherIcon" RelativePanel.AlignVerticalCenterWith="WeatherIcon">

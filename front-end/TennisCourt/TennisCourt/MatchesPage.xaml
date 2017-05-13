@@ -26,7 +26,7 @@
                       ItemClick="matches_ItemClick" ItemsSource="{x:Bind ViewModel.AllMatches}">
                 <GridView.ItemTemplate>
                     <DataTemplate x:DataType="md:Matches">
-                        <RelativePanel Padding="4, 8, 8, 0">
+                        <RelativePanel Padding="4, 8, 8, 0" Width="500">
                             <Image Name="Poster" Height="180" Source="Assets/Poster.jpg"/>
                             <RelativePanel Margin="20, 0, 0, 0" RelativePanel.RightOf="Poster" RelativePanel.AlignVerticalCenterWithPanel="True">
                                 <TextBlock Name="MatchTitle" Text="{x:Bind MatchTitle}" FontSize="28" />
