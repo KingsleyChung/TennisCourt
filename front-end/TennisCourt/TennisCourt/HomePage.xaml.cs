@@ -145,7 +145,7 @@ namespace TennisCourt
             {
                 try
                 {
-                    HttpResponseMessage response = await client.GetAsync("http://localhost:3000/returngame");
+                    HttpResponseMessage response = await client.GetAsync("http://www.zhengweimumu.cn:3000/returngame");
                     if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
                     {
                         string responseBody = await response.Content.ReadAsStringAsync();

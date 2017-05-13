@@ -32,6 +32,7 @@ namespace TennisCourt
         public NewMatchPage()
         {
             this.InitializeComponent();
+            Message.Opacity = 0;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -143,7 +144,7 @@ namespace TennisCourt
                         //不正确时输出错误信息
                         else
                         {
-                            Message.Visibility = Visibility.Visible;
+                            Message.Opacity = 1;
                             Message.Text = (string)matchinfo["error"];
                         }
                     }
@@ -157,7 +158,10 @@ namespace TennisCourt
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
-
+            if (Frame.CanGoBack)
+            {
+                Frame.GoBack();
+            }
         }
 
         private async void Finish_Click(object sender, RoutedEventArgs e)
