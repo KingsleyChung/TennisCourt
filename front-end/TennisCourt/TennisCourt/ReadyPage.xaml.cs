@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -26,6 +27,7 @@ namespace TennisCourt
     public sealed partial class ReadyPage : Page
     {
         private ViewModels.MatchesViewModel ViewModel;
+        DispatcherTimer timer = new DispatcherTimer();
 
         public ReadyPage()
         {
@@ -37,6 +39,18 @@ namespace TennisCourt
             ViewModel = (ViewModels.MatchesViewModel)e.Parameter;
             Player1.Text = ViewModel.SelectSpecialSet.Server;
             Player2.Text = ViewModel.SelectSpecialSet.Receiver;
+        }
+
+        private void Time_Tick(object sender, object e)
+        {
+            int i = int.Parse(Time.Text);
+            i--;
+            if (i <= 0)
+            {
+                i = 0;
+                timer.Stop();
+            }
+            Time.Text = i.ToString();
         }
 
         private async void Start_Click(object sender, RoutedEventArgs e)
@@ -61,7 +75,7 @@ namespace TennisCourt
                         new KeyValuePair<string,string>("matchId", ViewModel.SelectSpecialSet.SetID),
                         new KeyValuePair<string,string>("status", "0")
                     };
-                        HttpResponseMessage response = await client.PostAsync("http://localhost:3000/changegame", new FormUrlEncodedContent(kvp));
+                        HttpResponseMessage response = await client.PostAsync("http://www.zhengweimumu.cn:3000/changegame", new FormUrlEncodedContent(kvp));
                         if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
                         {
                             string responseBody = await response.Content.ReadAsStringAsync();
@@ -78,6 +92,13 @@ namespace TennisCourt
                     }
                 }
             }
+        }
+
+        private void StartCounting_Click(object sender, RoutedEventArgs e)
+        {
+            timer.Interval = new TimeSpan(0, 0, 1);
+            timer.Tick += Time_Tick;
+            timer.Start();
         }
     }
 }
