@@ -120,7 +120,7 @@ module.exports = function (db) {
         returnDayGame : function () {
             var str = returnDate(0);
             console.log(str);
-            return childrenGames.find({date : returnDate(0)}).toArray().then(function (value) {
+            return childrenGames.find({date : returnDate(0)}).sort({status : 1}).toArray().then(function (value) {
                 return new Promise(function (resolve, reject){
                     if(value.length) {
                         var message = {};

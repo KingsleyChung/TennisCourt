@@ -5,7 +5,6 @@ module.exports = function (db) {
     var userManager = require('../models/userManager')(db);
     var mainGameManager = require('../models/mainGameManager')(db);
     var childrenGameManager = require('../models/childrenGameManager')(db);
-    childrenGameManager.returnAllGame();
     //字比赛创建相关api
     //创建一个子比赛
     router.post('/creategame', function (req, res, next) {
