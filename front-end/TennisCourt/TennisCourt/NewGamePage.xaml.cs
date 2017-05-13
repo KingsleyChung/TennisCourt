@@ -224,7 +224,7 @@ namespace TennisCourt
                             var status = (string)gameinfo["status"];
                             var date = Convert.ToDateTime(fa);
                             List<string> score = new List<string>();
-                            ViewModel.AddSpecialGame(setId, player1, player2, cata, ump, line, date, date, date, cour, rou, "0-0", score, status);
+                            ViewModel.AddSpecialGame(setId, player1, player2, cata, ump, line, date, date, date, cour, rou, "0-0", score, "1");
 
                             Frame.Navigate(typeof(GamesPage), ViewModel);
                         }

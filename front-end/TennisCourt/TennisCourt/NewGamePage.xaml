@@ -53,7 +53,7 @@
                             <TextBlock Text="混合双打" />
                         </ComboBoxItem>
                     </ComboBox>
-                    <ComboBox Name="RoundSelector" PlaceholderText="比赛伦次" Width="104" RelativePanel.RightOf="CategoriesSelector" RelativePanel.AlignVerticalCenterWith="CategoriesSelector" Margin="24, 0, 0, 0">
+                    <ComboBox Name="RoundSelector" PlaceholderText="比赛轮次" Width="104" RelativePanel.RightOf="CategoriesSelector" RelativePanel.AlignVerticalCenterWith="CategoriesSelector" Margin="24, 0, 0, 0">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
 

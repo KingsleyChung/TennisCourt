@@ -116,7 +116,7 @@ namespace TennisCourt
                         new KeyValuePair<string,string>("matchTitle", title),
                         new KeyValuePair<string,string>("date", startdate),
                         new KeyValuePair<string,string>("totalPlayers", totalplayer),
-                        new KeyValuePair<string,string>("status", "1"),
+                        new KeyValuePair<string,string>("status", "0"),
                         new KeyValuePair<string,string>("category", s)
                     };
                     HttpResponseMessage response = await client.PostAsync("http://localhost:3000/creatematch", new FormUrlEncodedContent(kvp));
