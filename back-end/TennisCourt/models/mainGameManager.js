@@ -9,7 +9,7 @@ module.exports = function (db) {
   var mainGameManager = {
       //增加赛事
       validateCreate : function (mainGame) {
-          mainGame.matchId = "" + num;
+          mainGame.matchId = "m" + num;
           return mainGames.findOne({matchTitle : mainGame.matchTitle}).then(function (value) {
                 return new Promise(function(resolve, reject){
                     if(value) {
