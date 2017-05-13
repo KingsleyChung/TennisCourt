@@ -59,7 +59,7 @@ namespace TennisCourt
                     {
                         new KeyValuePair<string,string>("matchId", ViewModel.SelectMatch.MatchID)
                     };
-                    HttpResponseMessage response = await client.PostAsync("http://localhost:3000/matchgame", new FormUrlEncodedContent(kvp));
+                    HttpResponseMessage response = await client.PostAsync("http://www.zhengweimumu.cn:3000/matchgame", new FormUrlEncodedContent(kvp));
                     if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
                     {
                         string responseBody = await response.Content.ReadAsStringAsync();
@@ -69,7 +69,7 @@ namespace TennisCourt
                             var allgame = (JArray)gameinfo["games"];
                             for (int i = 0; i < allgame.Count; i++)
                             {
-                                var setId = (string)allgame[i]["matchId"];
+                                var setId = (string)allgame[i]["matchid"];
                                 var player1 = (string)allgame[i]["player1"];
                                 var player2 = (string)allgame[i]["player2"];
                                 var cata = (string)allgame[i]["catagory"];

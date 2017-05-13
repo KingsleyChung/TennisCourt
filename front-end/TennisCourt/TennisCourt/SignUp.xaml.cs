@@ -81,7 +81,7 @@ namespace TennisCourt
                         new KeyValuePair<string,string>("password", password),
                         new KeyValuePair<string,string>("mode", "1")
                     };
-                    HttpResponseMessage response = await client.PostAsync("http://localhost:3000/regist", new FormUrlEncodedContent(kvp));
+                    HttpResponseMessage response = await client.PostAsync("http://www.zhengweimumu.cn:3000/regist", new FormUrlEncodedContent(kvp));
                     if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
                     {
                         string responseBody = await response.Content.ReadAsStringAsync();

@@ -73,7 +73,7 @@ namespace TennisCourt
                         new KeyValuePair<string,string>("studentid", studentid),
                         new KeyValuePair<string,string>("password", password)
                     };
-                    HttpResponseMessage response = await client.PostAsync("http://localhost:3000/signin", new FormUrlEncodedContent(kvp));
+                    HttpResponseMessage response = await client.PostAsync("http://www.zhengweimumu.cn:3000/signin", new FormUrlEncodedContent(kvp));
                     if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
                     {
                         string responseBody = await response.Content.ReadAsStringAsync();
@@ -83,7 +83,7 @@ namespace TennisCourt
                         {
                             var name = (string)userinfo["username"];
                             var ps = (string)userinfo["password"];
-                            var sid = (string)userinfo["studentId"];
+                            var sid = (string)userinfo["studentid"];
                             var mode = (string)userinfo["mode"];
                             ViewModel.AddUser(name, sid, ps, mode);
                             Frame.Navigate(typeof(MainPage), ViewModel);
