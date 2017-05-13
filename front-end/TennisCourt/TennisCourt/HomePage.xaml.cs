@@ -145,14 +145,14 @@ namespace TennisCourt
             {
                 try
                 {
-                    HttpResponseMessage response = await client.GetAsync("http://localhost:3000/returndategame");
+                    HttpResponseMessage response = await client.GetAsync("http://localhost:3000/returngame");
                     if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
                     {
                         string responseBody = await response.Content.ReadAsStringAsync();
                         var gameinfo = JObject.Parse(responseBody);
                         if ((string)gameinfo["ok"] != "0")
                         {
-                            
+                            var games = gameinfo["games"];
                         }
                     }
                 }

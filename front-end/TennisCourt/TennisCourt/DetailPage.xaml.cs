@@ -72,7 +72,7 @@ namespace TennisCourt
             var one = int.Parse(serverSet);
             var two = int.Parse(receiverSet);
             //判断是否进行下一局
-            if ((one == 6 && two < 5) || (one == 7))
+            if ((one == 6 && two < 5) || (one == 7) || (two == 6 && one < 5) || (two == 7))
             {
                 ViewModel.ChangeButtonFlag(gameID, "0");
                 GameOver.Visibility = Visibility.Visible;
