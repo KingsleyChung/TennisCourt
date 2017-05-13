@@ -42,7 +42,10 @@ namespace TennisCourt
                 ViewModel.AllGameScore.RemoveAt(0);
             }
 
+            if (ViewModel.SelectSpecialSet != null)
+            {
 
+            }
         }
     }
 }

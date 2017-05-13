@@ -121,7 +121,7 @@ namespace TennisCourt
                             string s = tmp[j].Court;
                             s = s.Substring(6, 1);
                             int num = int.Parse(s);
-                            emptycourt[num] = '0';
+                            emptycourt[num-1] = '0';
                         }
                     }
                 }

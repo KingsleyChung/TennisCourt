@@ -145,6 +145,9 @@
     <Compile Include="SignUp.xaml.cs">
       <DependentUpon>SignUp.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserDetailPage.xaml.cs">
+      <DependentUpon>UserDetailPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\MatchesViewModel.cs" />
     <Compile Include="ViewModels\MyObservableCollection.cs" />
   </ItemGroup>
@@ -240,6 +243,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SignUp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserDetailPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

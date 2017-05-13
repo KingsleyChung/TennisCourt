@@ -56,7 +56,7 @@
             <TextBlock Name="Round" Text="决赛" FontSize="20" RelativePanel.RightOf="RoundLabel" RelativePanel.AlignVerticalCenterWith="RoundLabel" Foreground="White" />
         </RelativePanel>
         <ScrollViewer Grid.Row="2" Grid.Column="1" Margin="0,16,0,0" HorizontalAlignment="Center">
-            <ListView Name="ScoreDisplay" ItemClick="ScoreDisplay_ItemClick" ItemsSource="{x:Bind ViewModel.AllGameScore}">
+            <ListView Name="ScoreDisplay" ItemsSource="{x:Bind ViewModel.AllGameScore}">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="md:Score">
                         <RelativePanel>

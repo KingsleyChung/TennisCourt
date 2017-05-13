@@ -145,7 +145,7 @@ namespace TennisCourt
             {
                 try
                 {
-                    HttpResponseMessage response = await client.GetAsync("http://www.zhengweimumu.cn:3000/returngame");
+                    HttpResponseMessage response = await client.GetAsync("http://localhost:3000/returngame");
                     if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
                     {
                         string responseBody = await response.Content.ReadAsStringAsync();
@@ -190,13 +190,13 @@ namespace TennisCourt
                 i = 0;
             }
             PhotoGallery.SelectedIndex = i;
-
+            //
         }
 
         private void MatchOverview_ItemClick(object sender, ItemClickEventArgs e)
         {
-            ViewModel.SelectSet = (Models.Games)(e.ClickedItem);
-            
+            ViewModel.SelectSpecialSet = (Models.Games)(e.ClickedItem);
+            Frame.Navigate(typeof(UserDetailPage), ViewModel);
         }
     }
 }
