@@ -16,18 +16,18 @@
         </Grid.RowDefinitions>
 
         <Rectangle Grid.Row="0" Grid.ColumnSpan="3" Fill="#FF0093BD" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" />
-        <TextBlock Text="创建比赛" FontSize="160" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+        <TextBlock Text="创建比赛" FontSize="100" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
         <Rectangle Grid.Row="1" Grid.ColumnSpan="3" Fill="#FF8AD0E4" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" />
-        <TextBlock Name="MatchTitle" Text="赛事名称" FontSize="52" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" />
+        <TextBlock Name="MatchTitle" Text="赛事名称" FontSize="40" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" />
         <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Center" Margin="0, 20, 0, 20">
             <RelativePanel>
-                <Ellipse Name="Player1Icon" Width="96" Height="96" Margin=" 4, 0, 24, 0">
+                <Ellipse Name="Player1Icon" Width="80" Height="80" Margin=" 4, 0, 24, 0">
                     <Ellipse.Fill>
                         <ImageBrush ImageSource="Assets/Federer.jpg" />
                     </Ellipse.Fill>
                 </Ellipse>
                 <TextBox Name="Player1Input" PlaceholderText="选手1" Width="100" RelativePanel.RightOf="Player1Icon" RelativePanel.AlignVerticalCenterWith="Player1Icon"/>
-                <Ellipse Name="Player2Icon" Width="96" Height="96" RelativePanel.Below="Player1Input" RelativePanel.RightOf="Player1Input" Margin=" 24, 0, 4, 0" >
+                <Ellipse Name="Player2Icon" Width="80" Height="80" RelativePanel.Below="Player1Input" RelativePanel.RightOf="Player1Input" Margin=" 24, 0, 4, 0" >
                     <Ellipse.Fill>
                         <ImageBrush ImageSource="Assets/Federer.jpg" />
                     </Ellipse.Fill>

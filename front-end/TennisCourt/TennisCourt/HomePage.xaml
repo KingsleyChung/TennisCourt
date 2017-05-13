@@ -36,23 +36,21 @@
         <ListView Name="MatchOverview" Grid.Row="1" IsItemClickEnabled="True" ItemClick="MatchOverview_ItemClick" ItemsSource="{x:Bind ViewModel.AllSets}" Grid.Column="1">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="md:Games">
-                    <RelativePanel Margin="6, 12, 6, 12" BorderBrush="Gray" BorderThickness="2">
-                        <RelativePanel Name="Icons" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="12, 12, 12, 12">
-                            <Ellipse Name="ServerIcon" Width="148" Height="148">
-                                <Ellipse.Fill>
-                                    <ImageBrush ImageSource="../Assets/Federer.jpg" />
-                                </Ellipse.Fill>
-                            </Ellipse>
-                            <TextBlock Name="VS_Label" Text="VS" FontSize="100" Margin="80, 0, 80, 0" RelativePanel.AlignVerticalCenterWith="ServerIcon" RelativePanel.RightOf="ServerIcon"/>
-                            <Ellipse Name="ReceiverIcon" Width="148" Height="148" RelativePanel.RightOf="VS_Label">
-                                <Ellipse.Fill>
-                                    <ImageBrush ImageSource="../Assets/Federer.jpg" />
-                                </Ellipse.Fill>
-                            </Ellipse>
-                            <TextBlock Name="Round" Text="{x:Bind Round}" FontSize="32" RelativePanel.Below="ServerIcon" RelativePanel.AlignHorizontalCenterWith="ServerIcon"/>
-                            <TextBlock Name="Court" Text="{x:Bind Court}" FontSize="32" RelativePanel.AlignVerticalCenterWith="Round" RelativePanel.AlignHorizontalCenterWith="VS_Label"/>
-                            <TextBlock Name="Status" Text="{x:Bind Status, Converter={StaticResource statusConverter}}" FontSize="32" RelativePanel.Below="ReceiverIcon" RelativePanel.AlignHorizontalCenterWith="ReceiverIcon" />
-                        </RelativePanel>
+                    <RelativePanel Name="Icons" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="12, 12, 12, 12" Padding="12, 12, 12, 12" Background="#7F7BD4F5" >
+                        <Ellipse Name="ServerIcon" Width="80" Height="80">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="../Assets/Federer.jpg" />
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <TextBlock Name="VS_Label" Text="VS" FontSize="64" VerticalAlignment="Center" Margin="60, 0, 60, 0" RelativePanel.AlignVerticalCenterWith="ServerIcon" RelativePanel.RightOf="ServerIcon"/>
+                        <Ellipse Name="ReceiverIcon" Width="80" Height="80" RelativePanel.RightOf="VS_Label">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="../Assets/Federer.jpg" />
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <TextBlock Name="Round" Text="{x:Bind Round}" FontSize="24" RelativePanel.Below="ServerIcon" RelativePanel.AlignHorizontalCenterWith="ServerIcon"/>
+                        <TextBlock Name="Court" Text="{x:Bind Court}" FontSize="24" RelativePanel.AlignVerticalCenterWith="Round" RelativePanel.AlignHorizontalCenterWith="VS_Label"/>
+                        <TextBlock Name="Status" Text="{x:Bind Status, Converter={StaticResource statusConverter}}" FontSize="24" RelativePanel.Below="ReceiverIcon" RelativePanel.AlignHorizontalCenterWith="ReceiverIcon" />
                     </RelativePanel>
                 </DataTemplate>
             </ListView.ItemTemplate>

@@ -71,8 +71,8 @@
         <SplitView IsPaneOpen="True" DisplayMode="Inline" OpenPaneLength="280" >
             <SplitView.Pane>
                 <RelativePanel Name="SideBar" Width="280" Background="#FF0093BD">
-                    <RelativePanel Name="Profile" Height="360" Width="280" BorderThickness="0,0,0,2">
-                        <Ellipse Name="Icon" Width="148" Height="148" Margin="0, 40, 0, 20" RelativePanel.AlignHorizontalCenterWithPanel="True">
+                    <RelativePanel Name="Profile" Height="340" Width="280" BorderThickness="0,0,0,2">
+                        <Ellipse Name="Icon" Width="148" Height="148" Margin="0, 20, 0, 12" RelativePanel.AlignHorizontalCenterWithPanel="True">
                             <Ellipse.Fill>
                                 <ImageBrush ImageSource="../Assets/Federer.jpg"/>
                             </Ellipse.Fill>
@@ -90,40 +90,40 @@
                         </RelativePanel>
                     </RelativePanel>
                     <ListView Name="Menu" Width="280"  SelectionMode="Single" SelectedIndex="0" SelectionChanged="ListView_SelectionChanged" RelativePanel.Below="Profile" ItemContainerStyle="{StaticResource ListViewItemStyle1}" BorderThickness="0">
-                        <ListViewItem Name="HomeButton">
+                        <ListViewItem Name="HomeButton" Height="60">
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="&#xE10F;" FontSize="40" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" Margin="16, 0, 0, 0" Foreground="White"/>
-                                <TextBlock Text="Home" FontSize="40" VerticalAlignment="Center" Margin="16, 0, 0, 0" Foreground="White"/>
+                                <TextBlock Text="&#xE10F;" FontSize="28" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" Margin="36, 0, 0, 0" Foreground="White"/>
+                                <TextBlock Text="Home" FontSize="28" VerticalAlignment="Center" Margin="16, 0, 0, 0" Foreground="White"/>
                             </StackPanel>
                         </ListViewItem>
-                        <ListViewItem Name="MatchesButton">
+                        <ListViewItem Name="MatchesButton" Height="60">
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="&#xEC4A;" FontSize="40" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" Margin="16, 0, 0, 0" Foreground="White"/>
-                                <TextBlock Text="Matches" FontSize="40" VerticalAlignment="Center" Margin="16, 0, 0, 0" Foreground="White"/>
+                                <TextBlock Text="&#xEC4A;" FontSize="28" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" Margin="36, 0, 0, 0" Foreground="White"/>
+                                <TextBlock Text="Matches" FontSize="28" VerticalAlignment="Center" Margin="16, 0, 0, 0" Foreground="White"/>
                             </StackPanel>
                         </ListViewItem>
-                        <ListViewItem Name="DrawsButton">
+                        <ListViewItem Name="DrawsButton" Height="60">
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="&#xE787;" FontSize="40" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" Margin="16, 0, 0, 0" Foreground="White"/>
-                                <TextBlock Text="Draws" FontSize="40" VerticalAlignment="Center" Margin="16, 0, 0, 0" Foreground="White"/>
+                                <TextBlock Text="&#xE787;" FontSize="28" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" Margin="36, 0, 0, 0" Foreground="White"/>
+                                <TextBlock Text="Draws" FontSize="28" VerticalAlignment="Center" Margin="16, 0, 0, 0" Foreground="White"/>
                             </StackPanel>
                         </ListViewItem>
-                        <ListViewItem Name="LatestButton">
+                        <ListViewItem Name="LatestButton" Height="60">
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="&#xEC44;" FontSize="40" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" Margin="16, 0, 0, 0" Foreground="White"/>
-                                <TextBlock Text="Latest" FontSize="40" VerticalAlignment="Center" Margin="16, 0, 0, 0" Foreground="White"/>
+                                <TextBlock Text="&#xEC44;" FontSize="28" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" Margin="36, 0, 0, 0" Foreground="White"/>
+                                <TextBlock Text="Latest" FontSize="28" VerticalAlignment="Center" Margin="16, 0, 0, 0" Foreground="White"/>
                             </StackPanel>
                         </ListViewItem>
-                        <ListViewItem Name="HistoryButton">
+                        <ListViewItem Name="HistoryButton" Height="60">
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="&#xE121;" FontSize="40" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" Margin="16, 0, 0, 0" Foreground="White"/>
-                                <TextBlock Text="History" FontSize="40" VerticalAlignment="Center" Margin="16, 0, 0, 0" Foreground="White"/>
+                                <TextBlock Text="&#xE121;" FontSize="28" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" Margin="36, 0, 0, 0" Foreground="White"/>
+                                <TextBlock Text="History" FontSize="28" VerticalAlignment="Center" Margin="16, 0, 0, 0" Foreground="White"/>
                             </StackPanel>
                         </ListViewItem>
                     </ListView>
                     <Button x:Name="SettingsButton" RelativePanel.AlignBottomWithPanel="True" Background="{x:Null}" Foreground="White">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="&#xE115;" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" Margin="0, 0, 16, 0"/>
+                            <TextBlock Text="&#xE115;" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" Margin="12, 0, 16, 0"/>
                             <TextBlock Text="设置" />
                         </StackPanel>
                     </Button>

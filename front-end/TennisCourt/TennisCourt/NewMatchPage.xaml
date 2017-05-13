@@ -9,18 +9,18 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="4*"/>
-            <RowDefinition Height="11*"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="16*"/>
+            <RowDefinition Height="44*"/>
+            <RowDefinition Height="7*"/>
         </Grid.RowDefinitions>
 
         <Rectangle Grid.Row="0" Fill="#FF0093BD" />
-        <TextBlock Text="创建赛事" FontSize="120" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Margin="720,55"/>
-        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Center" Margin="0, 20, 0, 20">
+        <TextBlock Text="创建赛事" FontSize="100" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" />
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Center" Margin="0, 8, 0, 8">
             <RelativePanel>
-                <Image Name="Poster" Width="300" Source="Assets/Poster.jpg" Stretch="UniformToFill"/>
+                <Image Name="Poster" Width="150" Source="Assets/Poster.jpg" Stretch="UniformToFill" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
                 <AppBarButton Name="SelectImageButton" Icon="Pictures" Width="48" Height="48" RelativePanel.Below="Poster" RelativePanel.AlignRightWithPanel="True"/>
-                <TextBox Name="Title" PlaceholderText="Title" FontSize="40" RelativePanel.Below="SelectImageButton" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" Margin="0, 0, 0, 16"/>
+                <TextBox Name="Title" PlaceholderText="Title" FontSize="20" RelativePanel.Below="SelectImageButton" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" Margin="0, 0, 0, 16"/>
                 <RelativePanel Name="CategoriesSeletor" RelativePanel.Below="Title" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0, 0, 0, 16">
                     <CheckBox Name="MenSingle" Content="男子单打"/>
                     <CheckBox Name="WomenSingle" Content="女子单打" RelativePanel.RightOf="MenSingle"/>
@@ -34,7 +34,7 @@
                 <TextBlock Name="Message" Text="Error Message" Foreground="Red" RelativePanel.Below="TotalPlayers" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0, 0, 0, 16"/>
             </RelativePanel>
         </ScrollViewer>
-        <RelativePanel Grid.Row="2" HorizontalAlignment="Center">
+        <RelativePanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Button Name="Create" Content="创建" Width="80" Click="Create_Click" Margin="0, 0, 40, 0"/>
             <Button Name="Cancel" Content="取消" Width="80" RelativePanel.AlignVerticalCenterWith="Create" RelativePanel.RightOf="Create" Click="Cancel_Click"/>
             <Button Name="Finish" Content="结束比赛" Width="200" RelativePanel.Below="Create" RelativePanel.AlignLeftWith="Create" Margin="0, 4, 0, 0" Background="Red" Click="Finish_Click"/>

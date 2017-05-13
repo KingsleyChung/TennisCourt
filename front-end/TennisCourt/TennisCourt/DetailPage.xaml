@@ -30,36 +30,36 @@
         <Rectangle Grid.Row="0" Grid.ColumnSpan="3" Fill="#FF0093BD" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" />
         <Rectangle Grid.Row="1" Grid.ColumnSpan="3" Fill="#FF8AD0E4" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" />
         <RelativePanel Grid.Row="0" Grid.Column="1" Margin="8,0" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Ellipse Name="ServerIcon" Width="148" Height="148">
+            <Ellipse Name="ServerIcon" Width="128" Height="128">
                 <Ellipse.Fill>
                     <ImageBrush ImageSource="Assets/Federer.jpg" />
                 </Ellipse.Fill>
             </Ellipse>
             <TextBlock Name="VS_Label" Text="VS" FontSize="100" RelativePanel.AlignVerticalCenterWith="ServerIcon" RelativePanel.RightOf="ServerIcon" Margin="80, 0, 80, 0" Foreground="White" FontWeight="Normal"/>
-            <Ellipse Name="ReceiverIcon" Width="148" Height="148" RelativePanel.RightOf="VS_Label">
+            <Ellipse Name="ReceiverIcon" Width="128" Height="128" RelativePanel.RightOf="VS_Label">
                 <Ellipse.Fill>
                     <ImageBrush ImageSource="Assets/Federer.jpg" />
                 </Ellipse.Fill>
             </Ellipse>
-            <TextBlock Name="Server" Text="鍾文杰" FontSize="36" RelativePanel.Below="ServerIcon" RelativePanel.AlignHorizontalCenterWith="ServerIcon" Margin="0, 8, 0, 0" Foreground="White" FontWeight="Medium"/>
-            <TextBlock Name="Receiver" Text="费德勒" FontSize="36" RelativePanel.Below="ReceiverIcon" RelativePanel.AlignHorizontalCenterWith="ReceiverIcon" Margin="0, 8, 0, 0" Foreground="White" FontWeight="Medium"/>
+            <TextBlock Name="Server" Text="鍾文杰" FontSize="32" RelativePanel.Below="ServerIcon" RelativePanel.AlignHorizontalCenterWith="ServerIcon" Margin="0, 8, 0, 0" Foreground="White" FontWeight="Medium"/>
+            <TextBlock Name="Receiver" Text="费德勒" FontSize="32" RelativePanel.Below="ReceiverIcon" RelativePanel.AlignHorizontalCenterWith="ReceiverIcon" Margin="0, 8, 0, 0" Foreground="White" FontWeight="Medium"/>
         </RelativePanel>
         <RelativePanel Name="OtherInfo" Grid.Row="1" Grid.Column="1" Margin="8,0" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock Name="UmpireLabel" Text="裁判:" FontSize="24" Margin="0,0,12,0" Foreground="White" />
-            <TextBlock Name="Umpire" Text="郑伟林" FontSize="24" RelativePanel.RightOf="UmpireLabel" Foreground="White"/>
-            <TextBlock Name="LinemanLabel" Text="线审:" FontSize="24" Margin="0,0,12,0" RelativePanel.Below="UmpireLabel" Foreground="White"/>
-            <TextBlock Name="Lineman" Text="刘玻侃" FontSize="24" RelativePanel.RightOf="LinemanLabel" RelativePanel.AlignVerticalCenterWith="LinemanLabel" Foreground="White"/>
-            <TextBlock Name="CategoryLabel" Text="项目:" FontSize="24" Margin="200,0,12,0" RelativePanel.AlignVerticalCenterWith="UmpireLabel" RelativePanel.AlignHorizontalCenterWithPanel="True" Foreground="White"/>
-            <TextBlock Name="Category" Text="男子单打" FontSize="24" RelativePanel.RightOf="CategoryLabel" RelativePanel.AlignVerticalCenterWith="CategoryLabel" Foreground="White"/>
-            <TextBlock Name="RoundLabel" Text="轮次:" FontSize="24" Margin="200,0,12,0" RelativePanel.AlignVerticalCenterWith="LinemanLabel" RelativePanel.AlignHorizontalCenterWithPanel="True" Foreground="White"/>
-            <TextBlock Name="Round" Text="决赛" FontSize="24" RelativePanel.RightOf="RoundLabel" RelativePanel.AlignVerticalCenterWith="RoundLabel" Foreground="White" />
+            <TextBlock Name="UmpireLabel" Text="裁判:" FontSize="20" Margin="0,0,12,0" Foreground="White" />
+            <TextBlock Name="Umpire" Text="郑伟林" FontSize="20" RelativePanel.RightOf="UmpireLabel" Foreground="White"/>
+            <TextBlock Name="LinemanLabel" Text="线审:" FontSize="20" Margin="0,0,12,0" RelativePanel.Below="UmpireLabel" Foreground="White"/>
+            <TextBlock Name="Lineman" Text="刘玻侃" FontSize="20" RelativePanel.RightOf="LinemanLabel" RelativePanel.AlignVerticalCenterWith="LinemanLabel" Foreground="White"/>
+            <TextBlock Name="CategoryLabel" Text="项目:" FontSize="20" Margin="200,0,12,0" RelativePanel.AlignVerticalCenterWith="UmpireLabel" RelativePanel.AlignHorizontalCenterWithPanel="True" Foreground="White"/>
+            <TextBlock Name="Category" Text="男子单打" FontSize="20" RelativePanel.RightOf="CategoryLabel" RelativePanel.AlignVerticalCenterWith="CategoryLabel" Foreground="White"/>
+            <TextBlock Name="RoundLabel" Text="轮次:" FontSize="20" Margin="200,0,12,0" RelativePanel.AlignVerticalCenterWith="LinemanLabel" RelativePanel.AlignHorizontalCenterWithPanel="True" Foreground="White"/>
+            <TextBlock Name="Round" Text="决赛" FontSize="20" RelativePanel.RightOf="RoundLabel" RelativePanel.AlignVerticalCenterWith="RoundLabel" Foreground="White" />
         </RelativePanel>
         <ScrollViewer Grid.Row="2" Grid.Column="1" Margin="0,16,0,0" HorizontalAlignment="Center">
             <ListView Name="ScoreDisplay" ItemClick="ScoreDisplay_ItemClick" ItemsSource="{x:Bind ViewModel.AllGameScore}">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="md:Score">
                         <RelativePanel>
-                            <TextBlock Name="GameNo" Text="{x:Bind TotalGames, Converter={StaticResource totalConverter}}" FontSize="28" RelativePanel.AlignVerticalCenterWithPanel="True" FontWeight="Bold"/>
+                            <TextBlock Name="GameNo" Text="{x:Bind TotalGames, Converter={StaticResource totalConverter}}" FontSize="28" RelativePanel.AlignVerticalCenterWithPanel="True" FontWeight="Bold" Margin="0, 0, 8, 0"/>
                             <StackPanel RelativePanel.RightOf="GameNo" >
                                 <Grid Name="DataGrid">
                                     <Grid.RowDefinitions>
@@ -75,31 +75,31 @@
                                         <ColumnDefinition Width="1*"/>
                                     </Grid.ColumnDefinitions>
                                     <Border BorderBrush="Black" BorderThickness="2, 2, 0, 1" Grid.Row="0" Grid.Column="0">
-                                        <TextBlock Name="ServerName" Text="{x:Bind ServerName}" FontSize="40"/>
+                                        <TextBlock Name="ServerName" Text="{x:Bind ServerName}" FontSize="32"/>
                                     </Border>
                                     <Border BorderBrush="Black" BorderThickness="2, 1, 0, 2" Grid.Row="1" Grid.Column="0" >
-                                        <TextBlock Name="ReceiverName" Text="{x:Bind ReceiverName}" FontSize="40" />
+                                        <TextBlock Name="ReceiverName" Text="{x:Bind ReceiverName}" FontSize="32" />
                                     </Border>
                                     <Border BorderBrush="Black" BorderThickness="0, 2, 1, 1" Grid.Row="0" Grid.Column="1">
-                                        <Image Name="Player1_ball" Source="Assets/TennisBall.png" Width="28" Height="28" Margin="4, 0, 0, 0" Opacity="{x:Bind BallFlag, Converter={StaticResource flag1Converter}}"/>
+                                        <Image Name="Player1_ball" Source="Assets/TennisBall.png" Width="24" Height="24" Margin="4, 0, 0, 0" Opacity="{x:Bind BallFlag, Converter={StaticResource flag1Converter}}"/>
                                     </Border>
                                     <Border BorderBrush="Black" BorderThickness="0, 1, 1, 2" Grid.Row="1" Grid.Column="1">
-                                        <Image Name="Player2_ball" Source="Assets/TennisBall.png" Width="28" Height="28" Margin="4, 0, 0, 0" Opacity="{x:Bind BallFlag, Converter={StaticResource flag2Converter}}"/>
+                                        <Image Name="Player2_ball" Source="Assets/TennisBall.png" Width="24" Height="24" Margin="4, 0, 0, 0" Opacity="{x:Bind BallFlag, Converter={StaticResource flag2Converter}}"/>
                                     </Border>
                                     <Border BorderBrush="Black" BorderThickness="1, 2, 1, 1" Grid.Row="0" Grid.Column="2">
-                                        <TextBlock Name="Server_SetPoint" Text="{x:Bind ServerSet}" FontSize="40" />
+                                        <TextBlock Name="Server_SetPoint" Text="{x:Bind ServerSet}" FontSize="32" />
                                     </Border>
                                     <Border BorderBrush="Black" BorderThickness="1, 1, 1, 2" Grid.Row="1" Grid.Column="2">
-                                        <TextBlock Name="Receiver_SetPoint" Text="{x:Bind ReceiverSet}" FontSize="40" />
+                                        <TextBlock Name="Receiver_SetPoint" Text="{x:Bind ReceiverSet}" FontSize="32" />
                                     </Border>
                                     <Border BorderBrush="Black" BorderThickness="1, 2, 2, 1" Grid.Row="0" Grid.Column="3">
-                                        <TextBlock Name="Server_GamePoint" Text="{x:Bind ServerScore}" FontSize="40" />
+                                        <TextBlock Name="Server_GamePoint" Text="{x:Bind ServerScore}" FontSize="32" />
                                     </Border>
                                     <Border BorderBrush="Black" BorderThickness="1, 1, 2, 2" Grid.Row="1" Grid.Column="3">
-                                        <TextBlock Name="Receiver_GamePoint" Text="{x:Bind ReceiverScore}" FontSize="40" />
+                                        <TextBlock Name="Receiver_GamePoint" Text="{x:Bind ReceiverScore}" FontSize="32" />
                                     </Border>
-                                    <Button Name="Server_Add" Content="Add" Grid.Row="0" Grid.Column="4" Click="Server_Add_Click"/>
-                                    <Button Name="Receiver_Add" Content="Add" Grid.Row="1" Grid.Column="4" Click="Receiver_Add_Click"/>
+                                    <Button Name="Server_Add" Content="Add" Grid.Row="0" Grid.Column="4" Click="Server_Add_Click" Margin="8, 0, 0, 0"/>
+                                    <Button Name="Receiver_Add" Content="Add" Grid.Row="1" Grid.Column="4" Click="Receiver_Add_Click" Margin="8, 0, 0, 0"/>
                                     <Button Name="Recall" Content="Recall" Grid.RowSpan="2" Grid.Column="5" Margin="4, 0, 0, 0" Click="Recall_Click"/>
                                 </Grid>
                             </StackPanel>
