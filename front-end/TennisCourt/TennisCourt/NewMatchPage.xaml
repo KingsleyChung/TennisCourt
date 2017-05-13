@@ -31,7 +31,7 @@
                 <DatePicker Name="StartDate" RelativePanel.Below="CategoriesSeletor"/>
                 <DatePicker Name="EndDate" RelativePanel.Below="StartDate" Margin="0, 0, 0, 20"/>
                 <TextBox Name="TotalPlayers" PlaceholderText="Total players" RelativePanel.Below="EndDate" Margin="0, 0, 0, 16"/>
-                <TextBlock Name="Message" Text="Error Message" Foreground="Red" RelativePanel.Below="TotalPlayers" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0, 0, 0, 16"/>
+                <TextBlock Name="Message" Text="Error Message" Foreground="Red" RelativePanel.Below="TotalPlayers" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0, 0, 0, 16" Opacity="0"/>
             </RelativePanel>
         </ScrollViewer>
         <RelativePanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">

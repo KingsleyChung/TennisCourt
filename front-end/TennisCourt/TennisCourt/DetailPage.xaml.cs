@@ -162,7 +162,7 @@ namespace TennisCourt
                         new KeyValuePair<string,string>("result", res),
                         new KeyValuePair<string,string>("score", sco)
                     };
-                    HttpResponseMessage response = await client.PostAsync("http://www.zhengweimumu.cn:3000/changescore", new FormUrlEncodedContent(kvp));
+                    HttpResponseMessage response = await client.PostAsync("http://localhost:3000/changescore", new FormUrlEncodedContent(kvp));
                     if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
                     {
                         string responseBody = await response.Content.ReadAsStringAsync();
@@ -217,15 +217,16 @@ namespace TennisCourt
                     var kvp = new List<KeyValuePair<string, string>>
                     {
                         new KeyValuePair<string,string>("matchId", ViewModel.SelectSpecialSet.SetID),
-                        new KeyValuePair<string,string>("status", "1")
+                        new KeyValuePair<string,string>("status", "2")
                     };
-                    HttpResponseMessage response = await client.PostAsync("http://www.zhengweimumu.cn:3000/changegame", new FormUrlEncodedContent(kvp));
+                    HttpResponseMessage response = await client.PostAsync("http://localhost:3000/changegame", new FormUrlEncodedContent(kvp));
                     if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
                     {
                         string responseBody = await response.Content.ReadAsStringAsync();
                         var info = JObject.Parse(responseBody);
                         if ((string)info["ok"] != "0")
                         {
+                            
                             Frame.Navigate(typeof(GamesPage), ViewModel);
                         }
                     }

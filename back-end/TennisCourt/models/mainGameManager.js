@@ -34,7 +34,7 @@ module.exports = function (db) {
 
       //结束赛事
       validateEnd: function (matchId) {
-          return mainGames.updateOne({matchId : matchId}, {$set:{status:"0"}}).then(function (value) {
+          return mainGames.updateOne({matchId : matchId}, {$set:{status:"2"}}).then(function (value) {
               return new Promise(function (resolve, reject) {
                   var endMatchError = {};
                   if(value.modifiedCount) {
@@ -89,6 +89,21 @@ module.exports = function (db) {
                       matchReturnError.error = "NO Match";
                       matchReturnError.ok = "0";
                       reject(matchReturnError);
+                  }
+              });
+          });
+      },
+      
+      //更改赛事信息
+      UpdateOneMatch : function (mainGame) {
+          return mainGames.findOneAndReplace({matchId : mainGame.matchId}, mainGame).then(function (returnvalue) {
+              return new Promise(function(resolve, reject) {
+                  if(returnvalue.value != null) {
+                      resolve(mainGame);
+                  }
+                  else {
+                      returnvalue["ok"] = "0";
+                      reject(returnvalue);
                   }
               });
           });

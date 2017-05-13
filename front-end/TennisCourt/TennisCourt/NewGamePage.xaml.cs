@@ -49,6 +49,8 @@ namespace TennisCourt
 
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
+            Message.Opacity = 0;
+
             ViewModel = ((ViewModels.MatchesViewModel)e.Parameter);
 
             //插入games到matches
@@ -60,7 +62,7 @@ namespace TennisCourt
                     {
                         new KeyValuePair<string,string>("matchId", ViewModel.SelectMatch.MatchID)
                     };
-                    HttpResponseMessage response = await client.PostAsync("http://www.zhengweimumu.cn:3000/matchgame", new FormUrlEncodedContent(kvp));
+                    HttpResponseMessage response = await client.PostAsync("http://localhost:3000/matchgame", new FormUrlEncodedContent(kvp));
                     if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
                     {
                         string responseBody = await response.Content.ReadAsStringAsync();
@@ -114,7 +116,7 @@ namespace TennisCourt
                     var tmp = ViewModel.AllMatches.ElementAt(i).Game;
                     for (int j = 0; j < tmp.Count; j++)
                     {
-                        if (tmp[j].Status == "0" || tmp[j].Status == "-1")
+                        if (tmp[j].Status == "0" || tmp[j].Status == "1")
                         {
                             string s = tmp[j].Court;
                             s = s.Substring(6, 1);
@@ -144,21 +146,25 @@ namespace TennisCourt
         {
             if (Player1Input.Text == "")
             {
-                Message.Text = "Server can not be empty";
+                Message.Opacity = 1;
+                Message.Text = "Player1 can not be empty";
                 return;
             }
             if (Player2Input.Text == "")
             {
-                Message.Text = "Receiver can not be empty";
+                Message.Opacity = 1;
+                Message.Text = "Player2 can not be empty";
                 return;
             }
             if (UmpireInput.Text == "")
             {
+                Message.Opacity = 1;
                 Message.Text = "Umpire can not be empty";
                 return;
             }
             if (LinemanInput.Text == "")
             {
+                Message.Opacity = 1;
                 Message.Text = "Lineman can not be empty";
                 return;
             }
@@ -194,9 +200,10 @@ namespace TennisCourt
                         new KeyValuePair<string,string>("umpire", umpire),
                         new KeyValuePair<string,string>("lineman", lineman),
                         new KeyValuePair<string,string>("court", court),
-                        new KeyValuePair<string,string>("round", round)
+                        new KeyValuePair<string,string>("round", round),
+                        new KeyValuePair<string,string>("status", "1")
                     };
-                    HttpResponseMessage response = await client.PostAsync("http://www.zhengweimumu.cn:3000/creategame", new FormUrlEncodedContent(kvp));
+                    HttpResponseMessage response = await client.PostAsync("http://localhost:3000/creategame", new FormUrlEncodedContent(kvp));
                     if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
                     {
                         string responseBody = await response.Content.ReadAsStringAsync();
@@ -214,25 +221,17 @@ namespace TennisCourt
                             var cour = (string)gameinfo["court"];
                             var rou = (string)gameinfo["round"];
                             var fa = (string)gameinfo["date"];
+                            var status = (string)gameinfo["status"];
                             var date = Convert.ToDateTime(fa);
                             List<string> score = new List<string>();
-                            ViewModel.AddSpecialGame(setId, player1, player2, cata, ump, line, date, date, date, cour, rou, "0-0", score, "-1");
-
-                            Games game = ViewModel.AllSpecialSets.ElementAt(ViewModel.AllSpecialSets.Count - 1);
-                            for (int j = 0; j < ViewModel.AllMatches.Count; j++)
-                            {
-                                if (ViewModel.AllMatches.ElementAt(j).MatchID == ViewModel.SelectMatch.MatchID)
-                                {
-                                    var selectMatch = ViewModel.AllMatches.ElementAt(j);
-                                    selectMatch.Game.Add(game);
-                                }
-                            }
+                            ViewModel.AddSpecialGame(setId, player1, player2, cata, ump, line, date, date, date, cour, rou, "0-0", score, status);
 
                             Frame.Navigate(typeof(GamesPage), ViewModel);
                         }
                         //不正确时输出错误信息
                         else
                         {
+                            Message.Opacity = 1;
                             Message.Text = (string)gameinfo["error"];
                             Message.Opacity = 1;
                         }

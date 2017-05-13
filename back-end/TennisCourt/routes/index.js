@@ -122,7 +122,15 @@ module.exports = function (db) {
            res.send(error).status(204).end();
         });
     });
-
+    //更新赛事信息
+    router.post('/updatematch', function (req, res, next) {
+        var mainGame = req.body;
+        mainGameManager.UpdateOneMatch(mainGame).then(function (value) {
+           res.send(value).status(200).end();
+        }).catch(function(error) {
+            res.send(error).status(204).end();
+        });
+    });
 
     //登录注册相关api
     //注册

@@ -93,7 +93,7 @@
                         </ComboBoxItem>
                     </ComboBox>
                 </RelativePanel>
-                <TextBlock Name="Message" Text="Error Message" Foreground="Red" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="InfoArea" Margin="0, 8, 0, 16"/>
+                <TextBlock Name="Message" Text="Error Message" Foreground="Red" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="InfoArea" Margin="0, 8, 0, 16" Opacity="0"/>
                 
             </RelativePanel>
         </ScrollViewer>
