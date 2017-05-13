@@ -1,10 +1,13 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -36,7 +39,7 @@ namespace TennisCourt
             Player2.Text = ViewModel.SelectSpecialSet.Receiver;
         }
 
-        private void Start_Click(object sender, RoutedEventArgs e)
+        private async void Start_Click(object sender, RoutedEventArgs e)
         {
             if (ViewModel.SelectSpecialSet != null)
             {
@@ -47,8 +50,32 @@ namespace TennisCourt
                     ViewModel.SelectSpecialSet.Server = Player2.Text;
                     ViewModel.SelectSpecialSet.Receiver = Player1.Text;
                 }
+
+                using (HttpClient client = new HttpClient())
+                {
+                    try
+                    {
+                        var kvp = new List<KeyValuePair<string, string>>
+                    {
+                        new KeyValuePair<string,string>("matchId", ViewModel.SelectSpecialSet.SetID)
+                    };
+                        HttpResponseMessage response = await client.PostAsync("http://www.zhengweimumu.cn:3000/matchgame", new FormUrlEncodedContent(kvp));
+                        if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
+                        {
+                            string responseBody = await response.Content.ReadAsStringAsync();
+                            var info = JObject.Parse(responseBody);
+                            if ((string)info["ok"] != "0")
+                            {
+                                Frame.Navigate(typeof(DetailPage), ViewModel);
+                            }
+                        }
+                    }
+                    catch (HttpRequestException ex)
+                    {
+                        await new MessageDialog(ex.Message).ShowAsync();
+                    }
+                }
             }
-            Frame.Navigate(typeof(DetailPage), ViewModel);
         }
     }
 }
