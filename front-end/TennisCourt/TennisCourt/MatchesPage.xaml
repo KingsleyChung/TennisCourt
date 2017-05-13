@@ -15,31 +15,29 @@
     </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <GridView Name ="matches" IsItemClickEnabled="True" 
-                  ItemClick="matches_ItemClick" ItemsSource="{x:Bind ViewModel.AllMatches}">
-            <GridView.ItemTemplate>
-                <DataTemplate x:DataType="md:Matches">
-                    <RelativePanel>
-                        <Image Name="Poster" Height="200" Source="Assets/Poster.jpg"/>
-                        <RelativePanel Margin="20, 0, 0, 0" RelativePanel.RightOf="Poster" RelativePanel.AlignVerticalCenterWithPanel="True">
-                            <TextBlock Name="MatchTitle" Text="{x:Bind MatchTitle}" FontSize="40" />
-                            <TextBlock Name="Categories" Text="{x:Bind Categories, Converter={StaticResource categoriesConverter}}" RelativePanel.Below="MatchTitle"/>
-                            <TextBlock Name="Status" Text="{x:Bind Status, Converter={StaticResource statusConverter}}" FontSize="36" RelativePanel.Below="Categories"/>
+        <Grid.RowDefinitions>
+        <RowDefinition Height="6*"/>
+        <RowDefinition Height="11*"/>
+        </Grid.RowDefinitions>
+        <Rectangle Grid.Row="0" Grid.ColumnSpan="3" Fill="#FF0093BD" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" />
+        <TextBlock Text="赛事列表" FontSize="160" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+        <ScrollViewer Grid.Row="1" HorizontalAlignment="Center" Margin="0, 20, 0, 20">
+            <GridView Name ="matches" IsItemClickEnabled="True" 
+                      ItemClick="matches_ItemClick" ItemsSource="{x:Bind ViewModel.AllMatches}">
+                <GridView.ItemTemplate>
+                    <DataTemplate x:DataType="md:Matches">
+                        <RelativePanel>
+                            <Image Name="Poster" Height="200" Source="Assets/Poster.jpg"/>
+                            <RelativePanel Margin="20, 0, 0, 0" RelativePanel.RightOf="Poster" RelativePanel.AlignVerticalCenterWithPanel="True">
+                                <TextBlock Name="MatchTitle" Text="{x:Bind MatchTitle}" FontSize="40" />
+                                <TextBlock Name="Categories" Text="{x:Bind Categories, Converter={StaticResource categoriesConverter}}" RelativePanel.Below="MatchTitle"/>
+                                <TextBlock Name="Status" Text="{x:Bind Status, Converter={StaticResource statusConverter}}" FontSize="36" RelativePanel.Below="Categories"/>
+                            </RelativePanel>
                         </RelativePanel>
-                    </RelativePanel>
-                </DataTemplate>
-            </GridView.ItemTemplate>
-        </GridView>
-        <!--<GridViewItem>
-            <RelativePanel>
-                <Image Name="Poster" Height="200" Source="Assets/Poster.jpg"/>
-                <RelativePanel Margin="20, 0, 0, 0" RelativePanel.RightOf="Poster" RelativePanel.AlignVerticalCenterWithPanel="True">
-                    <TextBlock Name="MatchTitle" Text="2016年中东网球公开赛" FontSize="40" />
-                    <TextBlock Name="Categories" Text="Man-Single  Woman-Single  Men-Double  Women-Dobule  Mix-Double" RelativePanel.Below="MatchTitle"/>
-                    <TextBlock Name="Status" Text="Finished" FontSize="36" RelativePanel.Below="Categories"/>
-                </RelativePanel>
-            </RelativePanel>
-        </GridViewItem>-->
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
+        </ScrollViewer>
     </Grid>
     <Page.BottomAppBar>
         <CommandBar Name="CommandBar">

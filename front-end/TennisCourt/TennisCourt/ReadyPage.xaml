@@ -9,27 +9,25 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="14*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="4*"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="1*"/>
-        </Grid.ColumnDefinitions>
-        <RelativePanel Grid.Row="1" Grid.Column="1">
-            <TextBlock Name="Label" Text="Warm Up Time" />
-            <TextBlock Name="Time" Text="5:00" RelativePanel.Below="Label"/>
-            <ComboBox Name="Server" PlaceholderText="发球方" RelativePanel.Below="Time">
+        <Rectangle Grid.Row="0" Fill="#FF0093BD" />
+        <TextBlock Text="赛前准备" FontSize="120" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Margin="720,64"/>
+        <RelativePanel Grid.Row="1" HorizontalAlignment="Center" Margin="737,20,736,0" Grid.RowSpan="2">
+            <TextBlock Name="Label" Text="热身时间" Foreground="#FF0093BD" FontSize="56"/>
+            <TextBlock Name="Time" Text="5:00" RelativePanel.Below="Label" FontSize="200" Margin="40, 40, 40, 40"/>
+            <Button Name="StartCounting" Content="开始计时" Width="180" RelativePanel.Below="Time" RelativePanel.AlignHorizontalCenterWith="Time" />
+            <ComboBox Name="Server" PlaceholderText="发球方" Width="180" RelativePanel.Below="StartCounting" RelativePanel.AlignHorizontalCenterWith="StartCounting" Margin="0, 80, 0, 0" >
                 <ComboBoxItem>
                     <TextBlock Name="Player1" Text="鍾文杰"/>
                 </ComboBoxItem>
                 <ComboBoxItem>
-                    <TextBlock  Name="Player2" Text="德约科维奇" />
+                    <TextBlock  Name="Player2" Text="费德勒" />
                 </ComboBoxItem>
             </ComboBox>
-            <Button Name="Start" Content="Start Game" RelativePanel.Below="Server" Click="Start_Click"/>
         </RelativePanel>
+        <Button Name="Start" Content="Start Game" Grid.Row="2" Click="Start_Click" HorizontalAlignment="Center" Width="300"/>
     </Grid>
 </Page>

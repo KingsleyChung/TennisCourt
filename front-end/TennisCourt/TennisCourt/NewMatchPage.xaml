@@ -9,16 +9,14 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="auto"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="11*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="1*"/>
-        </Grid.ColumnDefinitions>
-        <ScrollViewer Grid.Row="1" Grid.Column="1" VerticalScrollBarVisibility="Hidden">
+
+        <Rectangle Grid.Row="0" Fill="#FF0093BD" />
+        <TextBlock Text="创建赛事" FontSize="120" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Margin="720,55"/>
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Center" Margin="0, 20, 0, 20">
             <RelativePanel>
                 <Image Name="Poster" Width="300" Source="Assets/Poster.jpg" Stretch="UniformToFill"/>
                 <AppBarButton Name="SelectImageButton" Icon="Pictures" Width="48" Height="48" RelativePanel.Below="Poster" RelativePanel.AlignRightWithPanel="True"/>
@@ -34,10 +32,13 @@
                 <DatePicker Name="EndDate" RelativePanel.Below="StartDate" Margin="0, 0, 0, 20"/>
                 <TextBox Name="TotalPlayers" PlaceholderText="Total players" RelativePanel.Below="EndDate" Margin="0, 0, 0, 16"/>
                 <TextBlock Name="Message" Text="Error Message" Foreground="Red" RelativePanel.Below="TotalPlayers" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0, 0, 0, 16"/>
-                <Button Name="Create" Content="Create" RelativePanel.Below="Message" Click="Create_Click"/>
-                <Button Name="Cancel" Content="Cancel" RelativePanel.Below="Message" RelativePanel.AlignRightWithPanel="True" Click="Cancel_Click"/>
-                <Button Name="Finish" Content="Finish The Match" RelativePanel.Below="Create" />
             </RelativePanel>
         </ScrollViewer>
+        <RelativePanel Grid.Row="2" HorizontalAlignment="Center">
+            <Button Name="Create" Content="创建" Width="80" Click="Create_Click" Margin="0, 0, 40, 0"/>
+            <Button Name="Cancel" Content="取消" Width="80" RelativePanel.AlignVerticalCenterWith="Create" RelativePanel.RightOf="Create" Click="Cancel_Click"/>
+            <Button Name="Finish" Content="结束比赛" Width="200" RelativePanel.Below="Create" RelativePanel.AlignLeftWith="Create" Margin="0, 4, 0, 0" Background="Red"/>
+        </RelativePanel>
+        
     </Grid>
 </Page>

@@ -41,7 +41,7 @@ namespace TennisCourt
             Category.Text = ViewModel.SelectSpecialSet.Category;
             Round.Text = ViewModel.SelectSpecialSet.Round;
 
-            
+
             var totalGames = 1;
             var gameID = ViewModel.SelectSpecialSet.SetID + totalGames.ToString();
             var serverName = ViewModel.SelectSpecialSet.Server;

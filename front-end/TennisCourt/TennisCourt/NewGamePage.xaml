@@ -9,82 +9,97 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="14*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="28*"/>
+            <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="1*"/>
-        </Grid.ColumnDefinitions>
-        <ScrollViewer Grid.Row="1" Grid.Column="1" VerticalScrollBarVisibility="Hidden">
+
+        <Rectangle Grid.Row="0" Grid.ColumnSpan="3" Fill="#FF0093BD" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" />
+        <TextBlock Text="创建比赛" FontSize="160" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+        <Rectangle Grid.Row="1" Grid.ColumnSpan="3" Fill="#FF8AD0E4" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" />
+        <TextBlock Name="MatchTitle" Text="赛事名称" FontSize="52" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" />
+        <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Center" Margin="0, 20, 0, 20">
             <RelativePanel>
-                <TextBlock Name="MatchTitle" Text="2017年中山大学三校区网球联赛" Margin="0, 0, 0, 16"/>
-                <ComboBox Name="CategoriesSelector" PlaceholderText="比赛项目" Margin="0, 0, 0, 16" BorderBrush="Black" BorderThickness="1" RelativePanel.Below="MatchTitle">
-                    <ComboBoxItem>
-                        <TextBlock Name="ManSingle" Text="男子单打"/>
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        <TextBlock Name="WomanSingle" Text="女子单打"/>
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        <TextBlock Name="MenDouble" Text="男子双打"/>
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        <TextBlock Name="WomenDobule" Text="女子双打" />
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        <TextBlock Name="MixDouble" Text="混合双打" />
-                    </ComboBoxItem>
-                </ComboBox>
-                <TextBox Name="Player1Input" PlaceholderText="选手1" RelativePanel.Below="CategoriesSelector"/>
-                <TextBox Name="Player2Input" PlaceholderText="选手2" RelativePanel.Below="Player1Input" Margin="0, 0, 0, 16"/>
-                <TextBox Name="UmpireInput" PlaceholderText="裁判" RelativePanel.Below="Player2Input"/>
-                <TextBox Name="LinemanInput" PlaceholderText="线审" RelativePanel.Below="UmpireInput" Margin="0, 0, 0, 16"/>
-                <ComboBox Name="AvaliableCourt" PlaceholderText="可用场地" RelativePanel.Below="LinemanInput">
-                    <ComboBoxItem>
-                        <TextBlock Name="court1" Text="Court 1"/>
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        <TextBlock Name="court2" Text="Court 2"/>
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        <TextBlock Name="court3" Text="Court 3"/>
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        <TextBlock Name="court4" Text="Court 4"/>
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        <TextBlock Name="court5" Text="Court 5"/>
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        <TextBlock Name="court6" Text="Court 6"/>
-                    </ComboBoxItem>
-                </ComboBox>
-                <ComboBox Name="RoundSelector" PlaceholderText="Round" RelativePanel.Below="AvaliableCourt" Margin="0, 0, 0, 16">
-                    <ComboBox.ItemTemplate>
-                        <DataTemplate>
-                            
-                        </DataTemplate>
-                    </ComboBox.ItemTemplate>
-                    <ComboBoxItem>
-                        <TextBlock Text="1st-Round"/>
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        <TextBlock Text="2nd-Round"/>
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        <TextBlock Text="Semi-Final"/>
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        <TextBlock Text="Final"/>
-                    </ComboBoxItem>
-                </ComboBox>
-                <TextBlock Name="Message" Text="Error Message" Foreground="Red" RelativePanel.Below="RoundSelector" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0, 0, 0, 16"/>
-                <Button Name="Create" Content="Create" RelativePanel.Below="Message" Click="Create_Click"/>
-                <Button Name="Cancel" Content="Cancel" RelativePanel.Below="Message" RelativePanel.AlignRightWithPanel="True" Click="Cancel_Click"/>
+                <Ellipse Name="Player1Icon" Width="96" Height="96" Margin=" 4, 0, 24, 0">
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="Assets/Federer.jpg" />
+                    </Ellipse.Fill>
+                </Ellipse>
+                <TextBox Name="Player1Input" PlaceholderText="选手1" Width="100" RelativePanel.RightOf="Player1Icon" RelativePanel.AlignVerticalCenterWith="Player1Icon"/>
+                <Ellipse Name="Player2Icon" Width="96" Height="96" RelativePanel.Below="Player1Input" RelativePanel.RightOf="Player1Input" Margin=" 24, 0, 4, 0" >
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="Assets/Federer.jpg" />
+                    </Ellipse.Fill>
+                </Ellipse>
+                <TextBox Name="Player2Input" PlaceholderText="选手2" Width="100" RelativePanel.AlignLeftWith="Player1Input" RelativePanel.AlignVerticalCenterWith="Player2Icon" RelativePanel.LeftOf="Player2Icon"/>
+                <RelativePanel Name="InfoArea" RelativePanel.Below="Player2Icon" Margin="0, 20, 0, 0" RelativePanel.AlignHorizontalCenterWithPanel="True">
+                    <TextBox Name="UmpireInput" PlaceholderText="裁判" Width="104"/>
+                    <TextBox Name="LinemanInput" PlaceholderText="线审" Width="104" RelativePanel.AlignVerticalCenterWith="UmpireInput" RelativePanel.RightOf="UmpireInput" Margin="24, 0, 0, 0"/>
+                    <ComboBox Name="CategoriesSelector" PlaceholderText="比赛项目"  Width="104" Margin="0, 16, 0, 16" BorderBrush="Black" BorderThickness="1" RelativePanel.Below="LinemanInput">
+                        <ComboBoxItem>
+                            <TextBlock Name="ManSingle" Text="男子单打"/>
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            <TextBlock Name="WomanSingle" Text="女子单打"/>
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            <TextBlock Name="MenDouble" Text="男子双打"/>
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            <TextBlock Name="WomenDobule" Text="女子双打" />
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            <TextBlock Name="MixDouble" Text="混合双打" />
+                        </ComboBoxItem>
+                    </ComboBox>
+                    <ComboBox Name="RoundSelector" PlaceholderText="比赛伦次" Width="104" RelativePanel.RightOf="CategoriesSelector" RelativePanel.AlignVerticalCenterWith="CategoriesSelector" Margin="24, 0, 0, 0">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                        <ComboBoxItem>
+                            <TextBlock Text="1st-Round"/>
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            <TextBlock Text="2nd-Round"/>
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            <TextBlock Text="Semi-Final"/>
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            <TextBlock Text="Final"/>
+                        </ComboBoxItem>
+                    </ComboBox>
+                    <ComboBox Name="AvaliableCourt" PlaceholderText="可用场地" Width="232" RelativePanel.Below="CategoriesSelector">
+                        <ComboBoxItem>
+                            <TextBlock Name="court1" Text="Court 1"/>
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            <TextBlock Name="court2" Text="Court 2"/>
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            <TextBlock Name="court3" Text="Court 3"/>
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            <TextBlock Name="court4" Text="Court 4"/>
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            <TextBlock Name="court5" Text="Court 5"/>
+                        </ComboBoxItem>
+                        <ComboBoxItem>
+                            <TextBlock Name="court6" Text="Court 6"/>
+                        </ComboBoxItem>
+                    </ComboBox>
+                </RelativePanel>
+                <TextBlock Name="Message" Text="Error Message" Foreground="Red" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="InfoArea" Margin="0, 8, 0, 16"/>
+                
             </RelativePanel>
         </ScrollViewer>
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button Name="Create" Content="Create" Width="100" RelativePanel.Below="Message" Margin="0, 0, 80, 0" Click="Create_Click"/>
+            <Button Name="Cancel" Content="Cancel" Width="100" RelativePanel.Below="Message" RelativePanel.AlignRightWithPanel="True" Click="Cancel_Click"/>
+        </StackPanel>
     </Grid>
 </Page>
