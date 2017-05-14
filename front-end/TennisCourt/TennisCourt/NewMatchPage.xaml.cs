@@ -125,11 +125,11 @@ namespace TennisCourt
                     HttpResponseMessage response = null;
                     if (s == "0")
                     {
-                        response = await client.PostAsync("http://localhost:3000/creatematch", new FormUrlEncodedContent(kvp));
+                        response = await client.PostAsync("http://www.zhengweimumu.cn:3000/creatematch", new FormUrlEncodedContent(kvp));
                     }
                     else if (s == "1")
                     {
-                        response = await client.PostAsync("http://localhost:3000/updatematch", new FormUrlEncodedContent(kvp));
+                        response = await client.PostAsync("http://www.zhengweimumu.cn:3000/updatematch", new FormUrlEncodedContent(kvp));
                     }
                     if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
                     {
@@ -193,7 +193,7 @@ namespace TennisCourt
                     {
                         new KeyValuePair<string,string>("matchId", ViewModel.SelectMatch.MatchID)
                     };
-                        HttpResponseMessage response = await client.PostAsync("http://localhost:3000/endmatch", new FormUrlEncodedContent(kvp));
+                        HttpResponseMessage response = await client.PostAsync("http://www.zhengweimumu.cn:3000/endmatch", new FormUrlEncodedContent(kvp));
                         if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
                         {
                             string responseBody = await response.Content.ReadAsStringAsync();

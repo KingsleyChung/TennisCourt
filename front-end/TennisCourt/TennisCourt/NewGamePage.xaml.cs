@@ -62,7 +62,7 @@ namespace TennisCourt
                     {
                         new KeyValuePair<string,string>("matchId", ViewModel.SelectMatch.MatchID)
                     };
-                    HttpResponseMessage response = await client.PostAsync("http://localhost:3000/matchgame", new FormUrlEncodedContent(kvp));
+                    HttpResponseMessage response = await client.PostAsync("http://www.zhengweimumu.cn:3000/matchgame", new FormUrlEncodedContent(kvp));
                     if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
                     {
                         string responseBody = await response.Content.ReadAsStringAsync();
@@ -224,7 +224,7 @@ namespace TennisCourt
                         new KeyValuePair<string,string>("status", "1"),
                         new KeyValuePair<string,string>("endTime", "")
                     };
-                    HttpResponseMessage response = await client.PostAsync("http://localhost:3000/creategame", new FormUrlEncodedContent(kvp));
+                    HttpResponseMessage response = await client.PostAsync("http://www.zhengweimumu.cn:3000/creategame", new FormUrlEncodedContent(kvp));
                     if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
                     {
                         string responseBody = await response.Content.ReadAsStringAsync();
