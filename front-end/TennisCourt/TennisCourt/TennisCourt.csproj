@@ -160,12 +160,10 @@
   <ItemGroup>
     <Content Include="Assets\Backhand.jpg" />
     <Content Include="Assets\Cloudy.png" />
-    <Content Include="Assets\Federer.jpg" />
     <Content Include="Assets\Federer18.jpg" />
     <Content Include="Assets\FlipBackground.jpg" />
     <Content Include="Assets\Forehand.jpg" />
     <Content Include="Assets\GeneralBackground.jpg" />
-    <Content Include="Assets\Poster.jpg" />
     <Content Include="Assets\TennisAssociation.png" />
     <Content Include="Assets\TennisBall.png" />
     <Content Include="Assets\TennisCourt.png" />
@@ -251,7 +249,11 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Assets\Gallery\" />
+    <Folder Include="Assets\Icon\" />
+    <Folder Include="Assets\Poster\" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
