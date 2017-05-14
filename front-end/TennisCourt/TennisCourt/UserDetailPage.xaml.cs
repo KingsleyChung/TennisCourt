@@ -33,7 +33,7 @@ namespace TennisCourt
             this.InitializeComponent();
 
             DispatcherTimer time1 = new DispatcherTimer();
-            time1.Interval = new TimeSpan(0, 0, 5);
+            time1.Interval = new TimeSpan(0, 0, 10);
             time1.Tick += User_Reload;
             time1.Start();
         }
@@ -69,7 +69,6 @@ namespace TennisCourt
                             if ((string)gameinfo["ok"] != "0")
                             {
                                 var allgame = (JArray)gameinfo["games"];
-                                if (allgame == null) return;
                                 for (int i = 0; i < allgame.Count; i++)
                                 {
                                     var setId = (string)allgame[i]["matchId"];
@@ -79,17 +78,27 @@ namespace TennisCourt
                                         var ballflag = (string)allgame[i]["flag"];
                                         var count = allresult.Count;
                                         int num = 1;
+                                        string server = "", receiver = "";
+                                        if (ballflag == "1")
+                                        {
+                                            server = (string)allgame[i]["player1"];
+                                            receiver = (string)allgame[i]["player2"];
+                                        }
+                                        else if (ballflag == "0")
+                                        {
+                                            server = (string)allgame[i]["player2"];
+                                            receiver = (string)allgame[i]["player1"];
+                                        }
                                         for (int j = 0; j < count; j++)
                                         {
                                             var id = ViewModel.SelectSpecialSet.SetID + "/" + num.ToString();
-                                            string server, receiver;
-                                            server = (string)allgame[i]["player1"];
-                                            receiver = (string)allgame[i]["player2"];
+                                            
                                             string res = (string)allresult[num - 1];
                                             var set1 = res.Substring(0, 1);
                                             var set2 = res.Substring(2, 1);
                                             var tmp = "game" + num.ToString();
                                             var allscore = (JArray)allgame[i][tmp];
+                                            if (allscore == null) return;
                                             var score = (string)allscore[allscore.Count - 1];
                                             var score1 = score.Substring(0, 2);
                                             var score2 = score.Substring(3, 2);

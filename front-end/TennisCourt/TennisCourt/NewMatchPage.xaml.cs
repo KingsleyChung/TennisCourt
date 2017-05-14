@@ -61,7 +61,6 @@ namespace TennisCourt
                     EndDate.Date = ViewModel.SelectMatch.End_Date;
                     TotalPlayers.Text = ViewModel.SelectMatch.Total_Player;
                     Create.Content = "更新";
-                    updateMatch("1");
                 }
                 else
                 {
@@ -174,7 +173,8 @@ namespace TennisCourt
 
         private void Create_Click(object sender, RoutedEventArgs e)
         {
-            updateMatch("0");
+            if ((string)Create.Content == "创建") updateMatch("0");
+            else if ((string)Create.Content == "更新") updateMatch("1");
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)

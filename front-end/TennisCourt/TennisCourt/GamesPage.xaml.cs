@@ -125,10 +125,5 @@ namespace TennisCourt
         {
             Frame.Navigate(typeof(NewMatchPage), ViewModel);
         }
-
-        private void FinishMatch_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

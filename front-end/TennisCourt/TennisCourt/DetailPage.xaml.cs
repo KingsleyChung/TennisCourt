@@ -79,11 +79,6 @@ namespace TennisCourt
             }
         }
 
-        private void ScoreDisplay_ItemClick(object sender, ItemClickEventArgs e)
-        {
-
-        }
-
         private void Server_Add_Click(object sender, RoutedEventArgs e)
         { 
             var select = ((Button)e.OriginalSource).DataContext as Models.Score;
