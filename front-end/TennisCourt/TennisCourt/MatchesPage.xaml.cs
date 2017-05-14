@@ -6,8 +6,10 @@ using System.Linq;
 using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
 using TennisCourt.Models;
+using Windows.Data.Xml.Dom;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Notifications;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -52,6 +54,35 @@ namespace TennisCourt
 
             //show all matches
             show_allMatches();
+            
+        }
+
+        private void UpdateTile()
+        {
+            var updator = TileUpdateManager.CreateTileUpdaterForApplication();
+            updator.Clear();
+            foreach (var match in ViewModel.AllMatches)
+            {
+                XmlDocument tileXml = new XmlDocument();
+                tileXml.LoadXml(File.ReadAllText("Tile.xml"));
+                var tileText = tileXml.GetElementsByTagName("text");
+                for (int i = 0; i < tileText.Count(); i = i + 3)
+                {
+                    ((XmlElement)tileText[i]).InnerText = match.MatchTitle;
+                    if (match.Status == "0")
+                    {
+                        ((XmlElement)tileText[i + 1]).InnerText = "进行中";
+                    }
+                    else
+                    {
+                        ((XmlElement)tileText[i + 1]).InnerText = "已结束";
+                    }
+                    ((XmlElement)tileText[i + 2]).InnerText = match.Start_Date.ToString("yyyy-MM-dd");
+                }
+                TileNotification notification = new TileNotification(tileXml);
+                updator.Update(notification);
+            }
+            updator.EnableNotificationQueue(true);
         }
 
         private async void show_allMatches()
@@ -83,12 +114,13 @@ namespace TennisCourt
                                 //var allgames = allmatch[i]["games"];
                                 List<Games> gameslist = new List<Games>();
                                 ViewModel.AddMatch(matchTitle, matchId, date1, date2, category, totalPlayers, status, gameslist);
-
                             }
 
 
                             //Frame.Navigate(typeof(MainPage), ViewModel);
                         }
+                        //update live tile
+                        UpdateTile();
                     }
                 }
                 catch (HttpRequestException ex)

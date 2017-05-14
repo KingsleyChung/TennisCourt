@@ -1,0 +1,35 @@
+﻿<tile>
+  <visual>
+
+    <binding template="TileSmall" displayName="Todo">
+      <text hint-style="caption">Title</text>
+      <text hint-style="captionSubtle">Details</text>
+      <text >Date</text>
+      <image placement="background" src=""/>
+    </binding>
+
+    <binding template="TileMedium">
+      <text hint-style="base">Title</text>
+      <text  hint-style="bodySubtle">Details</text>
+      <text>Date</text>
+      <image placement="background" src="Assets/Volley.jpg"/>
+    </binding>
+
+    <binding template="TileWide">
+      <text hint-style="title">Title</text>
+      <text  hint-style="bodySubtle">Details</text>
+      <text>Date</text>
+      <image placement="background" src="Assets/Forehand.jpg"/>
+
+    </binding>
+
+    <binding template="TileLarge">
+      <text hint-style="title">Title</text>
+      <text  hint-style="bodySubtle">Details</text>
+      <text>Date</text>
+      <image placement="background" src="Assets/Federer18.jpg"/>
+
+    </binding>
+
+  </visual>
+</tile>

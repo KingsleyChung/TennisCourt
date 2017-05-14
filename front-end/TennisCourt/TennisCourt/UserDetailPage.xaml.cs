@@ -42,8 +42,14 @@ namespace TennisCourt
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            DataTransferManager.GetForCurrentView().DataRequested += OnShareDataRequested;
             reload(e);
+            Server.Text = ViewModel.SelectSpecialSet.Server;
+            Receiver.Text = ViewModel.SelectSpecialSet.Receiver;
+            Umpire.Text = ViewModel.SelectSpecialSet.Umpire;
+            Lineman.Text = ViewModel.SelectSpecialSet.Lineman;
+            Category.Text = ViewModel.SelectSpecialSet.Category;
+            Round.Text = ViewModel.SelectSpecialSet.Round;
+            DataTransferManager.GetForCurrentView().DataRequested += OnShareDataRequested;
         }
 
         private void User_Reload(object sender, object e)
@@ -139,9 +145,9 @@ namespace TennisCourt
             var dp = args.Request.Data;
             var deferral = args.Request.GetDeferral();
             var photoFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/Poster/Poster1.jpg"));
-            dp.Properties.Title = "赛事名称:";// + ViewModel.SelectMatch.MatchTitle;
+            dp.Properties.Title = "对阵双方：" + ViewModel.SelectSpecialSet.Server + " VS " + ViewModel.SelectSpecialSet.Receiver;
             dp.Properties.Description = "来自Tennis Court的赛事分享";
-            dp.SetText("");// (ViewModel.SelectSpecialSet.Server + " VS " + ViewModel.SelectSpecialSet.Receiver + "\n目前局分：" + ViewModel.SelectSpecialSet.Result);
+            dp.SetText("赛况：\n局分：" + ViewModel.AllGameScore[ViewModel.AllGameScore.Count - 1].ServerSet + "-" + ViewModel.AllGameScore[ViewModel.AllGameScore.Count - 1].ReceiverSet);
             dp.SetStorageItems(new List<StorageFile> { photoFile });
             deferral.Complete();
         }
