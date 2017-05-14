@@ -16,6 +16,12 @@
         <common:ButtonConverter x:Key="buttonConverter"></common:ButtonConverter>
     </Page.Resources>
 
+    <Page.BottomAppBar>
+        <CommandBar Background="#FF0093BD" RequestedTheme="Dark">
+            <AppBarButton x:Name="shareButton" Icon="Mail" Label="Share" Click="shareButton_Click" Height="70"/>
+        </CommandBar>
+    </Page.BottomAppBar>
+    
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="14*"/>

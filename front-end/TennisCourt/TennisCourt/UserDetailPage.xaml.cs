@@ -16,6 +16,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using TennisCourt.ViewModels;
+using Windows.ApplicationModel.DataTransfer;
+using Windows.Storage;
 
 // “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=234238 上有介绍
 
@@ -40,6 +42,7 @@ namespace TennisCourt
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            DataTransferManager.GetForCurrentView().DataRequested += OnShareDataRequested;
             reload(e);
         }
 
@@ -124,6 +127,23 @@ namespace TennisCourt
         {
             ViewModel = (ViewModels.MatchesViewModel)e.Parameter;
             tmp();
+        }
+
+        private void shareButton_Click(object sender, RoutedEventArgs e)
+        {
+            DataTransferManager.ShowShareUI();
+        }
+
+        async void OnShareDataRequested(DataTransferManager sender, DataRequestedEventArgs args)
+        {
+            var dp = args.Request.Data;
+            var deferral = args.Request.GetDeferral();
+            var photoFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/Poster/Poster1.jpg"));
+            dp.Properties.Title = "赛事名称:";// + ViewModel.SelectMatch.MatchTitle;
+            dp.Properties.Description = "来自Tennis Court的赛事分享";
+            dp.SetText("");// (ViewModel.SelectSpecialSet.Server + " VS " + ViewModel.SelectSpecialSet.Receiver + "\n目前局分：" + ViewModel.SelectSpecialSet.Result);
+            dp.SetStorageItems(new List<StorageFile> { photoFile });
+            deferral.Complete();
         }
     }
 }
