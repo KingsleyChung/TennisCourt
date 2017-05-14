@@ -201,7 +201,8 @@ namespace TennisCourt
                         new KeyValuePair<string,string>("lineman", lineman),
                         new KeyValuePair<string,string>("court", court),
                         new KeyValuePair<string,string>("round", round),
-                        new KeyValuePair<string,string>("status", "1")
+                        new KeyValuePair<string,string>("status", "1"),
+                        new KeyValuePair<string,string>("endTime", "")
                     };
                     HttpResponseMessage response = await client.PostAsync("http://localhost:3000/creategame", new FormUrlEncodedContent(kvp));
                     if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
@@ -219,12 +220,14 @@ namespace TennisCourt
                             var ump = (string)gameinfo["umpire"];
                             var line = (string)gameinfo["lineman"];
                             var cour = (string)gameinfo["court"];
-                            var rou = (string)gameinfo["round"];
-                            var fa = (string)gameinfo["date"];
+                            var rou = (string)gameinfo["round"];                     
                             var status = (string)gameinfo["status"];
-                            var date = Convert.ToDateTime(fa);
+                            var dd = (string)gameinfo["date"];
+                            var date = Convert.ToDateTime(dd);
+                            var d1 = (string)gameinfo["startTime"];
+                            var date1 = Convert.ToDateTime(d1);
                             List<string> score = new List<string>();
-                            ViewModel.AddSpecialGame(setId, player1, player2, cata, ump, line, date, date, date, cour, rou, "0-0", score, "1");
+                            ViewModel.AddSpecialGame(setId, player1, player2, cata, ump, line, date, date1, date1, cour, rou, "0-0", score, "1");
 
                             Frame.Navigate(typeof(GamesPage), ViewModel);
                         }

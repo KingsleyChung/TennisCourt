@@ -114,10 +114,11 @@ namespace TennisCourt
                     var kvp = new List<KeyValuePair<string, string>>
                     {
                         new KeyValuePair<string,string>("matchTitle", title),
-                        new KeyValuePair<string,string>("date", startdate),
+                        new KeyValuePair<string,string>("startTime", startdate),
                         new KeyValuePair<string,string>("totalPlayers", totalplayer),
                         new KeyValuePair<string,string>("status", "0"),
-                        new KeyValuePair<string,string>("category", s)
+                        new KeyValuePair<string,string>("category", s),
+                        new KeyValuePair<string,string>("endTime", "")
                     };
                     HttpResponseMessage response = await client.PostAsync("http://localhost:3000/creatematch", new FormUrlEncodedContent(kvp));
                     if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
@@ -130,8 +131,8 @@ namespace TennisCourt
                         {
                             var all = matchinfo;
                             var matchTitle = (string)matchinfo["matchTitle"];
-                            var fa = (string)matchinfo["date"];
-                            var date = Convert.ToDateTime(fa);
+                            var dd = (string)matchinfo["startTime"];
+                            var date = Convert.ToDateTime(dd);
                             var totalPlayers = (string)matchinfo["totalPlayers"];
                             var status = (string)matchinfo["status"];
                             var category = (string)matchinfo["category"];

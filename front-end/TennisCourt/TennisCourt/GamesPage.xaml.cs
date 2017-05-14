@@ -80,10 +80,15 @@ namespace TennisCourt
                                 var cour = (string)allgame[i]["court"];
                                 var rou = (string)allgame[i]["round"];
                                 var status = (string)allgame[i]["status"];
-                                var fa = (string)allgame[i]["date"];
-                                var date = Convert.ToDateTime(fa);
+                                var dd = (string)allgame[i]["date"];
+                                var date = Convert.ToDateTime(dd);
+                                var d1 = (string)allgame[i]["startTime"];
+                                var d2 = (string)allgame[i]["endTime"];
+                                var date1 = Convert.ToDateTime(d1);
+                                var date2 = date1;
+                                if (d2 != "") date2 = Convert.ToDateTime(d2);
                                 List<string> score = new List<string>();
-                                ViewModel.AddSpecialGame(setId, player1, player2, cata, ump, line, date, date, date, cour, rou, res, score, status);
+                                ViewModel.AddSpecialGame(setId, player1, player2, cata, ump, line, date, date1, date2, cour, rou, res, score, status);
 
                             }
 

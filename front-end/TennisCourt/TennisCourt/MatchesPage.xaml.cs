@@ -71,15 +71,18 @@ namespace TennisCourt
                             for (int i = 0; i < allmatch.Count; i++)
                             {
                                 var matchTitle = (string)allmatch[i]["matchTitle"];
-                                var fa = (string)allmatch[i]["date"];
-                                var date = Convert.ToDateTime(fa);
+                                var d1 = (string)allmatch[i]["startTime"];
+                                var d2 = (string)allmatch[i]["endTime"];
+                                var date1 = Convert.ToDateTime(d1);
+                                var date2 = date1;
+                                if (d2 != "") date2 = Convert.ToDateTime(d2);
                                 var totalPlayers = (string)allmatch[i]["totalPlayers"];
                                 var status = (string)allmatch[i]["status"];
                                 var category = (string)allmatch[i]["category"];
                                 var matchId = (string)allmatch[i]["matchId"];
                                 //var allgames = allmatch[i]["games"];
                                 List<Games> gameslist = new List<Games>();
-                                ViewModel.AddMatch(matchTitle, matchId, date, date, category, totalPlayers, status, gameslist);
+                                ViewModel.AddMatch(matchTitle, matchId, date1, date2, category, totalPlayers, status, gameslist);
 
                             }
 
