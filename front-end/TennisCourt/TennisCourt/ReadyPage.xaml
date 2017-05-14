@@ -28,6 +28,6 @@
                 </ComboBoxItem>
             </ComboBox>
         </RelativePanel>
-        <Button Name="Start" Content="Start Game" Grid.Row="2" Click="Start_Click" HorizontalAlignment="Center" Width="200" Opacity="0"/>
+        <Button Name="Start" Content="Start Game" Grid.Row="2" Click="Start_Click" HorizontalAlignment="Center" Width="200"/>
     </Grid>
 </Page>

@@ -8,19 +8,11 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="1*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="1*"/>
-        </Grid.ColumnDefinitions>
-
-        <StackPanel Grid.Row="1" Grid.Column="1">
-            <TextBlock Text="This is LatestPage" FontSize="72"/>
-        </StackPanel>
+        <FlipView Name="PhotoGallery">
+            <Image Source="Assets/Gallery/Gallery0.JPG" />
+            <Image Source="Assets/Gallery/Gallery1.JPG" />
+            <Image Source="Assets/Gallery/Gallery2.JPG" />
+            <Image Source="Assets/Gallery/Gallery3.JPG" />
+        </FlipView>
     </Grid>
 </Page>

@@ -49,7 +49,6 @@ namespace TennisCourt
             {
                 i = 0;
                 timer.Stop();
-                Start.Opacity = 1;
             }
             Time.Text = i.ToString();
         }
