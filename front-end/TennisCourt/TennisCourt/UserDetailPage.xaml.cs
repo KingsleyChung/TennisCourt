@@ -83,16 +83,8 @@ namespace TennisCourt
                                         {
                                             var id = ViewModel.SelectSpecialSet.SetID + "/" + num.ToString();
                                             string server, receiver;
-                                            if (ballflag == "1")
-                                            {
-                                                server = (string)allgame[i]["player1"];
-                                                receiver = (string)allgame[i]["player2"];
-                                            }
-                                            else
-                                            {
-                                                server = (string)allgame[i]["player2"];
-                                                receiver = (string)allgame[i]["player1"];
-                                            }
+                                            server = (string)allgame[i]["player1"];
+                                            receiver = (string)allgame[i]["player2"];
                                             string res = (string)allresult[num - 1];
                                             var set1 = res.Substring(0, 1);
                                             var set2 = res.Substring(2, 1);
