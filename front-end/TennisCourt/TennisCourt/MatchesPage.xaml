@@ -27,7 +27,7 @@
                 <GridView.ItemTemplate>
                     <DataTemplate x:DataType="md:Matches">
                         <RelativePanel Padding="4, 8, 8, 0" Width="500">
-                            <Image Name="Poster" Height="180" Source="Assets/Poster.jpg"/>
+                            <Image Name="Poster" Height="180" Source="Assets/Poster/Poster1.jpg"/>
                             <RelativePanel Margin="20, 0, 0, 0" RelativePanel.RightOf="Poster" RelativePanel.AlignVerticalCenterWithPanel="True">
                                 <TextBlock Name="MatchTitle" Text="{x:Bind MatchTitle}" FontSize="28" />
                                 <TextBlock Name="Categories" Text="{x:Bind Categories, Converter={StaticResource categoriesConverter}}" RelativePanel.Below="MatchTitle"/>

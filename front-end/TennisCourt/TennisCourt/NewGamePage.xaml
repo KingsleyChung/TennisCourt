@@ -23,13 +23,13 @@
             <RelativePanel>
                 <Ellipse Name="Player1Icon" Width="80" Height="80" Margin=" 4, 0, 24, 0">
                     <Ellipse.Fill>
-                        <ImageBrush ImageSource="Assets/Federer.jpg" />
+                        <ImageBrush ImageSource="Assets/Icon/3.jpg" />
                     </Ellipse.Fill>
                 </Ellipse>
                 <TextBox Name="Player1Input" PlaceholderText="选手1" Width="100" RelativePanel.RightOf="Player1Icon" RelativePanel.AlignVerticalCenterWith="Player1Icon"/>
                 <Ellipse Name="Player2Icon" Width="80" Height="80" RelativePanel.Below="Player1Input" RelativePanel.RightOf="Player1Input" Margin=" 24, 0, 4, 0" >
                     <Ellipse.Fill>
-                        <ImageBrush ImageSource="Assets/Federer.jpg" />
+                        <ImageBrush ImageSource="Assets/Icon/12.jpg" />
                     </Ellipse.Fill>
                 </Ellipse>
                 <TextBox Name="Player2Input" PlaceholderText="选手2" Width="100" RelativePanel.AlignLeftWith="Player1Input" RelativePanel.AlignVerticalCenterWith="Player2Icon" RelativePanel.LeftOf="Player2Icon"/>

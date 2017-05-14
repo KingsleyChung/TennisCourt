@@ -33,13 +33,13 @@
         <RelativePanel Grid.Row="0" Grid.Column="1" Margin="8,0" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Ellipse Name="ServerIcon" Width="128" Height="128">
                 <Ellipse.Fill>
-                    <ImageBrush ImageSource="Assets/Federer.jpg" />
+                    <ImageBrush ImageSource="Assets/Icon/1.jpg" />
                 </Ellipse.Fill>
             </Ellipse>
             <TextBlock Name="VS_Label" Text="VS" FontSize="100" RelativePanel.AlignVerticalCenterWith="ServerIcon" RelativePanel.RightOf="ServerIcon" Margin="80, 0, 80, 0" Foreground="White" FontWeight="Normal"/>
             <Ellipse Name="ReceiverIcon" Width="128" Height="128" RelativePanel.RightOf="VS_Label">
                 <Ellipse.Fill>
-                    <ImageBrush ImageSource="Assets/Federer.jpg" />
+                    <ImageBrush ImageSource="Assets/Icon/6.jpg" />
                 </Ellipse.Fill>
             </Ellipse>
             <TextBlock Name="Server" Text="鍾文杰" FontSize="32" RelativePanel.Below="ServerIcon" RelativePanel.AlignHorizontalCenterWith="ServerIcon" Margin="0, 8, 0, 0" Foreground="White" FontWeight="Medium"/>

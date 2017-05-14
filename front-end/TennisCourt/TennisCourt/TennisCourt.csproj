@@ -163,8 +163,28 @@
     <Content Include="Assets\Federer18.jpg" />
     <Content Include="Assets\FlipBackground.jpg" />
     <Content Include="Assets\Forehand.jpg" />
+    <Content Include="Assets\Gallery\Gallery0.JPG" />
+    <Content Include="Assets\Gallery\Gallery1.JPG" />
+    <Content Include="Assets\Gallery\Gallery2.JPG" />
+    <Content Include="Assets\Gallery\Gallery3.JPG" />
+    <Content Include="Assets\Gallery\Gallery4.JPG" />
     <Content Include="Assets\GeneralBackground.jpg" />
-    <Content Include="Assets\TennisAssociation.png" />
+    <Content Include="Assets\Icon\0.jpg" />
+    <Content Include="Assets\Icon\1.jpg" />
+    <Content Include="Assets\Icon\11.jpg" />
+    <Content Include="Assets\Icon\12.jpg" />
+    <Content Include="Assets\Icon\2.jpg" />
+    <Content Include="Assets\Icon\3.jpg" />
+    <Content Include="Assets\Icon\4.jpg" />
+    <Content Include="Assets\Icon\5.jpg" />
+    <Content Include="Assets\Icon\6.jpg" />
+    <Content Include="Assets\Icon\7.jpg" />
+    <Content Include="Assets\Icon\8.jpg" />
+    <Content Include="Assets\Icon\9.jpg" />
+    <Content Include="Assets\Poster\Poster0.jpg" />
+    <Content Include="Assets\Poster\Poster1.jpg" />
+    <Content Include="Assets\Poster\Poster2.jpg" />
+    <Content Include="Assets\Poster\Poster3.jpg" />
     <Content Include="Assets\TennisBall.png" />
     <Content Include="Assets\TennisCourt.png" />
     <Content Include="Assets\Volley.jpg" />
@@ -249,11 +269,7 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\Gallery\" />
-    <Folder Include="Assets\Icon\" />
-    <Folder Include="Assets\Poster\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

@@ -26,7 +26,7 @@
 
         <FlipView Name="PhotoGallery" Grid.Row="0" Grid.ColumnSpan="3">
             <FlipView.Background>
-                <ImageBrush Stretch="Fill" ImageSource="../Assets/FlipBackground.jpg" Opacity="0.5"/>
+                <ImageBrush Stretch="Fill" ImageSource="Assets/FlipBackground.jpg" Opacity="0.5"/>
             </FlipView.Background>
             <Image Source="../Assets/Federer18.jpg" />
             <Image Source="../Assets/Forehand.jpg" />
@@ -39,18 +39,20 @@
                     <RelativePanel Name="Icons" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="12, 12, 12, 12" Padding="12, 12, 12, 12" Background="#7F7BD4F5" >
                         <Ellipse Name="ServerIcon" Width="80" Height="80">
                             <Ellipse.Fill>
-                                <ImageBrush ImageSource="../Assets/Federer.jpg" />
+                                <ImageBrush ImageSource="Assets/Icon/4.jpg" />
                             </Ellipse.Fill>
                         </Ellipse>
                         <TextBlock Name="VS_Label" Text="{x:Bind Result}" FontSize="64" VerticalAlignment="Center" Margin="60, 0, 60, 0" RelativePanel.AlignVerticalCenterWith="ServerIcon" RelativePanel.RightOf="ServerIcon"/>
                         <Ellipse Name="ReceiverIcon" Width="80" Height="80" RelativePanel.RightOf="VS_Label">
                             <Ellipse.Fill>
-                                <ImageBrush ImageSource="../Assets/Federer.jpg" />
+                                <ImageBrush ImageSource="Assets/Icon/9.jpg" />
                             </Ellipse.Fill>
                         </Ellipse>
-                        <TextBlock Name="Round" Text="{x:Bind Round}" FontSize="24" RelativePanel.Below="ServerIcon" RelativePanel.AlignHorizontalCenterWith="ServerIcon"/>
+                        <TextBlock Name="Server" Text="{x:Bind Server}" FontSize="24" RelativePanel.Below="ServerIcon" RelativePanel.AlignHorizontalCenterWith="ServerIcon" />
+                        <TextBlock Name="Receiver" Text="{x:Bind Receiver}" FontSize="24" RelativePanel.Below="ReceiverIcon" RelativePanel.AlignHorizontalCenterWith="ReceiverIcon" />
+                        <TextBlock Name="Round" Text="{x:Bind Round}" FontSize="24" RelativePanel.Below="Server" RelativePanel.AlignHorizontalCenterWith="ServerIcon"/>
                         <TextBlock Name="Court" Text="{x:Bind Court}" FontSize="24" RelativePanel.AlignVerticalCenterWith="Round" RelativePanel.AlignHorizontalCenterWith="VS_Label"/>
-                        <TextBlock Name="Status" Text="{x:Bind Status, Converter={StaticResource statusConverter}}" FontSize="24" RelativePanel.Below="ReceiverIcon" RelativePanel.AlignHorizontalCenterWith="ReceiverIcon" />
+                        <TextBlock Name="Status" Text="{x:Bind Status, Converter={StaticResource statusConverter}}" FontSize="24" RelativePanel.Below="Receiver" RelativePanel.AlignHorizontalCenterWith="ReceiverIcon" />
                     </RelativePanel>
                 </DataTemplate>
             </ListView.ItemTemplate>

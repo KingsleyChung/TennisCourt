@@ -18,7 +18,7 @@
         <TextBlock Text="创建赛事" FontSize="100" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" />
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Center" Margin="0, 8, 0, 8">
             <RelativePanel>
-                <Image Name="Poster" Width="150" Source="Assets/Poster.jpg" Stretch="UniformToFill" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+                <Image Name="Poster" Width="150" Source="Assets/Poster/Poster2.jpg" Stretch="UniformToFill" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
                 <AppBarButton Name="SelectImageButton" Icon="Pictures" Width="48" Height="48" RelativePanel.Below="Poster" RelativePanel.AlignRightWithPanel="True"/>
                 <TextBox Name="Title" PlaceholderText="Title" FontSize="20" RelativePanel.Below="SelectImageButton" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" Margin="0, 0, 0, 16"/>
                 <RelativePanel Name="CategoriesSeletor" RelativePanel.Below="Title" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0, 0, 0, 16">
