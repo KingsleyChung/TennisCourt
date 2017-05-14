@@ -131,7 +131,24 @@ namespace TennisCourt.ViewModels
         {
             allMatches.Add(new Models.Matches(matchTitle, matchID, start_date, end_date, categories, total_player, status, game));
         }
-
+        //update match
+        public void UpdateMatch(string matchTitle, string matchID, DateTime start_date, DateTime end_date, string categories, string total_player, string status)
+        {
+            for (int i = 0; i < allMatches.Count; i++)
+            {
+                Models.Matches select = this.allMatches.ElementAt(i);
+                if (select.MatchID == matchID)
+                {
+                    allMatches[i].MatchTitle = matchTitle;
+                    allMatches[i].Start_Date = start_date;
+                    allMatches[i].End_Date = end_date;
+                    allMatches[i].Categories = categories;
+                    allMatches[i].Total_Player = total_player;
+                    allMatches[i].Status = status;
+                    allMatches.SetItem(i, select);
+                }
+            }
+        }
         //update match status
         public void UpdateMatchStatus(string matchID, string status)
         {

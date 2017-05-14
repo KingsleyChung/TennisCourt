@@ -38,7 +38,7 @@ namespace TennisCourt
             time1.Start();
         }
 
-        protected async override void OnNavigatedTo(NavigationEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             reload(e);
         }
@@ -69,6 +69,7 @@ namespace TennisCourt
                             if ((string)gameinfo["ok"] != "0")
                             {
                                 var allgame = (JArray)gameinfo["games"];
+                                if (allgame == null) return;
                                 for (int i = 0; i < allgame.Count; i++)
                                 {
                                     var setId = (string)allgame[i]["matchId"];

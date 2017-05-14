@@ -114,14 +114,18 @@ namespace TennisCourt
                 try
                 {
                     var kvp = new List<KeyValuePair<string, string>>
-                        {
-                            new KeyValuePair<string,string>("matchTitle", title),
-                            new KeyValuePair<string,string>("startTime", startdate),
-                            new KeyValuePair<string,string>("totalPlayers", totalplayer),
-                            new KeyValuePair<string,string>("status", "0"),
-                            new KeyValuePair<string,string>("category", s),
-                            new KeyValuePair<string,string>("endTime", "")
-                        };
+                    {
+                        new KeyValuePair<string,string>("matchTitle", title),
+                        new KeyValuePair<string,string>("startTime", startdate),
+                        new KeyValuePair<string,string>("totalPlayers", totalplayer),
+                        new KeyValuePair<string,string>("status", "0"),
+                        new KeyValuePair<string,string>("category", s),
+                        new KeyValuePair<string,string>("endTime", "")
+                    };
+                    if (ss == "1")
+                    {
+                        kvp.Add(new KeyValuePair<string, string>("matchId", ViewModel.SelectMatch.MatchID));
+                    }
                     HttpResponseMessage response = null;
                     if (ss == "0")
                     {
@@ -148,8 +152,8 @@ namespace TennisCourt
                             var category = (string)matchinfo["category"];
                             var matchId = (string)matchinfo["matchId"];
                             List<Games> gameslist = new List<Games>();
-                            ViewModel.AddMatch(matchTitle, matchId, date, date, category, totalPlayers, status, gameslist);
-
+                            if (ss == "0") ViewModel.AddMatch(matchTitle, matchId, date, date, category, totalPlayers, status, gameslist);
+                            else if (ss == "1") ViewModel.UpdateMatch(matchTitle, matchId, date, date, category, totalPlayers, status);
                             //ViewModel.SelectedItem = (Models.MatchesViewModel)(e.ClickedItem);
                             Frame.Navigate(typeof(MatchesPage), ViewModel);
                         }
