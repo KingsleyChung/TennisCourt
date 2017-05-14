@@ -42,7 +42,13 @@ namespace TennisCourt
             {
                 ViewModel.AllSpecialSets.RemoveAt(0);
             }
-            
+
+            //user mode
+            if (ViewModel.CurrentUser.Mode == "0")
+            {
+                CommandBar.Visibility = Visibility.Collapsed;
+            }
+
             if (ViewModel.SelectMatch != null)
             {
                 //show allgames

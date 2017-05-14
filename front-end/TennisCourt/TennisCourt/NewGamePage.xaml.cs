@@ -187,6 +187,26 @@ namespace TennisCourt
             CategoriesSelector.PlaceholderText = catagory;
             AvaliableCourt.PlaceholderText = court;
             RoundSelector.PlaceholderText = round;
+
+            if (CategoriesSelector.PlaceholderText == "比赛项目")
+            {
+                Message.Opacity = 1;
+                Message.Text = "Catagory must be selected";
+                return;
+            }
+            if (AvaliableCourt.PlaceholderText == "可用场地")
+            {
+                Message.Opacity = 1;
+                Message.Text = "Court must be selected";
+                return;
+            }
+            if (RoundSelector.PlaceholderText == "比赛轮次")
+            {
+                Message.Opacity = 1;
+                Message.Text = "Round must be selected";
+                return;
+            }
+
             using (HttpClient client = new HttpClient())
             {
                 try

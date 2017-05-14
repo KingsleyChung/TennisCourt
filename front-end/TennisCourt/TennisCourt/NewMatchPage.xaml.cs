@@ -60,6 +60,8 @@ namespace TennisCourt
                     StartDate.Date = ViewModel.SelectMatch.Start_Date;
                     EndDate.Date = ViewModel.SelectMatch.End_Date;
                     TotalPlayers.Text = ViewModel.SelectMatch.Total_Player;
+                    Create.Content = "更新";
+                    updateMatch("1");
                 }
                 else
                 {
@@ -68,7 +70,7 @@ namespace TennisCourt
             }
         }
 
-        private async void Create_Click(object sender, RoutedEventArgs e)
+        private async void updateMatch(string ss)
         {
             var title = Title.Text;
             var totalplayer = TotalPlayers.Text;
@@ -120,7 +122,15 @@ namespace TennisCourt
                         new KeyValuePair<string,string>("category", s),
                         new KeyValuePair<string,string>("endTime", "")
                     };
-                    HttpResponseMessage response = await client.PostAsync("http://localhost:3000/creatematch", new FormUrlEncodedContent(kvp));
+                    HttpResponseMessage response = null;
+                    if (s == "0")
+                    {
+                        response = await client.PostAsync("http://localhost:3000/creatematch", new FormUrlEncodedContent(kvp));
+                    }
+                    else if (s == "1")
+                    {
+                        response = await client.PostAsync("http://localhost:3000/updatematch", new FormUrlEncodedContent(kvp));
+                    }
                     if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")
                     {
                         string responseBody = await response.Content.ReadAsStringAsync();
@@ -156,6 +166,11 @@ namespace TennisCourt
                     await new MessageDialog(ex.Message).ShowAsync();
                 }
             }
+        }
+
+        private void Create_Click(object sender, RoutedEventArgs e)
+        {
+            updateMatch("0");
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)

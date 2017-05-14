@@ -137,9 +137,19 @@ namespace TennisCourt
             time.Interval = new TimeSpan(0, 0, 5);
             time.Tick += Time_Tick;
             time.Start();
+
+            DispatcherTimer time1 = new DispatcherTimer();
+            time1.Interval = new TimeSpan(0, 0, 30);
+            time1.Tick += User_Reload;
+            time1.Start();
         }
 
-        protected async override void OnNavigatedTo(NavigationEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            reload();
+        }
+
+        private async void reload()
         {
             using (HttpClient client = new HttpClient())
             {
@@ -184,7 +194,12 @@ namespace TennisCourt
                     await new MessageDialog(ex.Message).ShowAsync();
                 }
             }
-    }
+        }
+
+        private void User_Reload(object sender, object e)
+        {
+            reload();
+        }
 
         private void Time_Tick(object sender, object e)
         {
@@ -195,7 +210,6 @@ namespace TennisCourt
                 i = 0;
             }
             PhotoGallery.SelectedIndex = i;
-            //
         }
 
         private void MatchOverview_ItemClick(object sender, ItemClickEventArgs e)
