@@ -54,7 +54,7 @@ module.exports = function (db) {
 
       //返回正在进行的赛事
       matchReturn : function () {
-          return mainGames.find({status : "1"}).toArray().then(function (value) {
+          return mainGames.find({status : "0"}).toArray().then(function (value) {
               return new Promise(function (resolve, reject){
                   if(value.length) {
                       var message = {};
