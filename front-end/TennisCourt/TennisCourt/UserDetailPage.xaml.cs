@@ -31,12 +31,25 @@ namespace TennisCourt
         public UserDetailPage()
         {
             this.InitializeComponent();
+
+            DispatcherTimer time1 = new DispatcherTimer();
+            time1.Interval = new TimeSpan(0, 0, 5);
+            time1.Tick += User_Reload;
+            time1.Start();
         }
 
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
-            ViewModel = (ViewModels.MatchesViewModel)e.Parameter;
+            reload(e);
+        }
 
+        private void User_Reload(object sender, object e)
+        {
+            tmp();
+        }
+
+        private async void tmp()
+        {
             while (ViewModel.AllGameScore.Count > 0)
             {
                 ViewModel.AllGameScore.RemoveAt(0);
@@ -103,6 +116,12 @@ namespace TennisCourt
                     }
                 }
             }
+        }
+
+        private void reload(NavigationEventArgs e)
+        {
+            ViewModel = (ViewModels.MatchesViewModel)e.Parameter;
+            tmp();
         }
     }
 }
