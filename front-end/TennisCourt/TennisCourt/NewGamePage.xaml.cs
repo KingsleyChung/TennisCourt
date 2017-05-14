@@ -171,7 +171,7 @@ namespace TennisCourt
 
             string[] allcatagory = new string[5] { "男子单打", "女子单打", "男子双打", "女子双打", "混合双打" };
             string[] allcourt = new string[6] { "Court 1", "Court 2", "Court 3", "Court 4", "Court 5", "Court 6" };
-            string[] allround = new string[4] { "1st-Round", "2nd-Round", "Semi-Final", "Final" };
+            string[] allround = new string[4] { "第一轮", "第二轮", "半决赛", "决赛" };
 
             var matchId = ViewModel.SelectMatch.MatchID;
             var server = Player1Input.Text;

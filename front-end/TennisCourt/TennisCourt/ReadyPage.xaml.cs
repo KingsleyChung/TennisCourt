@@ -59,11 +59,13 @@ namespace TennisCourt
             {
                 string[] tmp = new string[2] { Player1.Text, Player2.Text };
                 if (Server.SelectedIndex < 0) return;
+                int flag = 1;
                 if (tmp[Server.SelectedIndex] != Player1.Text && Server.SelectedIndex >= 0)
                 {
                     Server.PlaceholderText = tmp[Server.SelectedIndex];
                     ViewModel.SelectSpecialSet.Server = Player2.Text;
                     ViewModel.SelectSpecialSet.Receiver = Player1.Text;
+                    flag = 0;
                 }
 
                 using (HttpClient client = new HttpClient())
@@ -73,7 +75,8 @@ namespace TennisCourt
                         var kvp = new List<KeyValuePair<string, string>>
                     {
                         new KeyValuePair<string,string>("matchId", ViewModel.SelectSpecialSet.SetID),
-                        new KeyValuePair<string,string>("status", "0")
+                        new KeyValuePair<string,string>("status", "0"),
+                        new KeyValuePair<string,string>("flag", flag.ToString())
                     };
                         HttpResponseMessage response = await client.PostAsync("http://localhost:3000/changegame", new FormUrlEncodedContent(kvp));
                         if (response.EnsureSuccessStatusCode().StatusCode.ToString().ToLower() == "ok")

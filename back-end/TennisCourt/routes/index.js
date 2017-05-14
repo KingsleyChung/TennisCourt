@@ -19,7 +19,8 @@ module.exports = function (db) {
     router.post('/changegame', function (req, res, next) {
        var matchId = req.body.matchId;
        var status = req.body.status;
-       childrenGameManager.childrenGameStatusChange(matchId, status).then(function (value) {
+       var flag = req.body.flag;
+       childrenGameManager.childrenGameStatusChange(matchId, status, flag).then(function (value) {
            res.send(value).status(200).end();
        }).catch(function (error) {
            res.send(error).status(204).end();

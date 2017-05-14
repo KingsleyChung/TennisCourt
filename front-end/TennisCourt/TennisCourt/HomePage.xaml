@@ -42,7 +42,7 @@
                                 <ImageBrush ImageSource="../Assets/Federer.jpg" />
                             </Ellipse.Fill>
                         </Ellipse>
-                        <TextBlock Name="VS_Label" Text="VS" FontSize="64" VerticalAlignment="Center" Margin="60, 0, 60, 0" RelativePanel.AlignVerticalCenterWith="ServerIcon" RelativePanel.RightOf="ServerIcon"/>
+                        <TextBlock Name="VS_Label" Text="{x:Bind Result}" FontSize="64" VerticalAlignment="Center" Margin="60, 0, 60, 0" RelativePanel.AlignVerticalCenterWith="ServerIcon" RelativePanel.RightOf="ServerIcon"/>
                         <Ellipse Name="ReceiverIcon" Width="80" Height="80" RelativePanel.RightOf="VS_Label">
                             <Ellipse.Fill>
                                 <ImageBrush ImageSource="../Assets/Federer.jpg" />

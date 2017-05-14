@@ -66,11 +66,15 @@ module.exports = function (db) {
         },
 
         childrenGameCreate : function (childrenGame) {
-            childrenGame.date = returnDate(0);
+            var str = returnDate(0);
+            var alresult = [];
+            childrenGame.date = str;
             childrenGame.status = "1";
             childrenGame.parentId = childrenGame.matchId;
             childrenGame.matchId += "/" + num;
             childrenGame.result = "0-0";
+            alresult.push("0-0");
+            childrenGame.allresult = alresult;
             return new Promise(function (resolve, reject) {
                 childrenGames.insertOne(childrenGame, function () {
                     num++;
@@ -79,10 +83,10 @@ module.exports = function (db) {
             });
         },
 
-        childrenGameStatusChange : function (matchId, status) {
-            var str = returnDate(1);
+        childrenGameStatusChange : function (matchId, status, flag) {
+            var str = new Date();
             if(status == "0") {
-                return childrenGames.updateOne({matchId: matchId}, {$set: {status: status, startTime : str}}).then(function (value) {
+                return childrenGames.updateOne({matchId: matchId}, {$set: {status: status, startTime : str.toLocaleString(),  flag : flag}}).then(function (value) {
                     return new Promise(function (resolve, reject) {
                         var changeError = {};
                         console.log(value);
@@ -99,7 +103,7 @@ module.exports = function (db) {
                 });
             }
             else {
-                return childrenGames.updateOne({matchId: matchId}, {$set: {status: status, endTime : str}}).then(function (value) {
+                return childrenGames.updateOne({matchId: matchId}, {$set: {status: status, endTime : str.toLocaleString()}}).then(function (value) {
                     return new Promise(function (resolve, reject) {
                         console.log(value);
                         var changeError = {};
@@ -167,6 +171,9 @@ module.exports = function (db) {
                     var array = [];
                     array.push(score);
                     value[str] = array;
+                    if(result != "0-0") {
+                    value.allresult.push(result);
+                }
                     return childrenGames.findOneAndReplace({matchId : matchId}, value).then(function () {
                         return new Promise(function (resolve, reject) {
                             resolve(value);
