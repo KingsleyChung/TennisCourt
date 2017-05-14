@@ -151,6 +151,11 @@ namespace TennisCourt
 
         private async void reload()
         {
+            while (ViewModel.AllSpecialSets.Count > 0)
+            {
+                ViewModel.AllSpecialSets.RemoveAt(0);
+            }
+
             using (HttpClient client = new HttpClient())
             {
                 try
