@@ -114,20 +114,20 @@ namespace TennisCourt
                 try
                 {
                     var kvp = new List<KeyValuePair<string, string>>
-                    {
-                        new KeyValuePair<string,string>("matchTitle", title),
-                        new KeyValuePair<string,string>("startTime", startdate),
-                        new KeyValuePair<string,string>("totalPlayers", totalplayer),
-                        new KeyValuePair<string,string>("status", "0"),
-                        new KeyValuePair<string,string>("category", s),
-                        new KeyValuePair<string,string>("endTime", "")
-                    };
+                        {
+                            new KeyValuePair<string,string>("matchTitle", title),
+                            new KeyValuePair<string,string>("startTime", startdate),
+                            new KeyValuePair<string,string>("totalPlayers", totalplayer),
+                            new KeyValuePair<string,string>("status", "0"),
+                            new KeyValuePair<string,string>("category", s),
+                            new KeyValuePair<string,string>("endTime", "")
+                        };
                     HttpResponseMessage response = null;
-                    if (s == "0")
+                    if (ss == "0")
                     {
                         response = await client.PostAsync("http://www.zhengweimumu.cn:3000/creatematch", new FormUrlEncodedContent(kvp));
                     }
-                    else if (s == "1")
+                    else if (ss == "1")
                     {
                         response = await client.PostAsync("http://www.zhengweimumu.cn:3000/updatematch", new FormUrlEncodedContent(kvp));
                     }
