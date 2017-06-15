@@ -60,13 +60,15 @@ namespace TennisCourt
             if (count == 0) totalGames = 1;
             else totalGames = ViewModel.AllGameScore.ElementAt(ViewModel.AllGameScore.Count-1).TotalGames + 1;
             var gameID = ViewModel.SelectSpecialSet.SetID + "/" + totalGames.ToString();
-            var serverName = ViewModel.SelectSpecialSet.Server;
-            var receiverName = ViewModel.SelectSpecialSet.Receiver;
+            var serverName = "";
+            var receiverName = "";
+            var ballFlag = flag;
+            serverName = ViewModel.SelectSpecialSet.Server;
+            receiverName = ViewModel.SelectSpecialSet.Receiver;
             var serverSet = set1;
             var receiverSet = set2;
             var serverScore = "00";
             var receiverScore = "00";
-            var ballFlag = flag;
             ViewModel.AddGameScore(gameID, totalGames, serverName, receiverName, ballFlag, serverSet, receiverSet, serverScore, receiverScore, "1");
 
             var one = int.Parse(serverSet);

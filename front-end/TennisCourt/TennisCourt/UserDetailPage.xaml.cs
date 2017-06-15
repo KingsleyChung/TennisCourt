@@ -35,7 +35,7 @@ namespace TennisCourt
             this.InitializeComponent();
 
             DispatcherTimer time1 = new DispatcherTimer();
-            time1.Interval = new TimeSpan(0, 0, 10);
+            time1.Interval = new TimeSpan(0, 0, 1);
             time1.Tick += User_Reload;
             time1.Start();
         }
@@ -88,16 +88,8 @@ namespace TennisCourt
                                         var count = allresult.Count;
                                         int num = 1;
                                         string server = "", receiver = "";
-                                        if (ballflag == "1")
-                                        {
-                                            server = (string)allgame[i]["player1"];
-                                            receiver = (string)allgame[i]["player2"];
-                                        }
-                                        else if (ballflag == "0")
-                                        {
-                                            server = (string)allgame[i]["player2"];
-                                            receiver = (string)allgame[i]["player1"];
-                                        }
+                                        server = (string)allgame[i]["player1"];
+                                        receiver = (string)allgame[i]["player2"];
                                         for (int j = 0; j < count; j++)
                                         {
                                             var id = ViewModel.SelectSpecialSet.SetID + "/" + num.ToString();
@@ -111,9 +103,9 @@ namespace TennisCourt
                                             var score = (string)allscore[allscore.Count - 1];
                                             var score1 = score.Substring(0, 2);
                                             var score2 = score.Substring(3, 2);
+                                            ViewModel.AddGameScore(id, num, server, receiver, ballflag, set1, set2, score1, score2, ballflag);
                                             if (ballflag == "1") ballflag = "0";
                                             else ballflag = "1";
-                                            ViewModel.AddGameScore(id, num, server, receiver, ballflag, set1, set2, score1, score2, "0");
                                             num++;
                                         }
                                     }

@@ -139,7 +139,7 @@ namespace TennisCourt
             time.Start();
 
             DispatcherTimer time1 = new DispatcherTimer();
-            time1.Interval = new TimeSpan(0, 0, 30);
+            time1.Interval = new TimeSpan(0, 0, 3);
             time1.Tick += User_Reload;
             time1.Start();
         }
