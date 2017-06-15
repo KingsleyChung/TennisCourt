@@ -69,14 +69,18 @@ namespace TennisCourt
             var receiverSet = set2;
             var serverScore = "00";
             var receiverScore = "00";
-            ViewModel.AddGameScore(gameID, totalGames, serverName, receiverName, ballFlag, serverSet, receiverSet, serverScore, receiverScore, "1");
+            ViewModel.AddGameScore(gameID, totalGames, serverName, receiverName, ballFlag, serverSet, receiverSet, serverScore, receiverScore, ballFlag);
 
             var one = int.Parse(serverSet);
             var two = int.Parse(receiverSet);
             //判断是否进行下一局
             if ((one == 6 && two < 5) || (one == 7) || (two == 6 && one < 5) || (two == 7))
             {
-                ViewModel.ChangeButtonFlag(gameID, "0");
+                if (ballFlag == "1")
+                    ballFlag = "0";
+                else
+                    ballFlag = "1";
+                ViewModel.ChangeButtonFlag(gameID, ballFlag);
                 GameOver.Visibility = Visibility.Visible;
             }
         }
