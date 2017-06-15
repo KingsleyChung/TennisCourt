@@ -35,7 +35,7 @@ namespace TennisCourt
             this.InitializeComponent();
 
             DispatcherTimer time1 = new DispatcherTimer();
-            time1.Interval = new TimeSpan(0, 0, 1);
+            time1.Interval = new TimeSpan(0, 0, 3);
             time1.Tick += User_Reload;
             time1.Start();
         }
@@ -88,8 +88,15 @@ namespace TennisCourt
                                         var count = allresult.Count;
                                         int num = 1;
                                         string server = "", receiver = "";
-                                        server = (string)allgame[i]["player1"];
-                                        receiver = (string)allgame[i]["player2"];
+                                        if (ballflag == "1") {
+                                            server = (string)allgame[i]["player1"];
+                                            receiver = (string)allgame[i]["player2"];
+                                        }
+                                        else if (ballflag == "0")
+                                        {
+                                            server = (string)allgame[i]["player2"];
+                                            receiver = (string)allgame[i]["player1"];
+                                        }
                                         for (int j = 0; j < count; j++)
                                         {
                                             var id = ViewModel.SelectSpecialSet.SetID + "/" + num.ToString();
